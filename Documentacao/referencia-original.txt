@@ -1,0 +1,553 @@
+Resumo definitivo do PIM IV — TechLearn Academy
+A TechLearn Academy será uma plataforma de cursos on-line de programação. Ela reunirá usuários, cursos, módulos, materiais, matrículas, avaliações, resultados e progresso em um único sistema.
+A solução terá:
+- um site responsivo;
+- um aplicativo mobile;
+- um programa desktop;
+- uma API em C#;
+- um banco SQL Server;
+- quatro perfis: Aluno, Mentor, Gestor e Administrador;
+- os mesmos dados e regras em todas as versões.
+A aplicação web será desenvolvida primeiro. Depois, mobile e desktop utilizarão a mesma API já construída.
+1. Definição oficial do projeto
+Problema
+Atualmente, cursos, materiais, matrículas, avaliações e resultados seriam controlados em planilhas, arquivos, links e mensagens separados.
+Isso causa:
+- informações duplicadas;
+- dificuldade para encontrar materiais;
+- correção manual demorada;
+- dificuldade para controlar acessos;
+- falta de acompanhamento do progresso;
+- dificuldade para gestores e mentores acompanharem os alunos.
+Solução
+Construir uma plataforma integrada em que:
+- o aluno estuda e acompanha seu desempenho;
+- o mentor acompanha alunos e registra orientações;
+- o gestor administra cursos e acompanha indicadores;
+- o administrador controla usuários, perfis e acessos;
+- todas as versões usam a mesma API e o mesmo banco.
+Público-alvo
+- estudantes;
+- iniciantes em programação;
+- autodidatas;
+- pessoas em transição de carreira;
+- profissionais procurando aperfeiçoamento;
+- pessoas que precisam estudar em horários flexíveis.
+Proposta de valor
+Oferecer uma jornada de aprendizagem simples e organizada, reunindo em um único ambiente:
+- cursos;
+- módulos;
+- materiais;
+- matrículas;
+- avaliações automáticas;
+- resultados;
+- progresso;
+- acompanhamento de mentor.
+2. Escopo oficial
+O que estará no projeto
+- cadastro de aluno;
+- login;
+- recuperação de senha por e-mail;
+- controle por perfil;
+- quatro perfis de usuário;
+- gerenciamento de cursos;
+- gerenciamento de módulos;
+- materiais em PDF ou links;
+- matrícula;
+- acompanhamento dos cursos;
+- avaliações objetivas;
+- correção automática;
+- nota de 0 a 10;
+- percentual de acertos;
+- situação de aprovação;
+- progresso do aluno;
+- acompanhamento de alunos pelo mentor;
+- orientações do mentor;
+- relatórios e indicadores para o gestor;
+- gerenciamento de usuários pelo administrador;
+- acessibilidade básica;
+- web, mobile e desktop;
+- API REST;
+- SQL Server;
+- plano de nuvem e DevOps;
+- gerenciamento ágil.
+O que ficará fora
+- chat em tempo real;
+- pagamentos dentro do sistema;
+- certificados;
+- aulas ao vivo;
+- inteligência artificial;
+- transmissão própria de vídeos;
+- criação de uma plataforma de streaming.
+Os vídeos serão cadastrados por links externos. O modelo de negócio poderá ser por assinatura, mas o pagamento não será processado dentro do sistema.
+3. Usuários e funções
+Todos poderão entrar pela web, mobile ou desktop. A diferença não será o dispositivo, mas a permissão do perfil.
+Perfil	O que poderá fazer
+Aluno	Criar conta, entrar, consultar cursos, matricular-se, estudar, acessar materiais, responder avaliações e acompanhar resultados e progresso
+Mentor	Consultar alunos vinculados, acompanhar desempenho, visualizar avaliações e registrar orientações
+Gestor	Administrar cursos, módulos, materiais e avaliações, além de consultar relatórios e indicadores
+Administrador	Gerenciar usuários, perfis, permissões, situação das contas e controle geral do sistema
+
+
+Separação importante
+- O Gestor cuida da parte acadêmica.
+- O Administrador cuida dos usuários e acessos.
+- O Mentor acompanha o aluno.
+- O Aluno consome os cursos.
+Assim evitamos que Gestor e Administrador tenham exatamente a mesma função.
+4. Arquitetura geral
+#chatgpt-mermaid-_r_2u4_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-_r_2u4_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_2u4_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_2u4_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-_r_2u4_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-_r_2u4_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-_r_2u4_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-_r_2u4_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-_r_2u4_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-_r_2u4_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_2u4_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_2u4_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-_r_2u4_ p{margin:0;}#chatgpt-mermaid-_r_2u4_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-_r_2u4_ .label text,#chatgpt-mermaid-_r_2u4_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ .node rect,#chatgpt-mermaid-_r_2u4_ .node circle,#chatgpt-mermaid-_r_2u4_ .node ellipse,#chatgpt-mermaid-_r_2u4_ .node polygon,#chatgpt-mermaid-_r_2u4_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ .rough-node .label text,#chatgpt-mermaid-_r_2u4_ .node .label text,#chatgpt-mermaid-_r_2u4_ .image-shape .label,#chatgpt-mermaid-_r_2u4_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-_r_2u4_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ .rough-node .label,#chatgpt-mermaid-_r_2u4_ .node .label,#chatgpt-mermaid-_r_2u4_ .image-shape .label,#chatgpt-mermaid-_r_2u4_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-_r_2u4_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-_r_2u4_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_2u4_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-_r_2u4_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-_r_2u4_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-_r_2u4_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-_r_2u4_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-_r_2u4_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-_r_2u4_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-_r_2u4_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_2u4_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-_r_2u4_ .icon-shape,#chatgpt-mermaid-_r_2u4_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-_r_2u4_ .icon-shape p,#chatgpt-mermaid-_r_2u4_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-_r_2u4_ .icon-shape .label rect,#chatgpt-mermaid-_r_2u4_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-_r_2u4_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-_r_2u4_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-_r_2u4_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].node rect,#chatgpt-mermaid-_r_2u4_ [data-look="neo"].cluster rect,#chatgpt-mermaid-_r_2u4_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-_r_2u4_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-_r_2u4_-gradient);stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-_r_2u4_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-_r_2u4_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_2u4_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-_r_2u4_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_2u4_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-_r_2u4_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-_r_2u4_ .node tspan[font-weight="normal"],#chatgpt-mermaid-_r_2u4_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-_r_2u4_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ .node rect,#chatgpt-mermaid-_r_2u4_ .node circle,#chatgpt-mermaid-_r_2u4_ .node ellipse,#chatgpt-mermaid-_r_2u4_ .node polygon,#chatgpt-mermaid-_r_2u4_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_2u4_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-_r_2u4_ .node.mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-_r_2u4_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-_r_2u4_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_2u4_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Site WebHTML, CSS e JavaScriptAPI RESTC# e ASP.NET CoreAplicativo MobileC#Aplicativo DesktopC#SQL ServerServiço de e-mailRecuperação de senha
+
+
+
+
+A regra principal será:
+Web, mobile e desktop nunca acessam o SQL Server diretamente. Todos enviam solicitações para a API.
+
+Exemplo:
+1. O aluno clica em “Matricular-se”.
+2. O site envia a solicitação para a API.
+3. A API verifica o usuário e o curso.
+4. A API grava a matrícula no SQL Server.
+5. A API informa ao site que a matrícula foi realizada.
+5. Backend
+O backend será desenvolvido por Luis em:
+- C#;
+- ASP.NET Core Web API;
+- Visual Studio;
+- Microsoft.Data.SqlClient;
+- SQL Server.
+Estrutura simples do backend
+TechLearnAcademy.Api
+├── Controllers
+├── Servicos
+├── Banco
+├── Modelos
+├── Banco/Scripts SQL
+├── Program.cs
+└── appsettings.json
+
+Responsabilidade de cada pasta
+Parte	Função
+Controllers	Receber as requisições do site, mobile e desktop e devolver respostas HTTP
+Serviços	Aplicar validações e regras de negócio
+Banco	Executar consultas e gravações no SQL Server
+Modelos	Representar usuários, cursos, matrículas e outros dados
+Scripts SQL	Criar banco, tabelas, procedures e triggers
+Program.cs	Configurar API, serviços, CORS e autenticação
+appsettings	Guardar configurações e conexão com o banco
+
+
+Esse modelo já está sendo utilizado e é simples de explicar:
+Controller recebe, Serviço decide e Banco grava ou consulta.
+
+Módulos que existirão na API
+Módulo	O que fará
+Status	Verificará se a API consegue acessar o banco
+Usuários	Cadastro, consulta e atualização de usuários
+Autenticação	Login, logout, token e controle de acesso
+Recuperação de senha	Geração de código ou link, envio de e-mail e alteração da senha
+Cursos	Cadastro, consulta, edição e ativação
+Módulos	Organização dos módulos de cada curso
+Materiais	Cadastro de PDFs e links externos
+Matrículas	Matrícula e consulta dos cursos do aluno
+Avaliações	Cadastro e apresentação das avaliações
+Questões	Questões, alternativas e gabarito
+Resultados	Correção automática, nota e percentual
+Progresso	Módulos concluídos e percentual do curso
+Mentoria	Vínculo entre mentor e aluno e registro de orientações
+Relatórios	Indicadores para o gestor
+Administração	Perfis, bloqueio, ativação e controle de usuários
+
+
+Autenticação final
+O login deverá devolver:
+- identificação do usuário;
+- nome;
+- perfil;
+- token de acesso;
+- mensagem de sucesso.
+O token será como uma chave temporária. Ele permitirá que a API saiba:
+- quem está fazendo a solicitação;
+- qual é o perfil;
+- quais funções essa pessoa pode acessar.
+Não será suficiente esconder botões. A API também deverá bloquear funções proibidas.
+6. Frontend e site
+O frontend é tudo o que o usuário enxerga e utiliza.
+No site, Raphael trabalhará principalmente com:
+- HTML para a estrutura;
+- CSS para aparência e responsividade;
+- JavaScript para ações, validações e comunicação com a API.
+O site será o primeiro cliente completo. Mobile e desktop seguirão a mesma organização.
+Páginas públicas
+Página	Conteúdo
+index.html — Login	Logotipo, e-mail, senha, botão Entrar, Criar conta, Esqueci minha senha e mensagens de erro
+cadastro.html — Cadastro	Nome, e-mail, senha, confirmação, regras da senha, botão Criar conta e mensagens
+recuperar-senha.html	Campo de e-mail e botão para solicitar a recuperação
+redefinir-senha.html	Código ou token, nova senha, confirmação e botão para salvar
+
+
+Página comum a todos
+Página	Conteúdo
+perfil.html	Nome, e-mail, perfil, opção de alterar dados, trocar senha e sair
+
+
+Área do aluno
+Página	Conteúdo
+painel-aluno.html	Saudação, cursos matriculados, progresso geral, avaliações recentes e botão Continuar estudando
+cursos.html	Catálogo dos cursos ativos, nome, descrição, carga horária e botão Ver curso
+curso.html	Descrição, módulos, materiais, situação da matrícula e botão Matricular-se
+meus-cursos.html	Cursos em que o aluno está matriculado e progresso de cada um
+estudar.html	Módulos, PDFs, links de videoaula e opção Marcar como concluído
+avaliacao.html	Questões objetivas, alternativas, progresso da prova e botão Enviar respostas
+resultado.html	Acertos, erros, percentual, nota, aprovação e progresso atualizado
+
+
+Área do mentor
+Página	Conteúdo
+painel-mentor.html	Quantidade de alunos acompanhados, alunos com baixo progresso e orientações recentes
+alunos-mentor.html	Lista dos alunos vinculados ao mentor
+acompanhamento-aluno.html	Cursos, matrículas, progresso, notas e histórico do aluno
+orientacao.html	Campo para o mentor registrar uma orientação ou feedback e consultar orientações anteriores
+
+
+Não haverá chat. A orientação será registrada e consultada no sistema.
+Área do gestor
+Página	Conteúdo
+painel-gestor.html	Quantidade de cursos, alunos matriculados, média, aprovação e progresso
+gerenciar-cursos.html	Cadastrar, consultar, editar, ativar e desativar cursos
+gerenciar-conteudo.html	Gerenciar módulos, PDFs e links de vídeos
+gerenciar-avaliacoes.html	Criar avaliações, questões, alternativas e indicar o gabarito
+relatorios.html	Matrículas por curso, média, percentual de aprovação e alunos com baixo progresso
+
+
+Área do administrador
+Página	Conteúdo
+painel-administrador.html	Resumo de usuários ativos, bloqueados e separados por perfil
+usuarios.html	Pesquisar usuários, consultar dados e ativar ou desativar contas
+editar-usuario.html	Alterar o perfil entre Aluno, Mentor, Gestor e Administrador
+
+
+Navegação
+Depois do login:
+- Aluno → Painel do Aluno;
+- Mentor → Painel do Mentor;
+- Gestor → Painel do Gestor;
+- Administrador → Painel do Administrador.
+O usuário não deverá digitar manualmente qual é o seu perfil. A API informará isso.
+7. Mobile e desktop
+O manual exige obrigatoriamente web e mobile. O desktop foi acrescentado pelo grupo.
+Aplicativo mobile
+Recomendação: .NET MAUI com C#, desde que seja a tecnologia aceita pela disciplina.
+Terá:
+- login e recuperação de senha;
+- cadastro;
+- painéis adaptados ao perfil;
+- cursos;
+- módulos e materiais;
+- avaliações;
+- resultados;
+- progresso;
+- funções de mentor, gestor e administrador adaptadas para tela móvel.
+Aplicativo desktop
+Para manter o código compreensível, a alternativa mais simples é Windows Forms com C#.
+Terá:
+- login;
+- menu conforme o perfil;
+- telas equivalentes às principais funções do site;
+- comunicação com a mesma API;
+- nenhum acesso direto ao SQL Server.
+Regra de compatibilidade
+Uma informação cadastrada em uma versão deverá aparecer nas outras.
+Exemplo:
+1. O gestor cadastra um curso pelo desktop.
+2. A API grava o curso no SQL Server.
+3. O aluno consulta o curso pelo site ou mobile.
+8. SQL Server
+O banco continuará com o nome:
+TechLearnAcademy
+
+Tabelas planejadas
+Tabela	Finalidade
+Usuarios	Guarda nome, e-mail, hash da senha, perfil, situação e data de cadastro
+RecuperacoesSenha	Guarda token, validade, utilização e usuário da recuperação
+Cursos	Guarda nome, descrição, carga horária e situação
+Modulos	Guarda módulos e a qual curso pertencem
+Materiais	Guarda título, tipo e URL do material
+Matriculas	Relaciona aluno e curso
+Avaliacoes	Guarda as avaliações vinculadas aos módulos
+Questoes	Guarda o enunciado das questões
+Alternativas	Guarda alternativas e identifica a correta
+TentativasAvaliacao	Guarda a prova realizada, acertos, percentual, nota e aprovação
+RespostasAluno	Guarda a alternativa marcada em cada questão
+ProgressoModulos	Registra quais módulos foram concluídos
+AcompanhamentosMentor	Relaciona mentores aos alunos
+OrientacoesMentor	Guarda orientações escritas pelo mentor
+AuditoriaUsuarios	Registra alterações importantes em perfil ou situação da conta
+
+
+Não será criada uma tabela separada chamada Alunos. Um aluno já será um registro da tabela Usuarios com:
+Perfil = Aluno
+
+O mesmo vale para Mentor, Gestor e Administrador.
+Relacionamentos principais
+- um curso possui vários módulos;
+- um módulo pertence a um curso;
+- um módulo possui vários materiais;
+- um aluno pode ter várias matrículas;
+- uma matrícula liga um aluno a um curso;
+- uma avaliação possui várias questões;
+- uma questão possui várias alternativas;
+- somente uma alternativa será correta;
+- um aluno pode realizar avaliações;
+- o mentor acompanha alunos definidos;
+- uma orientação pertence a um mentor e a um aluno.
+Procedures obrigatórias
+Para atender ao manual sem complicar:
+- sp_RealizarMatricula: verifica e realiza a matrícula sem duplicação;
+- sp_RelatorioCurso: devolve quantidade de alunos, média e aprovação.
+Trigger obrigatório
+Uma trigger poderá registrar na tabela de auditoria quando:
+- o perfil de um usuário for alterado;
+- uma conta for ativada ou desativada.
+Isso é simples, útil e fácil de explicar na banca.
+Outros itens obrigatórios do banco
+A documentação deverá apresentar:
+- MER;
+- modelo lógico;
+- modelo físico;
+- dicionário de dados;
+- chaves primárias;
+- chaves estrangeiras;
+- restrições;
+- índices;
+- procedures;
+- trigger;
+- script SQL completo.
+9. Regras de negócio
+1. Cada e-mail pertence a somente uma conta.
+2. O cadastro público sempre cria um Aluno.
+3. Somente o Administrador poderá transformar alguém em Mentor, Gestor ou Administrador.
+4. A senha nunca será armazenada em texto puro.
+5. A recuperação de senha terá código ou token com validade e uso único.
+6. O usuário inativo não poderá entrar.
+7. Somente o Gestor poderá alterar conteúdos acadêmicos.
+8. Somente o Administrador poderá alterar perfil e situação dos usuários.
+9. O Mentor visualizará apenas os alunos vinculados a ele.
+10. O Aluno visualizará apenas seus próprios resultados.
+11. Um módulo sempre pertencerá a um curso.
+12. Um material sempre pertencerá a um módulo.
+13. Um aluno não poderá ter duas matrículas ativas no mesmo curso.
+14. Somente o aluno matriculado acessará os conteúdos e avaliações.
+15. Cada avaliação terá questões objetivas.
+16. Cada questão terá pelo menos duas alternativas e somente uma correta.
+17. A nota será calculada na escala de 0 a 10.
+18. O percentual será calculado pelos acertos divididos pelo total de questões.
+19. A aprovação poderá utilizar o mínimo de 60%.
+20. O progresso será calculado pelos módulos concluídos.
+21. Vídeos serão cadastrados como links, sem streaming próprio.
+22. Registros que já possuam relacionamentos serão desativados em vez de apagados.
+10. Requisitos não funcionais
+Categoria	Requisito
+Segurança	Hash de senha, HTTPS, token, autorização por perfil e comandos SQL com parâmetros
+Acessibilidade	Contraste, rótulos, textos claros, navegação por teclado e mensagens compreensíveis
+Usabilidade	Telas simples, botões claros e navegação semelhante nas três versões
+Responsividade	O site deverá funcionar em computador, tablet e celular
+Integridade	Chaves e restrições impedirão dados duplicados ou inválidos
+Desempenho	Consultas simples, índices nos campos pesquisados e paginação em listas grandes
+Privacidade	Exibir somente dados necessários e proteger dados pessoais
+Manutenção	Código dividido em Controller, Serviço, Banco e Modelos
+Compatibilidade	Web, mobile e desktop utilizarão a mesma API
+Confiabilidade	Tratamento de erros, registros de falha e backup do banco
+Explicabilidade	Código simples o suficiente para o grupo explicar na banca
+
+
+11. Modelo de negócio
+Elemento	Definição
+Cliente	Pessoas interessadas em aprender programação
+Problema	Conteúdos e acompanhamento espalhados e desorganizados
+Proposta de valor	Aprendizado organizado, acessível e acompanhado em um único ambiente
+Produto	Plataforma de cursos por assinatura
+Canal	Site, mobile e desktop
+Relacionamento	Autoatendimento, acompanhamento do progresso e orientação de mentor
+Receita	Assinatura mensal ou periódica
+Recursos principais	Plataforma, API, banco, cursos, equipe e infraestrutura
+Atividades principais	Produzir conteúdo, manter a plataforma e acompanhar alunos
+Custos	Hospedagem, banco, domínio, e-mail, conteúdo, manutenção e backup
+Parceiros possíveis	Instrutores, produtores de conteúdo e provedores de tecnologia
+
+
+Viabilidade
+Técnica
+É possível porque:
+- existe uma única API;
+- existe um único banco;
+- as aplicações compartilham regras;
+- as tecnologias são compatíveis com as disciplinas.
+Operacional
+O sistema automatiza:
+- cadastro;
+- matrícula;
+- organização de materiais;
+- correção;
+- resultados;
+- progresso;
+- acompanhamento.
+Econômica
+Ainda não podemos afirmar que o negócio é economicamente viável sem números.
+Antes da entrega final, precisaremos estimar:
+Receita mensal = valor da assinatura × quantidade de assinantes
+
+E comparar com:
+- hospedagem;
+- banco;
+- domínio;
+- serviço de e-mail;
+- produção de conteúdo;
+- manutenção;
+- suporte.
+O MVP poderá funcionar gratuitamente para um grupo piloto.
+12. Inclusão, acessibilidade e responsabilidade social
+Para atender ao PIM IV, não basta apenas mencionar diversidade. Precisamos demonstrar ações concretas:
+- linguagem respeitosa e inclusiva;
+- ausência de distinção de acesso por raça, gênero ou origem;
+- contraste adequado;
+- campos com rótulos;
+- textos alternativos em imagens;
+- navegação por teclado;
+- mensagens de erro compreensíveis;
+- botões identificados por texto;
+- possibilidade de aumentar o texto;
+- conteúdo organizado;
+- proteção de dados pessoais;
+- materiais que valorizem diferentes grupos;
+- tecnologia utilizada para facilitar o acesso à educação.
+13. Visual Studio e organização dos projetos
+A solução final deverá ficar organizada assim:
+TechLearnAcademy
+├── TechLearnAcademy.Api
+├── TechLearnAcademy.Web
+├── TechLearnAcademy.Mobile
+├── TechLearnAcademy.Desktop
+├── TechLearnAcademy.Tests
+└── Banco
+
+Ferramentas
+Ferramenta	Uso
+Visual Studio	Criar, editar, executar e testar os projetos
+SQL Server	Banco de dados
+SSMS	Criar e consultar tabelas, procedures e triggers
+GitHub	Guardar código, documentos e scripts SQL
+Navegador	Testar o site
+Codex	Criar e revisar código seguindo a complexidade do grupo
+
+
+O GitHub armazenará os scripts do banco, mas não será o banco funcionando.
+Para outras máquinas usarem o sistema:
+- a API deverá ficar disponível na rede ou publicada;
+- o SQL Server deverá estar em um servidor compartilhado ou nuvem;
+- somente a API conhecerá a conexão;
+- os clientes receberão apenas o endereço da API.
+O LocalDB atual serve somente para desenvolvimento no computador do Luis.
+14. O que está funcionando agora
+Com base nos arquivos enviados e nos testes realizados:
+Backend confirmado
+- projeto ASP.NET Core;
+- conexão com SQL Server;
+- GET /api/status/banco;
+- cadastro real de aluno;
+- bloqueio de e-mail repetido;
+- senha armazenada em hash;
+- login real;
+- respostas HTTP de sucesso e erro;
+- uso de parâmetros SQL;
+- tabela Usuarios aceitando os quatro perfis.
+Frontend confirmado
+- tela de login;
+- tela de cadastro;
+- validações básicas;
+- comunicação real com a API;
+- cadastro real pelo site;
+- bloqueio de e-mail repetido;
+- login validado pela API;
+- mensagens de erro e sucesso.
+Banco confirmado
+- banco TechLearnAcademy;
+- tabela Usuarios;
+- e-mail único;
+- hash da senha;
+- perfis Aluno, Mentor, Gestor e Administrador;
+- usuário ativo ou inativo.
+15. Problemas atuais que precisam ser corrigidos
+1. A API ainda devolve somente a mensagem de login. Precisa devolver identificação, nome, perfil e token.
+2. O site ainda não consegue redirecionar corretamente cada perfil.
+3. Os painéis dos quatro perfis ainda não estão confirmados nos arquivos enviados.
+4. A recuperação de senha ainda não foi desenvolvida.
+5. O frontend exige senha com oito caracteres e complexidade, enquanto a API exige quinze. A regra precisa ser igual nos dois.
+6. O banco ainda possui somente a tabela Usuarios.
+7. O sistema ainda usa LocalDB, que não funciona como banco compartilhado entre computadores.
+8. Mobile e desktop ainda não foram criados.
+9. Os documentos antigos ainda dizem que existem somente Aluno e Administrador.
+10. Os documentos antigos excluem Mentor e Gestor, mas a decisão atual é incluí-los.
+11. Os documentos ainda colocam a administração de cursos no Administrador; na definição final isso pertence ao Gestor.
+12. O projeto web ainda está separado da solução principal da API.
+16. O que falta desenvolver
+Autenticação
+- devolver usuário e perfil no login;
+- criar token;
+- proteger endpoints;
+- criar logout;
+- recuperação de senha por e-mail;
+- painéis por perfil.
+Conteúdo
+- cursos;
+- módulos;
+- materiais;
+- gestão acadêmica.
+Jornada do aluno
+- catálogo;
+- matrícula;
+- meus cursos;
+- conteúdo;
+- conclusão de módulos.
+Avaliações
+- avaliações;
+- questões;
+- alternativas;
+- gabarito;
+- envio;
+- correção;
+- nota;
+- aprovação;
+- progresso.
+Perfis adicionais
+- mentor;
+- vínculo mentor-aluno;
+- orientações;
+- gestor;
+- relatórios;
+- administrador;
+- controle de usuários.
+Outras versões
+- aplicativo mobile;
+- programa desktop;
+- integração dos dois com a API.
+Entrega acadêmica
+- responsabilidade social e diversidade;
+- arquitetura de software;
+- MER e modelos do banco;
+- procedures e trigger;
+- nuvem e DevOps;
+- testes e evidências;
+- documentação ABNT.
+17. Situação das etapas obrigatórias do PIM IV
+Etapa	Situação
+Caracterização da organização	Escrita, mas precisa ser atualizada para quatro perfis
+Planejamento da solução	Escrito, mas precisa atualizar escopo e modelo operacional
+Responsabilidade social e diversidade	Ainda precisa ser desenvolvida completamente
+Desenvolvimento web	Em andamento
+Desenvolvimento mobile	Ainda não iniciado
+Arquitetura de software	Planejada, mas precisa refletir o código final
+Banco de dados	Iniciado; falta estrutura completa, MER, procedures e trigger
+Nuvem e DevOps	Falta elaborar o plano
+Gerenciamento ágil	Iniciado; backlog e sprints precisam acompanhar o desenvolvimento real
