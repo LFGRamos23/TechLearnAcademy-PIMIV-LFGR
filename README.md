@@ -31,6 +31,10 @@ O site usa HTML, CSS e JavaScript sem framework. O desktop do Administrador usa 
 
 `TechLearnAcademy.Desktop/` e `TechLearnAcademy.Mobile/` guardam **protótipos antigos** com WebView. Eles não correspondem aos aplicativos nativos distribuídos hoje. O projeto-fonte original do aplicativo Android nativo não foi encontrado; o APK continua disponível na [página de aplicativos](https://techlearn-proj-pim-hyayf7cehyd3edfq.westus3-01.azurewebsites.net/aplicativos.html). O código do desktop recuperado compila, mas não preserva os comentários nem a formatação originais.
 
+## Diagramas UML
+
+Abra [Diagramas/TechLearnAcademy-Diagramas-simples.asta](Diagramas/TechLearnAcademy-Diagramas-simples.asta) no Astah para editar ou apresentar os diagramas de casos de uso, classes, sequência e atividade. Para visualizar sem Astah, veja as [imagens exportadas](Diagramas/PNG-sequencias-professor/) e o [guia dos diagramas](Diagramas/LEIA-ME-diagramas-simples.md). As versões anteriores foram preservadas em `Diagramas/Backups/`.
+
 ## Executar localmente
 
 1. Instale o SDK .NET 10, Visual Studio com ASP.NET e desenvolvimento para desktop com .NET, e SQL Server LocalDB ou SQL Server.
