@@ -41,6 +41,8 @@ O site usa HTML, CSS e JavaScript sem framework. O desktop do Administrador usa 
 
 O banco do Azure e as credenciais de e-mail ficam nas configurações do serviço, **fora do Git**. Um clone do repositório não copia as contas e registros reais; os scripts criam a estrutura do banco.
 
+Os arquivos públicos do site foram comparados com a versão no Azure em 27/10/2026. O código C# foi organizado a partir da cópia local do projeto; não foi possível confirmar uma comparação binária completa da DLL publicada no Azure. Antes de uma próxima publicação, compare as alterações da API com o serviço em execução.
+
 ## Para apresentar ao professor
 
 - **Git:** guarda versões do código. Cada commit registra uma parte coerente: estrutura, API, site, banco, aplicativos ou documentação.
@@ -49,3 +51,5 @@ O banco do Azure e as credenciais de e-mail ficam nas configurações do serviç
 - **Fluxo de cadastro:** a tela envia dados à API, a API valida e grava no SQL, e depois responde à tela.
 
 Veja também [arquitetura e POO](Documentacao/orientacao-a-objetos.md), [banco](Documentacao/banco.md), [requisitos](Documentacao/requisitos.md) e [aplicativos](APLICATIVOS-LEIA-ME.md).
+
+Para explicar os commits e o fluxo de trabalho, leia [Git e GitHub para a banca](Documentacao/git-e-github-para-banca.md).
