@@ -1,0 +1,2289 @@
+{
+  "data": "2026-10-11",
+  "origem": "CQA/UNIP - materiais enviados pelo usuário",
+  "cargaHoraria": "Estimativa de estudo para leitura, resolução dos exercícios comentados, revisão e avaliações; editável pelo gestor.",
+  "avaliacao": "Três questões originais de revisão por módulo, quatro alternativas e uma resposta correta. Aplicam-se as regras existentes de aprovação e certificado.",
+  "cursos": [
+    {
+      "nome": "Lógica de Programação e Estruturas de Dados",
+      "slug": "logica-de-programacao-e-estruturas-de-dados",
+      "cargaHoraria": 8,
+      "descricao": "Aprenda tipos de dados, lógica, vetores, matrizes, busca, ordenação, filas e árvores binárias. Estudo guiado com exemplos e exercícios comentados dos tomos enviados.",
+      "modulos": [
+        {
+          "titulo": "Lógica e fundamentos da programação",
+          "materiais": [
+            {
+              "chave": "1.11",
+              "tomo": 1,
+              "inicio": 42,
+              "fim": 44,
+              "titulo": "Tipos de dados e análise de algoritmos",
+              "ordem": 1,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/01-01-tipos-de-dados-e-analise-de-algoritmos.pdf"
+            },
+            {
+              "chave": "7.8",
+              "tomo": 7,
+              "inicio": 27,
+              "fim": 28,
+              "titulo": "Proposições e tabela verdade",
+              "ordem": 2,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/01-02-proposicoes-e-tabela-verdade.pdf"
+            },
+            {
+              "chave": "10.10",
+              "tomo": 10,
+              "inicio": 35,
+              "fim": 38,
+              "titulo": "Operadores lógicos e operações em C",
+              "ordem": 3,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/01-03-operadores-logicos-e-operacoes-em-c.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual tipo de dado representa os valores verdadeiro e falso?",
+              "alternativas": [
+                {
+                  "texto": "Inteiro.",
+                  "correta": false
+                },
+                {
+                  "texto": "Literal.",
+                  "correta": false
+                },
+                {
+                  "texto": "Real.",
+                  "correta": false
+                },
+                {
+                  "texto": "Lógico.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Em qual situação a proposição \"se P, então Q\" é falsa?",
+              "alternativas": [
+                {
+                  "texto": "P é falsa e Q é verdadeira.",
+                  "correta": false
+                },
+                {
+                  "texto": "P e Q são falsas.",
+                  "correta": false
+                },
+                {
+                  "texto": "P é verdadeira e Q é falsa.",
+                  "correta": true
+                },
+                {
+                  "texto": "P e Q são verdadeiras.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Na linguagem C, quando a expressão A && B é verdadeira?",
+              "alternativas": [
+                {
+                  "texto": "Sempre que A e B são diferentes.",
+                  "correta": false
+                },
+                {
+                  "texto": "Quando A e B são verdadeiras.",
+                  "correta": true
+                },
+                {
+                  "texto": "Quando apenas A é verdadeira.",
+                  "correta": false
+                },
+                {
+                  "texto": "Quando A e B são falsas.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 1
+        },
+        {
+          "titulo": "Vetores, matrizes e execução de algoritmos",
+          "materiais": [
+            {
+              "chave": "3.6",
+              "tomo": 3,
+              "inicio": 20,
+              "fim": 24,
+              "titulo": "Execução de algoritmos com matrizes",
+              "ordem": 1,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/02-01-execucao-de-algoritmos-com-matrizes.pdf"
+            },
+            {
+              "chave": "11.7",
+              "tomo": 11,
+              "inicio": 21,
+              "fim": 24,
+              "titulo": "Vetores, matrizes e validação de entradas",
+              "ordem": 2,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/02-02-vetores-matrizes-e-validacao-de-entradas.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Um vetor tem cinco posições e começa no índice zero. Qual é seu último índice?",
+              "alternativas": [
+                {
+                  "texto": "6.",
+                  "correta": false
+                },
+                {
+                  "texto": "1.",
+                  "correta": false
+                },
+                {
+                  "texto": "4.",
+                  "correta": true
+                },
+                {
+                  "texto": "5.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Quantos elementos cabem em uma matriz com três linhas e quatro colunas?",
+              "alternativas": [
+                {
+                  "texto": "4.",
+                  "correta": false
+                },
+                {
+                  "texto": "12.",
+                  "correta": true
+                },
+                {
+                  "texto": "7.",
+                  "correta": false
+                },
+                {
+                  "texto": "3.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é a finalidade de dois laços aninhados ao percorrer uma matriz?",
+              "alternativas": [
+                {
+                  "texto": "Percorrer as linhas e as colunas.",
+                  "correta": true
+                },
+                {
+                  "texto": "Transformar a matriz em uma variável lógica.",
+                  "correta": false
+                },
+                {
+                  "texto": "Eliminar todas as condições do programa.",
+                  "correta": false
+                },
+                {
+                  "texto": "Garantir que todos os valores sejam iguais.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 2
+        },
+        {
+          "titulo": "Busca e ordenação de dados",
+          "materiais": [
+            {
+              "chave": "3.7",
+              "tomo": 3,
+              "inicio": 25,
+              "fim": 30,
+              "titulo": "Busca binária em vetores",
+              "ordem": 1,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/03-01-busca-binaria-em-vetores.pdf"
+            },
+            {
+              "chave": "1.10",
+              "tomo": 1,
+              "inicio": 38,
+              "fim": 41,
+              "titulo": "Ordenação de vetores passo a passo",
+              "ordem": 2,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/03-02-ordenacao-de-vetores-passo-a-passo.pdf"
+            },
+            {
+              "chave": "11.5",
+              "tomo": 11,
+              "inicio": 14,
+              "fim": 16,
+              "titulo": "Ordenação por inserção",
+              "ordem": 3,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/03-03-ordenacao-por-insercao.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual condição permite aplicar corretamente a busca binária apresentada no material?",
+              "alternativas": [
+                {
+                  "texto": "O vetor não possuir índices.",
+                  "correta": false
+                },
+                {
+                  "texto": "O vetor estar ordenado.",
+                  "correta": true
+                },
+                {
+                  "texto": "O vetor conter somente números pares.",
+                  "correta": false
+                },
+                {
+                  "texto": "O vetor ter exatamente dez posições.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Como funciona a ideia principal da ordenação por inserção?",
+              "alternativas": [
+                {
+                  "texto": "Inserir cada elemento na posição adequada da parte já ordenada.",
+                  "correta": true
+                },
+                {
+                  "texto": "Excluir todos os valores repetidos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Trocar todos os elementos pelo maior valor.",
+                  "correta": false
+                },
+                {
+                  "texto": "Pesquisar somente o último elemento.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Ao ordenar um vetor em ordem crescente comparando vizinhos, o que fazer quando V[j] > V[j+1]?",
+              "alternativas": [
+                {
+                  "texto": "Excluir V[j+1].",
+                  "correta": false
+                },
+                {
+                  "texto": "Interromper obrigatoriamente toda a ordenação.",
+                  "correta": false
+                },
+                {
+                  "texto": "Deixar os valores como estão em todas as passagens.",
+                  "correta": false
+                },
+                {
+                  "texto": "Trocar os dois valores de posição.",
+                  "correta": true
+                }
+              ]
+            }
+          ],
+          "ordem": 3
+        },
+        {
+          "titulo": "Filas e árvores binárias",
+          "materiais": [
+            {
+              "chave": "11.8",
+              "tomo": 11,
+              "inicio": 25,
+              "fim": 29,
+              "titulo": "Filas e operações de inserção e remoção",
+              "ordem": 1,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/04-01-filas-e-operacoes-de-insercao-e-remocao.pdf"
+            },
+            {
+              "chave": "10.6",
+              "tomo": 10,
+              "inicio": 20,
+              "fim": 23,
+              "titulo": "Árvores binárias e seus percursos",
+              "ordem": 2,
+              "arquivo": "logica-de-programacao-e-estruturas-de-dados/04-02-arvores-binarias-e-seus-percursos.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "O que caracteriza a ordem FIFO de uma fila?",
+              "alternativas": [
+                {
+                  "texto": "O primeiro elemento inserido é o primeiro removido.",
+                  "correta": true
+                },
+                {
+                  "texto": "O último elemento inserido é sempre o primeiro removido.",
+                  "correta": false
+                },
+                {
+                  "texto": "A remoção acontece pela ordem alfabética.",
+                  "correta": false
+                },
+                {
+                  "texto": "Todos os elementos são removidos juntos.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "O que uma operação de remoção deve verificar antes de retirar um elemento da fila?",
+              "alternativas": [
+                {
+                  "texto": "Se os valores estão ordenados.",
+                  "correta": false
+                },
+                {
+                  "texto": "Se todos os elementos são números pares.",
+                  "correta": false
+                },
+                {
+                  "texto": "Se a fila tem uma árvore associada.",
+                  "correta": false
+                },
+                {
+                  "texto": "Se a fila está vazia.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é a ordem do percurso em ordem de uma árvore binária?",
+              "alternativas": [
+                {
+                  "texto": "Raiz, subárvore direita e subárvore esquerda.",
+                  "correta": false
+                },
+                {
+                  "texto": "Somente os nós sem filhos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Subárvore esquerda, raiz e subárvore direita.",
+                  "correta": true
+                },
+                {
+                  "texto": "Raiz, subárvore esquerda e subárvore direita.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 4
+        }
+      ]
+    },
+    {
+      "nome": "Programação Orientada a Objetos e UML",
+      "slug": "programacao-orientada-a-objetos-e-uml",
+      "cargaHoraria": 12,
+      "descricao": "Entenda classes, objetos, herança, polimorfismo e relacionamentos. Aprenda a interpretar diagramas UML e conheça componentes reutilizáveis, MVC e padrões de projeto.",
+      "modulos": [
+        {
+          "titulo": "Classes, objetos e princípios da POO",
+          "materiais": [
+            {
+              "chave": "1.2",
+              "tomo": 1,
+              "inicio": 6,
+              "fim": 9,
+              "titulo": "Conceitos de orientação a objetos",
+              "ordem": 1,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/01-01-conceitos-de-orientacao-a-objetos.pdf"
+            },
+            {
+              "chave": "5.8",
+              "tomo": 5,
+              "inicio": 20,
+              "fim": 22,
+              "titulo": "Classes, herança e polimorfismo",
+              "ordem": 2,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/01-02-classes-heranca-e-polimorfismo.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual afirmação descreve uma classe?",
+              "alternativas": [
+                {
+                  "texto": "Uma cópia obrigatória de uma tabela do banco.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um comando utilizado somente para imprimir textos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um modelo que define características e comportamentos de objetos.",
+                  "correta": true
+                },
+                {
+                  "texto": "Um único valor armazenado na memória.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "O que a herança permite em programação orientada a objetos?",
+              "alternativas": [
+                {
+                  "texto": "Impedir a criação de especializações.",
+                  "correta": false
+                },
+                {
+                  "texto": "Uma subclasse aproveitar características de uma superclasse.",
+                  "correta": true
+                },
+                {
+                  "texto": "Eliminar todos os métodos do programa.",
+                  "correta": false
+                },
+                {
+                  "texto": "Transformar cada objeto em uma linguagem de programação.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é a finalidade do encapsulamento?",
+              "alternativas": [
+                {
+                  "texto": "Organizar e proteger o estado do objeto por meio de uma interface de acesso.",
+                  "correta": true
+                },
+                {
+                  "texto": "Tornar todos os atributos públicos obrigatoriamente.",
+                  "correta": false
+                },
+                {
+                  "texto": "Substituir qualquer método por uma variável global.",
+                  "correta": false
+                },
+                {
+                  "texto": "Impedir qualquer comunicação entre objetos.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 1
+        },
+        {
+          "titulo": "Relacionamentos e diagramas de classes",
+          "materiais": [
+            {
+              "chave": "1.9",
+              "tomo": 1,
+              "inicio": 32,
+              "fim": 37,
+              "titulo": "Herança, sobrescrita e relacionamentos entre classes",
+              "ordem": 1,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/02-01-heranca-sobrescrita-e-relacionamentos-entre-classes.pdf"
+            },
+            {
+              "chave": "3.5",
+              "tomo": 3,
+              "inicio": 16,
+              "fim": 19,
+              "titulo": "Diagrama de classes, atributos e associações",
+              "ordem": 2,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/02-02-diagrama-de-classes-atributos-e-associacoes.pdf"
+            },
+            {
+              "chave": "7.67",
+              "tomo": 7,
+              "inicio": 17,
+              "fim": 26,
+              "titulo": "UML aplicada a classes e casos de uso",
+              "ordem": 3,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/02-03-uml-aplicada-a-classes-e-casos-de-uso.pdf"
+            },
+            {
+              "chave": "11.9",
+              "tomo": 11,
+              "inicio": 30,
+              "fim": 35,
+              "titulo": "Modelagem de classes a partir de requisitos",
+              "ordem": 4,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/02-04-modelagem-de-classes-a-partir-de-requisitos.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Uma turma tem vários alunos. Qual multiplicidade representa a quantidade de alunos em uma associação que permite zero ou mais alunos?",
+              "alternativas": [
+                {
+                  "texto": "Somente 1.",
+                  "correta": false
+                },
+                {
+                  "texto": "0..*.",
+                  "correta": true
+                },
+                {
+                  "texto": "1..1.",
+                  "correta": false
+                },
+                {
+                  "texto": "0..0.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Em um diagrama de classes, o que uma associação representa?",
+              "alternativas": [
+                {
+                  "texto": "Uma relação entre classes do domínio.",
+                  "correta": true
+                },
+                {
+                  "texto": "O tempo de execução de um método.",
+                  "correta": false
+                },
+                {
+                  "texto": "O número de linhas do código-fonte.",
+                  "correta": false
+                },
+                {
+                  "texto": "A ordem de inicialização do computador.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "O que ocorre quando uma subclasse sobrescreve um método?",
+              "alternativas": [
+                {
+                  "texto": "Ela transforma obrigatoriamente o método em atributo.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ela apaga a classe ancestral do programa.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ela impede que qualquer objeto use o método.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ela fornece uma implementação própria para o método herdado, respeitando sua assinatura.",
+                  "correta": true
+                }
+              ]
+            }
+          ],
+          "ordem": 2
+        },
+        {
+          "titulo": "Casos de uso e diagramas comportamentais",
+          "materiais": [
+            {
+              "chave": "3.4",
+              "tomo": 3,
+              "inicio": 12,
+              "fim": 15,
+              "titulo": "Casos de uso, atores e funcionalidades",
+              "ordem": 1,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/03-01-casos-de-uso-atores-e-funcionalidades.pdf"
+            },
+            {
+              "chave": "1.3",
+              "tomo": 1,
+              "inicio": 10,
+              "fim": 14,
+              "titulo": "Diagrama de sequência da UML",
+              "ordem": 2,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/03-02-diagrama-de-sequencia-da-uml.pdf"
+            },
+            {
+              "chave": "3.9",
+              "tomo": 3,
+              "inicio": 34,
+              "fim": 37,
+              "titulo": "Diagramas de comunicação, estados e atividades",
+              "ordem": 3,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/03-03-diagramas-de-comunicacao-estados-e-atividades.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "O que um diagrama de sequência destaca?",
+              "alternativas": [
+                {
+                  "texto": "A ordem temporal das mensagens entre participantes.",
+                  "correta": true
+                },
+                {
+                  "texto": "A distribuição física dos cabos de rede.",
+                  "correta": false
+                },
+                {
+                  "texto": "Os valores de todas as tabelas do banco.",
+                  "correta": false
+                },
+                {
+                  "texto": "Somente os nomes das classes sem interação.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "O que um ator representa em um diagrama de casos de uso?",
+              "alternativas": [
+                {
+                  "texto": "Uma coluna de uma tabela relacional.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um método privado que nunca é chamado.",
+                  "correta": false
+                },
+                {
+                  "texto": "Uma cor utilizada na interface.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um papel externo que interage com o sistema.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual aspecto é representado por um diagrama de atividades?",
+              "alternativas": [
+                {
+                  "texto": "A senha de cada usuário.",
+                  "correta": false
+                },
+                {
+                  "texto": "A quantidade de processadores instalados.",
+                  "correta": false
+                },
+                {
+                  "texto": "O fluxo de ações e decisões de um processo.",
+                  "correta": true
+                },
+                {
+                  "texto": "Somente os endereços de memória.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 3
+        },
+        {
+          "titulo": "Reutilização, MVC e padrões de projeto",
+          "materiais": [
+            {
+              "chave": "5.4",
+              "tomo": 5,
+              "inicio": 10,
+              "fim": 11,
+              "titulo": "Componentes reutilizáveis e JavaBeans",
+              "ordem": 1,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/04-01-componentes-reutilizaveis-e-javabeans.pdf"
+            },
+            {
+              "chave": "5.7",
+              "tomo": 5,
+              "inicio": 18,
+              "fim": 19,
+              "titulo": "Padrões de projeto e Abstract Factory",
+              "ordem": 2,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/04-02-padroes-de-projeto-e-abstract-factory.pdf"
+            },
+            {
+              "chave": "10.789",
+              "tomo": 10,
+              "inicio": 24,
+              "fim": 34,
+              "titulo": "Orientação a objetos, MVC e padrões de projeto",
+              "ordem": 3,
+              "arquivo": "programacao-orientada-a-objetos-e-uml/04-03-orientacao-a-objetos-mvc-e-padroes-de-projeto.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual é a intenção principal do padrão Abstract Factory?",
+              "alternativas": [
+                {
+                  "texto": "Ordenar qualquer vetor em uma única comparação.",
+                  "correta": false
+                },
+                {
+                  "texto": "Eliminar a necessidade de classes.",
+                  "correta": false
+                },
+                {
+                  "texto": "Substituir o banco por arquivos de imagem.",
+                  "correta": false
+                },
+                {
+                  "texto": "Criar famílias de objetos relacionados sem expor suas classes concretas ao cliente.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "No padrão MVC, qual é a responsabilidade da View?",
+              "alternativas": [
+                {
+                  "texto": "Substituir todos os objetos do domínio.",
+                  "correta": false
+                },
+                {
+                  "texto": "Controlar exclusivamente os cabos da rede.",
+                  "correta": false
+                },
+                {
+                  "texto": "Apresentar as informações ao usuário.",
+                  "correta": true
+                },
+                {
+                  "texto": "Definir a frequência do processador.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual benefício é associado aos componentes JavaBeans no material?",
+              "alternativas": [
+                {
+                  "texto": "Uso exclusivo em programas sem objetos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Reutilização de componentes por diferentes desenvolvedores.",
+                  "correta": true
+                },
+                {
+                  "texto": "Obrigatoriedade de reescrever cada componente do início.",
+                  "correta": false
+                },
+                {
+                  "texto": "Eliminação de qualquer ambiente de execução.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 4
+        }
+      ]
+    },
+    {
+      "nome": "Engenharia de Software e Requisitos",
+      "slug": "engenharia-de-software-e-requisitos",
+      "cargaHoraria": 8,
+      "descricao": "Estude elicitação e especificação de requisitos, protótipos, modelos de desenvolvimento, RUP, programação extrema e controle de versões. Os módulos seguem do entendimento do problema à organização do desenvolvimento.",
+      "modulos": [
+        {
+          "titulo": "Identificação e especificação de requisitos",
+          "materiais": [
+            {
+              "chave": "1.7",
+              "tomo": 1,
+              "inicio": 25,
+              "fim": 28,
+              "titulo": "Técnicas de elicitação de requisitos",
+              "ordem": 1,
+              "arquivo": "engenharia-de-software-e-requisitos/01-01-tecnicas-de-elicitacao-de-requisitos.pdf"
+            },
+            {
+              "chave": "7.34",
+              "tomo": 7,
+              "inicio": 10,
+              "fim": 13,
+              "titulo": "Requisitos funcionais e não funcionais",
+              "ordem": 2,
+              "arquivo": "engenharia-de-software-e-requisitos/01-02-requisitos-funcionais-e-nao-funcionais.pdf"
+            },
+            {
+              "chave": "11.12",
+              "tomo": 11,
+              "inicio": 3,
+              "fim": 7,
+              "titulo": "Especificação e análise de requisitos",
+              "ordem": 3,
+              "arquivo": "engenharia-de-software-e-requisitos/01-03-especificacao-e-analise-de-requisitos.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual exemplo representa um requisito funcional de uma plataforma de cursos?",
+              "alternativas": [
+                {
+                  "texto": "Ser compatível com diferentes resoluções de tela.",
+                  "correta": false
+                },
+                {
+                  "texto": "Permitir que o aluno se matricule em um curso.",
+                  "correta": true
+                },
+                {
+                  "texto": "Responder a uma solicitação em até dois segundos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ter disponibilidade de 99% no período definido.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é o objetivo da elicitação de requisitos?",
+              "alternativas": [
+                {
+                  "texto": "Descobrir necessidades e expectativas das pessoas envolvidas.",
+                  "correta": true
+                },
+                {
+                  "texto": "Escolher apenas a cor dos botões.",
+                  "correta": false
+                },
+                {
+                  "texto": "Excluir a participação dos usuários.",
+                  "correta": false
+                },
+                {
+                  "texto": "Publicar o sistema antes de entender o problema.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Como deve ser uma especificação de requisitos útil à equipe e aos interessados?",
+              "alternativas": [
+                {
+                  "texto": "Formada apenas por nomes de arquivos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Propositalmente ambígua para permitir qualquer interpretação.",
+                  "correta": false
+                },
+                {
+                  "texto": "Restrita a informações que não foram discutidas com ninguém.",
+                  "correta": false
+                },
+                {
+                  "texto": "Clara e compreensível para as pessoas que precisam utilizá-la.",
+                  "correta": true
+                }
+              ]
+            }
+          ],
+          "ordem": 1
+        },
+        {
+          "titulo": "Ciclos de vida, protótipos e desenvolvimento incremental",
+          "materiais": [
+            {
+              "chave": "1.1",
+              "tomo": 1,
+              "inicio": 3,
+              "fim": 5,
+              "titulo": "Restrições de projeto e prototipação",
+              "ordem": 1,
+              "arquivo": "engenharia-de-software-e-requisitos/02-01-restricoes-de-projeto-e-prototipacao.pdf"
+            },
+            {
+              "chave": "10.2",
+              "tomo": 10,
+              "inicio": 7,
+              "fim": 9,
+              "titulo": "Modelos de desenvolvimento de software",
+              "ordem": 2,
+              "arquivo": "engenharia-de-software-e-requisitos/02-02-modelos-de-desenvolvimento-de-software.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual característica está associada ao modelo em cascata tradicional?",
+              "alternativas": [
+                {
+                  "texto": "Organização do desenvolvimento em etapas sequenciais.",
+                  "correta": true
+                },
+                {
+                  "texto": "Ausência de qualquer etapa de teste.",
+                  "correta": false
+                },
+                {
+                  "texto": "Entrega obrigatória de um produto novo a cada hora.",
+                  "correta": false
+                },
+                {
+                  "texto": "Proibição de documentação de requisitos.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é uma característica do desenvolvimento incremental?",
+              "alternativas": [
+                {
+                  "texto": "Construir somente documentos e nunca software.",
+                  "correta": false
+                },
+                {
+                  "texto": "Recomeçar o sistema inteiro após cada entrega.",
+                  "correta": false
+                },
+                {
+                  "texto": "Eliminar a avaliação das versões produzidas.",
+                  "correta": false
+                },
+                {
+                  "texto": "Entregar funcionalidades em partes que ampliam o sistema progressivamente.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Para que um protótipo pode ser utilizado durante o desenvolvimento?",
+              "alternativas": [
+                {
+                  "texto": "Substituir obrigatoriamente todos os testes.",
+                  "correta": false
+                },
+                {
+                  "texto": "Definir o resultado de qualquer projeto sem participação do cliente.",
+                  "correta": false
+                },
+                {
+                  "texto": "Esclarecer e validar necessidades antes da implementação completa.",
+                  "correta": true
+                },
+                {
+                  "texto": "Garantir que nenhum requisito mude.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 2
+        },
+        {
+          "titulo": "Fases e iterações do RUP",
+          "materiais": [
+            {
+              "chave": "1.6",
+              "tomo": 1,
+              "inicio": 22,
+              "fim": 24,
+              "titulo": "Iterações e atividades do RUP",
+              "ordem": 1,
+              "arquivo": "engenharia-de-software-e-requisitos/03-01-iteracoes-e-atividades-do-rup.pdf"
+            },
+            {
+              "chave": "3.8",
+              "tomo": 3,
+              "inicio": 31,
+              "fim": 33,
+              "titulo": "Fases e requisitos no RUP",
+              "ordem": 2,
+              "arquivo": "engenharia-de-software-e-requisitos/03-02-fases-e-requisitos-no-rup.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual sequência apresenta as fases do RUP na ordem correta?",
+              "alternativas": [
+                {
+                  "texto": "Construção, iniciação, transição e elaboração.",
+                  "correta": false
+                },
+                {
+                  "texto": "Teste, impressão, compra e instalação.",
+                  "correta": false
+                },
+                {
+                  "texto": "Transição, construção, iniciação e elaboração.",
+                  "correta": false
+                },
+                {
+                  "texto": "Iniciação, elaboração, construção e transição.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "O que uma iteração busca produzir em um processo iterativo?",
+              "alternativas": [
+                {
+                  "texto": "A suspensão de todas as atividades de desenvolvimento.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um sistema sem requisitos definidos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Uma versão avaliada que faz o desenvolvimento avançar.",
+                  "correta": true
+                },
+                {
+                  "texto": "Somente a exclusão do trabalho anterior.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Como os requisitos são tratados ao longo do RUP?",
+              "alternativas": [
+                {
+                  "texto": "Não participam do planejamento das iterações.",
+                  "correta": false
+                },
+                {
+                  "texto": "Podem ser detalhados e revistos durante o ciclo de desenvolvimento.",
+                  "correta": true
+                },
+                {
+                  "texto": "São proibidos após a primeira reunião.",
+                  "correta": false
+                },
+                {
+                  "texto": "São considerados somente depois da entrega final.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 3
+        },
+        {
+          "titulo": "Programação extrema, configuração e versões",
+          "materiais": [
+            {
+              "chave": "5.1",
+              "tomo": 5,
+              "inicio": 3,
+              "fim": 4,
+              "titulo": "Programação extrema e programação em pares",
+              "ordem": 1,
+              "arquivo": "engenharia-de-software-e-requisitos/04-01-programacao-extrema-e-programacao-em-pares.pdf"
+            },
+            {
+              "chave": "10.3",
+              "tomo": 10,
+              "inicio": 10,
+              "fim": 13,
+              "titulo": "Gerenciamento de configuração e de versões",
+              "ordem": 2,
+              "arquivo": "engenharia-de-software-e-requisitos/04-02-gerenciamento-de-configuracao-e-de-versoes.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Como funciona a programação em pares descrita no material de XP?",
+              "alternativas": [
+                {
+                  "texto": "Uma pessoa escreve o código e a outra não acompanha o trabalho.",
+                  "correta": false
+                },
+                {
+                  "texto": "O código é produzido sem comunicação entre os participantes.",
+                  "correta": false
+                },
+                {
+                  "texto": "Duas pessoas colaboram na escrita e na revisão do código.",
+                  "correta": true
+                },
+                {
+                  "texto": "Cada pessoa programa sem compartilhar suas decisões.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é uma finalidade do controle de versões?",
+              "alternativas": [
+                {
+                  "texto": "Guardar somente a última imagem da tela.",
+                  "correta": false
+                },
+                {
+                  "texto": "Registrar alterações e permitir consultar versões anteriores dos artefatos.",
+                  "correta": true
+                },
+                {
+                  "texto": "Eliminar a necessidade de entender o código.",
+                  "correta": false
+                },
+                {
+                  "texto": "Impedir todo trabalho em equipe.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "O gerenciamento de configuração pode abranger quais itens de um projeto?",
+              "alternativas": [
+                {
+                  "texto": "Código-fonte, documentos e outros artefatos controlados.",
+                  "correta": true
+                },
+                {
+                  "texto": "Somente o papel de parede do computador.",
+                  "correta": false
+                },
+                {
+                  "texto": "Exclusivamente os nomes dos funcionários.",
+                  "correta": false
+                },
+                {
+                  "texto": "Apenas arquivos que nunca serão modificados.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 4
+        }
+      ]
+    },
+    {
+      "nome": "Qualidade, Interfaces e Manutenção de Software",
+      "slug": "qualidade-interfaces-e-manutencao-de-software",
+      "cargaHoraria": 8,
+      "descricao": "Aprenda atributos de qualidade, usabilidade, navegação, acessibilidade, testes e manutenção. Use os exemplos comentados para relacionar qualidade técnica às necessidades do usuário.",
+      "modulos": [
+        {
+          "titulo": "Qualidade e usabilidade",
+          "materiais": [
+            {
+              "chave": "1.8",
+              "tomo": 1,
+              "inicio": 29,
+              "fim": 31,
+              "titulo": "Confiabilidade, portabilidade e usabilidade",
+              "ordem": 1,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/01-01-confiabilidade-portabilidade-e-usabilidade.pdf"
+            },
+            {
+              "chave": "7.9",
+              "tomo": 7,
+              "inicio": 29,
+              "fim": 31,
+              "titulo": "Usabilidade e interfaces centradas no usuário",
+              "ordem": 2,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/01-02-usabilidade-e-interfaces-centradas-no-usuario.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual característica está relacionada à facilidade de aprender e utilizar um sistema?",
+              "alternativas": [
+                {
+                  "texto": "Usabilidade.",
+                  "correta": true
+                },
+                {
+                  "texto": "Frequência do processador.",
+                  "correta": false
+                },
+                {
+                  "texto": "Capacidade de impressão.",
+                  "correta": false
+                },
+                {
+                  "texto": "Tamanho físico do gabinete.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual ideia está relacionada à confiabilidade do software?",
+              "alternativas": [
+                {
+                  "texto": "Usar obrigatoriamente muitas cores.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ter o maior número possível de botões.",
+                  "correta": false
+                },
+                {
+                  "texto": "Exigir que todo usuário conheça o código-fonte.",
+                  "correta": false
+                },
+                {
+                  "texto": "Manter seu funcionamento esperado nas condições definidas.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual atributo se relaciona à adaptação do software para diferentes ambientes de execução?",
+              "alternativas": [
+                {
+                  "texto": "Quantidade de anúncios.",
+                  "correta": false
+                },
+                {
+                  "texto": "Velocidade de digitação do usuário.",
+                  "correta": false
+                },
+                {
+                  "texto": "Portabilidade.",
+                  "correta": true
+                },
+                {
+                  "texto": "Ordem alfabética dos métodos.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 1
+        },
+        {
+          "titulo": "Navegação, interfaces e acessibilidade",
+          "materiais": [
+            {
+              "chave": "5.3",
+              "tomo": 5,
+              "inicio": 8,
+              "fim": 9,
+              "titulo": "Mapa de navegação e projeto de interfaces",
+              "ordem": 1,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/02-01-mapa-de-navegacao-e-projeto-de-interfaces.pdf"
+            },
+            {
+              "chave": "11.6",
+              "tomo": 11,
+              "inicio": 17,
+              "fim": 20,
+              "titulo": "Acessibilidade e texto alternativo na web",
+              "ordem": 2,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/02-02-acessibilidade-e-texto-alternativo-na-web.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "O que um mapa de navegação ajuda a representar?",
+              "alternativas": [
+                {
+                  "texto": "A posição dos cabos dentro do computador.",
+                  "correta": false
+                },
+                {
+                  "texto": "Somente a quantidade de arquivos PDF.",
+                  "correta": false
+                },
+                {
+                  "texto": "O número de usuários sem seus fluxos de interação.",
+                  "correta": false
+                },
+                {
+                  "texto": "Os caminhos e relações entre telas e funcionalidades.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é a utilidade de um texto alternativo adequado no atributo alt de uma imagem informativa?",
+              "alternativas": [
+                {
+                  "texto": "Garantir que todos os usuários tenham o mesmo monitor.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ocultar obrigatoriamente a figura para todos os visitantes.",
+                  "correta": false
+                },
+                {
+                  "texto": "Permitir que seu significado seja compreendido também por leitores de tela.",
+                  "correta": true
+                },
+                {
+                  "texto": "Transformar a imagem em uma senha.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é o objetivo da acessibilidade em uma interface?",
+              "alternativas": [
+                {
+                  "texto": "Eliminar descrições e recursos de apoio.",
+                  "correta": false
+                },
+                {
+                  "texto": "Permitir a interação de pessoas com diferentes capacidades e necessidades.",
+                  "correta": true
+                },
+                {
+                  "texto": "Restringir o sistema a um único tipo de usuário.",
+                  "correta": false
+                },
+                {
+                  "texto": "Exigir visão perfeita de todos os visitantes.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 2
+        },
+        {
+          "titulo": "Verificação, validação e testes",
+          "materiais": [
+            {
+              "chave": "1.4",
+              "tomo": 1,
+              "inicio": 15,
+              "fim": 17,
+              "titulo": "Testes de caixa branca e caixa preta",
+              "ordem": 1,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/03-01-testes-de-caixa-branca-e-caixa-preta.pdf"
+            },
+            {
+              "chave": "10.4",
+              "tomo": 10,
+              "inicio": 14,
+              "fim": 16,
+              "titulo": "Verificação, validação e testes de software",
+              "ordem": 2,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/03-02-verificacao-validacao-e-testes-de-software.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual é o foco de um teste de caixa branca?",
+              "alternativas": [
+                {
+                  "texto": "A marca do teclado utilizado.",
+                  "correta": false
+                },
+                {
+                  "texto": "A opinião do usuário sem observar o software.",
+                  "correta": false
+                },
+                {
+                  "texto": "A estrutura interna e os caminhos do código.",
+                  "correta": true
+                },
+                {
+                  "texto": "Somente a cor da tela inicial.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é a ideia de um teste de caixa preta?",
+              "alternativas": [
+                {
+                  "texto": "Ignorar a especificação das funcionalidades.",
+                  "correta": false
+                },
+                {
+                  "texto": "Avaliar entradas e saídas esperadas sem depender da estrutura interna do código.",
+                  "correta": true
+                },
+                {
+                  "texto": "Testar somente arquivos de imagem.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ler todas as linhas do código antes de qualquer avaliação.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual pergunta está mais relacionada à validação de um software?",
+              "alternativas": [
+                {
+                  "texto": "O produto atende às necessidades de quem vai utilizá-lo?",
+                  "correta": true
+                },
+                {
+                  "texto": "Quantos cabos foram conectados ao monitor?",
+                  "correta": false
+                },
+                {
+                  "texto": "Qual é a cor da placa-mãe?",
+                  "correta": false
+                },
+                {
+                  "texto": "Todos os arquivos possuem o mesmo tamanho?",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 3
+        },
+        {
+          "titulo": "Manutenção e evolução de sistemas",
+          "materiais": [
+            {
+              "chave": "3.2",
+              "tomo": 3,
+              "inicio": 6,
+              "fim": 7,
+              "titulo": "Tipos de manutenção de software",
+              "ordem": 1,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/04-01-tipos-de-manutencao-de-software.pdf"
+            },
+            {
+              "chave": "5.6",
+              "tomo": 5,
+              "inicio": 14,
+              "fim": 17,
+              "titulo": "Planejamento e atividades de manutenção",
+              "ordem": 2,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/04-02-planejamento-e-atividades-de-manutencao.pdf"
+            },
+            {
+              "chave": "10.5",
+              "tomo": 10,
+              "inicio": 17,
+              "fim": 19,
+              "titulo": "Sistemas legados e evolução de software",
+              "ordem": 3,
+              "arquivo": "qualidade-interfaces-e-manutencao-de-software/04-03-sistemas-legados-e-evolucao-de-software.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual tipo de manutenção busca corrigir uma falha já identificada no sistema?",
+              "alternativas": [
+                {
+                  "texto": "Preventiva.",
+                  "correta": false
+                },
+                {
+                  "texto": "Corretiva.",
+                  "correta": true
+                },
+                {
+                  "texto": "Adaptativa.",
+                  "correta": false
+                },
+                {
+                  "texto": "Perfectiva.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Uma mudança no ambiente exige ajustar o sistema para que ele continue funcionando. Qual manutenção se aplica?",
+              "alternativas": [
+                {
+                  "texto": "Adaptativa.",
+                  "correta": true
+                },
+                {
+                  "texto": "Corretiva em todos os casos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Troca de todos os usuários.",
+                  "correta": false
+                },
+                {
+                  "texto": "Exclusão do histórico do projeto.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é o objetivo da manutenção preventiva?",
+              "alternativas": [
+                {
+                  "texto": "Esperar que todo problema provoque uma interrupção.",
+                  "correta": false
+                },
+                {
+                  "texto": "Impedir a documentação das alterações.",
+                  "correta": false
+                },
+                {
+                  "texto": "Eliminar os testes após qualquer mudança.",
+                  "correta": false
+                },
+                {
+                  "texto": "Reduzir a possibilidade de falhas futuras e melhorar a manutenção do sistema.",
+                  "correta": true
+                }
+              ]
+            }
+          ],
+          "ordem": 4
+        }
+      ]
+    },
+    {
+      "nome": "Fundamentos de Banco de Dados",
+      "slug": "fundamentos-de-banco-de-dados",
+      "cargaHoraria": 4,
+      "descricao": "Introdução à modelagem de dados, entidades, relacionamentos, chaves, consultas SQL e transações. Os estudos de caso ajudam a compreender a organização e a integridade das informações.",
+      "modulos": [
+        {
+          "titulo": "Modelagem de dados e consultas SQL",
+          "materiais": [
+            {
+              "chave": "11.34",
+              "tomo": 11,
+              "inicio": 8,
+              "fim": 13,
+              "titulo": "Modelagem de dados, relacionamentos e SQL",
+              "ordem": 1,
+              "arquivo": "fundamentos-de-banco-de-dados/01-01-modelagem-de-dados-relacionamentos-e-sql.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "O que uma entidade representa em um modelo de dados?",
+              "alternativas": [
+                {
+                  "texto": "Obrigatoriamente uma tela do navegador.",
+                  "correta": false
+                },
+                {
+                  "texto": "Somente um comando de impressão.",
+                  "correta": false
+                },
+                {
+                  "texto": "Uma cor escolhida para o sistema.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um conceito ou objeto relevante do domínio cujos dados precisam ser representados.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é a finalidade de uma chave primária em uma tabela?",
+              "alternativas": [
+                {
+                  "texto": "Guardar apenas textos de apresentação.",
+                  "correta": false
+                },
+                {
+                  "texto": "Substituir todas as outras colunas por imagens.",
+                  "correta": false
+                },
+                {
+                  "texto": "Identificar de forma única cada registro.",
+                  "correta": true
+                },
+                {
+                  "texto": "Permitir que todos os registros tenham a mesma identificação.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Na abordagem estudada, qual modelo faz a ligação entre o modelo conceitual e a implementação física?",
+              "alternativas": [
+                {
+                  "texto": "O desenho do logotipo.",
+                  "correta": false
+                },
+                {
+                  "texto": "O modelo lógico.",
+                  "correta": true
+                },
+                {
+                  "texto": "O mapa de navegação.",
+                  "correta": false
+                },
+                {
+                  "texto": "O plano de contingência.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 1
+        },
+        {
+          "titulo": "Transações, atomicidade e integridade",
+          "materiais": [
+            {
+              "chave": "3.1",
+              "tomo": 3,
+              "inicio": 3,
+              "fim": 5,
+              "titulo": "Transações e atomicidade no banco de dados",
+              "ordem": 1,
+              "arquivo": "fundamentos-de-banco-de-dados/02-01-transacoes-e-atomicidade-no-banco-de-dados.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual é a ideia principal da atomicidade de uma transação?",
+              "alternativas": [
+                {
+                  "texto": "Cada usuário pode ignorar as regras de integridade.",
+                  "correta": false
+                },
+                {
+                  "texto": "Uma transação serve somente para consultar imagens.",
+                  "correta": false
+                },
+                {
+                  "texto": "As operações da transação são realizadas por completo ou desfeitas.",
+                  "correta": true
+                },
+                {
+                  "texto": "Toda operação incompleta deve ser mantida definitivamente.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "O que caracteriza uma transação de banco de dados?",
+              "alternativas": [
+                {
+                  "texto": "Uma lista de arquivos sem relação entre si.",
+                  "correta": false
+                },
+                {
+                  "texto": "Uma unidade lógica de processamento que pode reunir várias operações.",
+                  "correta": true
+                },
+                {
+                  "texto": "Uma mudança de cor na interface.",
+                  "correta": false
+                },
+                {
+                  "texto": "Uma única letra digitada em qualquer campo.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Uma transferência exige debitar uma conta e creditar outra. Se o crédito falhar, qual comportamento preserva a atomicidade?",
+              "alternativas": [
+                {
+                  "texto": "Desfazer o débito para não manter a operação incompleta.",
+                  "correta": true
+                },
+                {
+                  "texto": "Manter apenas o débito como operação concluída.",
+                  "correta": false
+                },
+                {
+                  "texto": "Apagar as duas contas do banco.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ignorar a falha e informar sucesso.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 2
+        }
+      ]
+    },
+    {
+      "nome": "Fundamentos de Infraestrutura de TI",
+      "slug": "fundamentos-de-infraestrutura-de-ti",
+      "cargaHoraria": 6,
+      "descricao": "Conheça barramentos, sistemas operacionais, multiprogramação, máquinas virtuais e redes locais. Os exemplos explicam como os recursos de hardware e software trabalham em conjunto.",
+      "modulos": [
+        {
+          "titulo": "Arquitetura de computadores e barramentos",
+          "materiais": [
+            {
+              "chave": "7.5",
+              "tomo": 7,
+              "inicio": 14,
+              "fim": 16,
+              "titulo": "Arquitetura de computadores e barramentos",
+              "ordem": 1,
+              "arquivo": "fundamentos-de-infraestrutura-de-ti/01-01-arquitetura-de-computadores-e-barramentos.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual é a finalidade do barramento de endereços?",
+              "alternativas": [
+                {
+                  "texto": "Substituir o processador.",
+                  "correta": false
+                },
+                {
+                  "texto": "Armazenar permanentemente todos os programas.",
+                  "correta": false
+                },
+                {
+                  "texto": "Indicar a posição de memória ou o dispositivo que será acessado.",
+                  "correta": true
+                },
+                {
+                  "texto": "Transportar exclusivamente imagens entre telas.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é a função principal do barramento de dados?",
+              "alternativas": [
+                {
+                  "texto": "Eliminar a memória do computador.",
+                  "correta": false
+                },
+                {
+                  "texto": "Transferir dados entre componentes.",
+                  "correta": true
+                },
+                {
+                  "texto": "Escolher o nome do usuário.",
+                  "correta": false
+                },
+                {
+                  "texto": "Controlar somente o brilho do monitor.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Quantas combinações diferentes podem ser representadas por três bits?",
+              "alternativas": [
+                {
+                  "texto": "8.",
+                  "correta": true
+                },
+                {
+                  "texto": "3.",
+                  "correta": false
+                },
+                {
+                  "texto": "6.",
+                  "correta": false
+                },
+                {
+                  "texto": "9.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 1
+        },
+        {
+          "titulo": "Sistemas operacionais e multiprogramação",
+          "materiais": [
+            {
+              "chave": "10.1",
+              "tomo": 10,
+              "inicio": 3,
+              "fim": 6,
+              "titulo": "Sistemas operacionais e multiprogramação",
+              "ordem": 1,
+              "arquivo": "fundamentos-de-infraestrutura-de-ti/02-01-sistemas-operacionais-e-multiprogramacao.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Como a multiprogramação permite o avanço de vários processos em uma CPU?",
+              "alternativas": [
+                {
+                  "texto": "Impedindo que os processos aguardem dados.",
+                  "correta": false
+                },
+                {
+                  "texto": "Alternando a execução entre processos.",
+                  "correta": true
+                },
+                {
+                  "texto": "Executando todos os comandos exatamente no mesmo instante em uma CPU de um único núcleo.",
+                  "correta": false
+                },
+                {
+                  "texto": "Eliminando o sistema operacional.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Em qual situação um processo pode ficar bloqueado?",
+              "alternativas": [
+                {
+                  "texto": "Enquanto aguarda uma entrada ou operação de entrada e saída.",
+                  "correta": true
+                },
+                {
+                  "texto": "Somente quando seu arquivo tem um nome longo.",
+                  "correta": false
+                },
+                {
+                  "texto": "Sempre que é o primeiro programa instalado.",
+                  "correta": false
+                },
+                {
+                  "texto": "Quando não possui imagens em sua interface.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual benefício existe em executar outro processo enquanto um aguarda dados?",
+              "alternativas": [
+                {
+                  "texto": "Desligar obrigatoriamente a memória.",
+                  "correta": false
+                },
+                {
+                  "texto": "Impedir o retorno do processo que está aguardando.",
+                  "correta": false
+                },
+                {
+                  "texto": "Aumentar a espera sem realizar trabalho.",
+                  "correta": false
+                },
+                {
+                  "texto": "Aproveitar a CPU que ficaria ociosa durante a espera.",
+                  "correta": true
+                }
+              ]
+            }
+          ],
+          "ordem": 2
+        },
+        {
+          "titulo": "Máquinas virtuais e virtualização",
+          "materiais": [
+            {
+              "chave": "1.5",
+              "tomo": 1,
+              "inicio": 18,
+              "fim": 21,
+              "titulo": "Máquinas virtuais e virtualização",
+              "ordem": 1,
+              "arquivo": "fundamentos-de-infraestrutura-de-ti/03-01-maquinas-virtuais-e-virtualizacao.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "O que uma máquina virtual oferece?",
+              "alternativas": [
+                {
+                  "texto": "Um ambiente computacional em software capaz de executar um sistema convidado.",
+                  "correta": true
+                },
+                {
+                  "texto": "Um computador físico obrigatório para cada arquivo.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um programa usado apenas para editar imagens.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um dispositivo que dispensa qualquer hardware real.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "De onde vêm os recursos utilizados por máquinas virtuais em um computador?",
+              "alternativas": [
+                {
+                  "texto": "De uma memória que não possui limites físicos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Somente do teclado conectado.",
+                  "correta": false
+                },
+                {
+                  "texto": "Exclusivamente do nome do sistema operacional.",
+                  "correta": false
+                },
+                {
+                  "texto": "Dos recursos disponibilizados pelo computador hospedeiro.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual cuidado continua necessário ao utilizar máquinas virtuais?",
+              "alternativas": [
+                {
+                  "texto": "Compartilhar todas as senhas publicamente.",
+                  "correta": false
+                },
+                {
+                  "texto": "Ignorar a capacidade de memória e processamento.",
+                  "correta": false
+                },
+                {
+                  "texto": "Proteger e atualizar os sistemas, pois a virtualização não elimina ameaças.",
+                  "correta": true
+                },
+                {
+                  "texto": "Dispensar qualquer medida de segurança.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 3
+        },
+        {
+          "titulo": "Redes locais, hubs e switches",
+          "materiais": [
+            {
+              "chave": "3.3",
+              "tomo": 3,
+              "inicio": 8,
+              "fim": 11,
+              "titulo": "Redes locais, hubs e switches",
+              "ordem": 1,
+              "arquivo": "fundamentos-de-infraestrutura-de-ti/04-01-redes-locais-hubs-e-switches.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Como um hub normalmente trata os dados que recebe em uma porta?",
+              "alternativas": [
+                {
+                  "texto": "Encaminha o sinal somente ao destino com base em uma tabela de endereços MAC.",
+                  "correta": false
+                },
+                {
+                  "texto": "Armazena o sinal como um arquivo PDF.",
+                  "correta": false
+                },
+                {
+                  "texto": "Transforma todo dado recebido em um programa.",
+                  "correta": false
+                },
+                {
+                  "texto": "Repete o sinal para as outras portas.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual informação um switch usa para decidir o encaminhamento de quadros em uma rede Ethernet?",
+              "alternativas": [
+                {
+                  "texto": "Cores dos cabos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Nomes dos documentos impressos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Endereços MAC.",
+                  "correta": true
+                },
+                {
+                  "texto": "Senhas de e-mail.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual característica diferencia o uso de um switch em relação a um hub compartilhado?",
+              "alternativas": [
+                {
+                  "texto": "A rede deixa de utilizar quadros Ethernet.",
+                  "correta": false
+                },
+                {
+                  "texto": "As portas podem formar domínios de colisão separados.",
+                  "correta": true
+                },
+                {
+                  "texto": "Todos os computadores obrigatoriamente passam a ter o mesmo endereço MAC.",
+                  "correta": false
+                },
+                {
+                  "texto": "Nenhum dispositivo consegue transmitir dados.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 4
+        }
+      ]
+    },
+    {
+      "nome": "Gestão de Processos, Riscos e Cidadania Digital",
+      "slug": "gestao-de-processos-riscos-e-cidadania-digital",
+      "cargaHoraria": 6,
+      "descricao": "Entenda processos de negócio, melhoria contínua, planejamento, riscos, contingência e princípios do uso da internet. O conteúdo relaciona a tecnologia às atividades e responsabilidades das organizações.",
+      "modulos": [
+        {
+          "titulo": "Processos de negócio e melhoria contínua",
+          "materiais": [
+            {
+              "chave": "5.2",
+              "tomo": 5,
+              "inicio": 5,
+              "fim": 7,
+              "titulo": "Modelagem de processos com EPC e ARIS",
+              "ordem": 1,
+              "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/01-01-modelagem-de-processos-com-epc-e-aris.pdf"
+            },
+            {
+              "chave": "5.5",
+              "tomo": 5,
+              "inicio": 12,
+              "fim": 13,
+              "titulo": "Processos de negócio e melhoria contínua",
+              "ordem": 2,
+              "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/01-02-processos-de-negocio-e-melhoria-continua.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Qual descrição corresponde a um processo de negócio?",
+              "alternativas": [
+                {
+                  "texto": "Uma sequência de cores escolhida para uma tela.",
+                  "correta": false
+                },
+                {
+                  "texto": "Um conjunto de atividades orientadas a um objetivo organizacional.",
+                  "correta": true
+                },
+                {
+                  "texto": "Uma lista de arquivos sem propósito definido.",
+                  "correta": false
+                },
+                {
+                  "texto": "Somente uma peça física do computador.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Na modelagem EPC estudada, o que as funções representam?",
+              "alternativas": [
+                {
+                  "texto": "Atividades executadas no processo.",
+                  "correta": true
+                },
+                {
+                  "texto": "Somente o início e o fim de uma atividade.",
+                  "correta": false
+                },
+                {
+                  "texto": "A marca do sistema operacional.",
+                  "correta": false
+                },
+                {
+                  "texto": "A capacidade de armazenamento do servidor.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual é o objetivo da melhoria contínua dos processos?",
+              "alternativas": [
+                {
+                  "texto": "Evitar qualquer análise de resultados.",
+                  "correta": false
+                },
+                {
+                  "texto": "Manter todos os problemas sem registro.",
+                  "correta": false
+                },
+                {
+                  "texto": "Proibir a participação das pessoas envolvidas.",
+                  "correta": false
+                },
+                {
+                  "texto": "Revisar e aperfeiçoar a forma de realizar o trabalho.",
+                  "correta": true
+                }
+              ]
+            }
+          ],
+          "ordem": 1
+        },
+        {
+          "titulo": "Planejamento, riscos e continuidade",
+          "materiais": [
+            {
+              "chave": "7.1",
+              "tomo": 7,
+              "inicio": 3,
+              "fim": 6,
+              "titulo": "Planejamento, riscos e continuidade dos negócios",
+              "ordem": 1,
+              "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/02-01-planejamento-riscos-e-continuidade-dos-negocios.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Para que serve um plano de contingência?",
+              "alternativas": [
+                {
+                  "texto": "Definir alternativas para manter ou recuperar atividades diante de interrupções.",
+                  "correta": true
+                },
+                {
+                  "texto": "Registrar somente o logotipo da empresa.",
+                  "correta": false
+                },
+                {
+                  "texto": "Garantir que nenhum risco possa existir.",
+                  "correta": false
+                },
+                {
+                  "texto": "Substituir todos os objetivos da organização por tarefas de impressão.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Quais atividades fazem parte do gerenciamento de riscos?",
+              "alternativas": [
+                {
+                  "texto": "Ignorar ocorrências e eliminar registros.",
+                  "correta": false
+                },
+                {
+                  "texto": "Considerar somente fatos que já foram solucionados.",
+                  "correta": false
+                },
+                {
+                  "texto": "Escolher exclusivamente as cores das telas.",
+                  "correta": false
+                },
+                {
+                  "texto": "Identificar, analisar, planejar respostas e acompanhar riscos.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "O que a missão de uma organização ajuda a expressar?",
+              "alternativas": [
+                {
+                  "texto": "O número exato de arquivos que pode armazenar.",
+                  "correta": false
+                },
+                {
+                  "texto": "A senha necessária para acessar a rede.",
+                  "correta": false
+                },
+                {
+                  "texto": "Sua razão de existir e seu propósito.",
+                  "correta": true
+                },
+                {
+                  "texto": "Somente o preço de seus computadores.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 2
+        },
+        {
+          "titulo": "Marco Civil da Internet e cidadania digital",
+          "materiais": [
+            {
+              "chave": "7.2",
+              "tomo": 7,
+              "inicio": 7,
+              "fim": 9,
+              "titulo": "Marco Civil da Internet e direitos dos usuários",
+              "ordem": 1,
+              "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/03-01-marco-civil-da-internet-e-direitos-dos-usuarios.pdf"
+            }
+          ],
+          "questoes": [
+            {
+              "enunciado": "Segundo o material estudado, qual é o tema central do Marco Civil da Internet?",
+              "alternativas": [
+                {
+                  "texto": "Regras de ordenação de vetores em linguagem C.",
+                  "correta": false
+                },
+                {
+                  "texto": "O formato obrigatório dos diagramas de classe.",
+                  "correta": false
+                },
+                {
+                  "texto": "A montagem física de placas de rede.",
+                  "correta": false
+                },
+                {
+                  "texto": "Princípios, garantias, direitos e deveres para o uso da internet no Brasil.",
+                  "correta": true
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual direito é discutido no material sobre o uso da internet?",
+              "alternativas": [
+                {
+                  "texto": "Proibição de informações claras nos contratos.",
+                  "correta": false
+                },
+                {
+                  "texto": "Obrigatoriedade de compartilhar senhas com outros usuários.",
+                  "correta": false
+                },
+                {
+                  "texto": "Proteção da intimidade e da vida privada.",
+                  "correta": true
+                },
+                {
+                  "texto": "Divulgação irrestrita de toda comunicação privada.",
+                  "correta": false
+                }
+              ]
+            },
+            {
+              "enunciado": "Qual aspecto da conexão à internet é apresentado como direito do usuário no material?",
+              "alternativas": [
+                {
+                  "texto": "O acesso obrigatório por um único modelo de computador.",
+                  "correta": false
+                },
+                {
+                  "texto": "A manutenção da qualidade contratada da conexão.",
+                  "correta": true
+                },
+                {
+                  "texto": "A alteração do contrato sem informações ao usuário.",
+                  "correta": false
+                },
+                {
+                  "texto": "A eliminação de todos os registros do serviço em qualquer circunstância.",
+                  "correta": false
+                }
+              ]
+            }
+          ],
+          "ordem": 3
+        }
+      ]
+    }
+  ]
+}

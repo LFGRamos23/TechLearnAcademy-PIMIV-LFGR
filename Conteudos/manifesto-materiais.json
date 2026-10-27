@@ -1,0 +1,536 @@
+{
+  "fontes": {
+    "1": {
+      "arquivo": "C:\\Users\\Lfgr1\\Downloads\\ANALISE_DESENVOLV_SIST_TOMO_01.pdf",
+      "sha256": "93dc4decf124f7833c5a5df693c2a24607a5916feb544a75cab2d7428f03afa5",
+      "paginas": 45
+    },
+    "3": {
+      "arquivo": "C:\\Users\\Lfgr1\\Downloads\\ANALISE_DESENVOLV_SIST_TOMO_03.pdf",
+      "sha256": "75b7c46d1576aca6607d26fa09136f379294d4e911014523628174852c2f931e",
+      "paginas": 38
+    },
+    "5": {
+      "arquivo": "C:\\Users\\Lfgr1\\Downloads\\ANALISE_DESENVOLV_SIST_TOMO_05.pdf",
+      "sha256": "2851537fc4dcce4e85e82e9da5bb179e222a90556e721915c48f20de8950dda6",
+      "paginas": 23
+    },
+    "7": {
+      "arquivo": "C:\\Users\\Lfgr1\\Downloads\\ANALISE_DESENVOLV_SIST_TOMO_07.pdf",
+      "sha256": "5d9aa081f6ae9e640c76a8b7ef3eceda029fc4a4f5e97ac970a61a6ed1e34e08",
+      "paginas": 32
+    },
+    "10": {
+      "arquivo": "C:\\Users\\Lfgr1\\Downloads\\ANALISE_DESENVOLV_SIST_TOMO_10.pdf",
+      "sha256": "b9fbd41905e2bba88ac262b54013ffaed04d74eb7940d3dad5abf1db3a4398fa",
+      "paginas": 39
+    },
+    "11": {
+      "arquivo": "C:\\Users\\Lfgr1\\Downloads\\ANALISE_DESENVOLV_SIST_TOMO_11.pdf",
+      "sha256": "8c0e3524f4c96fbfb7416d0298d8763b1639ea8444fe97ea1ef7043b1376133a",
+      "paginas": 36
+    }
+  },
+  "materiais": [
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/01-01-tipos-de-dados-e-analise-de-algoritmos.pdf",
+      "titulo": "Tipos de dados e análise de algoritmos",
+      "tomo": 1,
+      "inicio": 42,
+      "fim": 44,
+      "paginas": 6,
+      "bytes": 455777,
+      "sha256": "7d2c1e6e9aca8ccb7cd7ff2edd771e65219d094468eb8282abddfca82a6f9634"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/01-02-proposicoes-e-tabela-verdade.pdf",
+      "titulo": "Proposições e tabela verdade",
+      "tomo": 7,
+      "inicio": 27,
+      "fim": 28,
+      "paginas": 5,
+      "bytes": 342258,
+      "sha256": "71e1fbd414ec0c9bed761b81a3d60933636a1e6eca90c0842ae6a26177c29215"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/01-03-operadores-logicos-e-operacoes-em-c.pdf",
+      "titulo": "Operadores lógicos e operações em C",
+      "tomo": 10,
+      "inicio": 35,
+      "fim": 38,
+      "paginas": 7,
+      "bytes": 616300,
+      "sha256": "e2b16ae0f82a80622b037395a5d7166f4164b6b7584b03ccea244e765429807b"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/02-01-execucao-de-algoritmos-com-matrizes.pdf",
+      "titulo": "Execução de algoritmos com matrizes",
+      "tomo": 3,
+      "inicio": 20,
+      "fim": 24,
+      "paginas": 8,
+      "bytes": 485541,
+      "sha256": "31d339339dffefdaf609cae453da4cfa1a8c6a318e61c0fa45b2fb0bfb1ff5d6"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/02-02-vetores-matrizes-e-validacao-de-entradas.pdf",
+      "titulo": "Vetores, matrizes e validação de entradas",
+      "tomo": 11,
+      "inicio": 21,
+      "fim": 24,
+      "paginas": 7,
+      "bytes": 663373,
+      "sha256": "2c023125c8f74bb275b9963fb2364381f864b186d0e6f444dea2972f8d24c4aa"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/03-01-busca-binaria-em-vetores.pdf",
+      "titulo": "Busca binária em vetores",
+      "tomo": 3,
+      "inicio": 25,
+      "fim": 30,
+      "paginas": 9,
+      "bytes": 448507,
+      "sha256": "60cb225d3b5ae76d5375a2281f81bed70bb3854aed1bc8b02026b01db9ae33bf"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/03-02-ordenacao-de-vetores-passo-a-passo.pdf",
+      "titulo": "Ordenação de vetores passo a passo",
+      "tomo": 1,
+      "inicio": 38,
+      "fim": 41,
+      "paginas": 7,
+      "bytes": 446050,
+      "sha256": "54a933325d8b397b07b63ae541f00d8db52e45031b46ac715e434db557dcad6a"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/03-03-ordenacao-por-insercao.pdf",
+      "titulo": "Ordenação por inserção",
+      "tomo": 11,
+      "inicio": 14,
+      "fim": 16,
+      "paginas": 6,
+      "bytes": 663605,
+      "sha256": "12e977cdf57b00b68e53f0c8b5caa2206817c6ac1b0565572e0a07917d1e9f0c"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/04-01-filas-e-operacoes-de-insercao-e-remocao.pdf",
+      "titulo": "Filas e operações de inserção e remoção",
+      "tomo": 11,
+      "inicio": 25,
+      "fim": 29,
+      "paginas": 8,
+      "bytes": 656031,
+      "sha256": "2b440e0e10a5299961cd22d96d5a8d9d449e8b25c02ad5893b87e89fa149730f"
+    },
+    {
+      "arquivo": "logica-de-programacao-e-estruturas-de-dados/04-02-arvores-binarias-e-seus-percursos.pdf",
+      "titulo": "Árvores binárias e seus percursos",
+      "tomo": 10,
+      "inicio": 20,
+      "fim": 23,
+      "paginas": 7,
+      "bytes": 678409,
+      "sha256": "b5ff3065f3c8ee8fe8d50f4518e6b2c81f31b71874caeba8839742e7bdce476b"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/01-01-conceitos-de-orientacao-a-objetos.pdf",
+      "titulo": "Conceitos de orientação a objetos",
+      "tomo": 1,
+      "inicio": 6,
+      "fim": 9,
+      "paginas": 7,
+      "bytes": 475899,
+      "sha256": "5d0444f53dabf95f7b1ba8b060d0b71cb15e1316588091d4406065f74daf8ff1"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/01-02-classes-heranca-e-polimorfismo.pdf",
+      "titulo": "Classes, herança e polimorfismo",
+      "tomo": 5,
+      "inicio": 20,
+      "fim": 22,
+      "paginas": 6,
+      "bytes": 467764,
+      "sha256": "8453cc347e8f379793ec03432af745a9a87e646ed3c39d1857c238ed733b5623"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/02-01-heranca-sobrescrita-e-relacionamentos-entre-classes.pdf",
+      "titulo": "Herança, sobrescrita e relacionamentos entre classes",
+      "tomo": 1,
+      "inicio": 32,
+      "fim": 37,
+      "paginas": 9,
+      "bytes": 525231,
+      "sha256": "f6cbaf6e637904ee1a65f4efc9718c361d46410efcb4b7bc4e7b15c72107e71e"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/02-02-diagrama-de-classes-atributos-e-associacoes.pdf",
+      "titulo": "Diagrama de classes, atributos e associações",
+      "tomo": 3,
+      "inicio": 16,
+      "fim": 19,
+      "paginas": 7,
+      "bytes": 482581,
+      "sha256": "5720625de53610e9bf4d993b8742ea7f23eff462822b3bcc09a8b422cdc3f9c6"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/02-03-uml-aplicada-a-classes-e-casos-de-uso.pdf",
+      "titulo": "UML aplicada a classes e casos de uso",
+      "tomo": 7,
+      "inicio": 17,
+      "fim": 26,
+      "paginas": 13,
+      "bytes": 478635,
+      "sha256": "f76ec0f89f84dcda17b30a246812190fe5ff9a7d762b49fac300e3e47e303e3b"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/02-04-modelagem-de-classes-a-partir-de-requisitos.pdf",
+      "titulo": "Modelagem de classes a partir de requisitos",
+      "tomo": 11,
+      "inicio": 30,
+      "fim": 35,
+      "paginas": 9,
+      "bytes": 670108,
+      "sha256": "0d74e8aa58667d523aa58e232a14d19353d1555c38fd33bff89898da02c40908"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/03-01-casos-de-uso-atores-e-funcionalidades.pdf",
+      "titulo": "Casos de uso, atores e funcionalidades",
+      "tomo": 3,
+      "inicio": 12,
+      "fim": 15,
+      "paginas": 7,
+      "bytes": 483431,
+      "sha256": "183f69b69884e8706a1a1c7859dc21ea5a55b1945b935c8a097632a28bb80de8"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/03-02-diagrama-de-sequencia-da-uml.pdf",
+      "titulo": "Diagrama de sequência da UML",
+      "tomo": 1,
+      "inicio": 10,
+      "fim": 14,
+      "paginas": 8,
+      "bytes": 527638,
+      "sha256": "eedd05c63b414d3b16a36e69099e53b9b926c5aa649b308e09051d8b9467af5e"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/03-03-diagramas-de-comunicacao-estados-e-atividades.pdf",
+      "titulo": "Diagramas de comunicação, estados e atividades",
+      "tomo": 3,
+      "inicio": 34,
+      "fim": 37,
+      "paginas": 7,
+      "bytes": 427150,
+      "sha256": "18290c88dec14733d8c388448ec3ae88ee6a84f227f467b519da789e09bb6029"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/04-01-componentes-reutilizaveis-e-javabeans.pdf",
+      "titulo": "Componentes reutilizáveis e JavaBeans",
+      "tomo": 5,
+      "inicio": 10,
+      "fim": 11,
+      "paginas": 5,
+      "bytes": 459978,
+      "sha256": "a0dde833461328b70e9d826c2ca9e4fe6ef870f2fb7b982b925c953a6294154a"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/04-02-padroes-de-projeto-e-abstract-factory.pdf",
+      "titulo": "Padrões de projeto e Abstract Factory",
+      "tomo": 5,
+      "inicio": 18,
+      "fim": 19,
+      "paginas": 5,
+      "bytes": 460455,
+      "sha256": "c6e123f71e47481b00e16c371b9c556bb4715eed3fe1f7b5b0b37cecd02a38b1"
+    },
+    {
+      "arquivo": "programacao-orientada-a-objetos-e-uml/04-03-orientacao-a-objetos-mvc-e-padroes-de-projeto.pdf",
+      "titulo": "Orientação a objetos, MVC e padrões de projeto",
+      "tomo": 10,
+      "inicio": 24,
+      "fim": 34,
+      "paginas": 14,
+      "bytes": 776744,
+      "sha256": "89c5ad5218b526cdcabeb0608bde265f9f0fe1800fed7ae99dfaf4c25483316a"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/01-01-tecnicas-de-elicitacao-de-requisitos.pdf",
+      "titulo": "Técnicas de elicitação de requisitos",
+      "tomo": 1,
+      "inicio": 25,
+      "fim": 28,
+      "paginas": 7,
+      "bytes": 422158,
+      "sha256": "567060e5665c78324e04771b5936b924b14a19922f7b26f02ef25f9192ac6173"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/01-02-requisitos-funcionais-e-nao-funcionais.pdf",
+      "titulo": "Requisitos funcionais e não funcionais",
+      "tomo": 7,
+      "inicio": 10,
+      "fim": 13,
+      "paginas": 7,
+      "bytes": 350573,
+      "sha256": "8fb706bcb51016e566893378800da940d343cfddde692877bea389a38121ce75"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/01-03-especificacao-e-analise-de-requisitos.pdf",
+      "titulo": "Especificação e análise de requisitos",
+      "tomo": 11,
+      "inicio": 3,
+      "fim": 7,
+      "paginas": 8,
+      "bytes": 619055,
+      "sha256": "540438d067e52bc8cca3e67db3470622b4d3d1f2691a3b560e7355021884e74a"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/02-01-restricoes-de-projeto-e-prototipacao.pdf",
+      "titulo": "Restrições de projeto e prototipação",
+      "tomo": 1,
+      "inicio": 3,
+      "fim": 5,
+      "paginas": 6,
+      "bytes": 418162,
+      "sha256": "54a162a817f38b1fc3bd9ac866aa73ccdb42978c55070ce5f694b9b7e85894f2"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/02-02-modelos-de-desenvolvimento-de-software.pdf",
+      "titulo": "Modelos de desenvolvimento de software",
+      "tomo": 10,
+      "inicio": 7,
+      "fim": 9,
+      "paginas": 6,
+      "bytes": 629779,
+      "sha256": "2dab1c850bac324da7fe9e885d6fb535c57de0ac848e729d6126ef991f0409be"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/03-01-iteracoes-e-atividades-do-rup.pdf",
+      "titulo": "Iterações e atividades do RUP",
+      "tomo": 1,
+      "inicio": 22,
+      "fim": 24,
+      "paginas": 6,
+      "bytes": 420596,
+      "sha256": "f861181b26bd5a5440d63d067d7b40c291c7440ec7683ed2f34c8a34cf4ee36b"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/03-02-fases-e-requisitos-no-rup.pdf",
+      "titulo": "Fases e requisitos no RUP",
+      "tomo": 3,
+      "inicio": 31,
+      "fim": 33,
+      "paginas": 6,
+      "bytes": 413622,
+      "sha256": "c8e406142d9194b512b3129c25f7b31dec74796087ada8ba0b3abdc1c804880d"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/04-01-programacao-extrema-e-programacao-em-pares.pdf",
+      "titulo": "Programação extrema e programação em pares",
+      "tomo": 5,
+      "inicio": 3,
+      "fim": 4,
+      "paginas": 5,
+      "bytes": 459532,
+      "sha256": "d91fde4a7d5e5d379e18255595ea6233037aea00d956e13c7e2027b75e0bbe14"
+    },
+    {
+      "arquivo": "engenharia-de-software-e-requisitos/04-02-gerenciamento-de-configuracao-e-de-versoes.pdf",
+      "titulo": "Gerenciamento de configuração e de versões",
+      "tomo": 10,
+      "inicio": 10,
+      "fim": 13,
+      "paginas": 7,
+      "bytes": 632810,
+      "sha256": "10998d5bbb8e317e2baa672e5a9e53c00b2a2ce8d43bf1e831b881ef2acfd1fb"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/01-01-confiabilidade-portabilidade-e-usabilidade.pdf",
+      "titulo": "Confiabilidade, portabilidade e usabilidade",
+      "tomo": 1,
+      "inicio": 29,
+      "fim": 31,
+      "paginas": 6,
+      "bytes": 418919,
+      "sha256": "b7ac4b2f6a52a8f10222699bab7b2c1ab6a34647cf495666d43b6aea9c92b24d"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/01-02-usabilidade-e-interfaces-centradas-no-usuario.pdf",
+      "titulo": "Usabilidade e interfaces centradas no usuário",
+      "tomo": 7,
+      "inicio": 29,
+      "fim": 31,
+      "paginas": 6,
+      "bytes": 346169,
+      "sha256": "0e39cddc7bbf5d14cd9c6b4e92e1f07b2af690d5ef1ed4c689fcc5629d70bfbe"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/02-01-mapa-de-navegacao-e-projeto-de-interfaces.pdf",
+      "titulo": "Mapa de navegação e projeto de interfaces",
+      "tomo": 5,
+      "inicio": 8,
+      "fim": 9,
+      "paginas": 5,
+      "bytes": 461843,
+      "sha256": "d60bc729cdb12ee289d4d046c44cd3dd2f60a1adb57fc94f502a341ab3e08889"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/02-02-acessibilidade-e-texto-alternativo-na-web.pdf",
+      "titulo": "Acessibilidade e texto alternativo na web",
+      "tomo": 11,
+      "inicio": 17,
+      "fim": 20,
+      "paginas": 7,
+      "bytes": 714908,
+      "sha256": "9eb3cfd06e87fa50b3eb1e139197c679f87752556b8d5075bb934b372aa3f539"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/03-01-testes-de-caixa-branca-e-caixa-preta.pdf",
+      "titulo": "Testes de caixa branca e caixa preta",
+      "tomo": 1,
+      "inicio": 15,
+      "fim": 17,
+      "paginas": 6,
+      "bytes": 451783,
+      "sha256": "12d153294a7db86c5ba5633ddde3c5f528e2d32bac372353eb939d04db75b72c"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/03-02-verificacao-validacao-e-testes-de-software.pdf",
+      "titulo": "Verificação, validação e testes de software",
+      "tomo": 10,
+      "inicio": 14,
+      "fim": 16,
+      "paginas": 6,
+      "bytes": 616065,
+      "sha256": "4d7e9a0902b966420cd360e17227c465e25e4c17295caf126a27ab5af28bde27"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/04-01-tipos-de-manutencao-de-software.pdf",
+      "titulo": "Tipos de manutenção de software",
+      "tomo": 3,
+      "inicio": 6,
+      "fim": 7,
+      "paginas": 5,
+      "bytes": 410756,
+      "sha256": "123cdb664267f8c11ca9fef72f7f0cd11f6d7f9f0aaf8537c3f5d1c3acd041a1"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/04-02-planejamento-e-atividades-de-manutencao.pdf",
+      "titulo": "Planejamento e atividades de manutenção",
+      "tomo": 5,
+      "inicio": 14,
+      "fim": 17,
+      "paginas": 7,
+      "bytes": 491771,
+      "sha256": "247470384c98dbf340258b6d1090f7a0b47e96cb12975ac37a26f6f856b9a2bb"
+    },
+    {
+      "arquivo": "qualidade-interfaces-e-manutencao-de-software/04-03-sistemas-legados-e-evolucao-de-software.pdf",
+      "titulo": "Sistemas legados e evolução de software",
+      "tomo": 10,
+      "inicio": 17,
+      "fim": 19,
+      "paginas": 6,
+      "bytes": 617554,
+      "sha256": "6b1ca936b5c9d49384e86448aea2636fb1e3ad051699e5902c7dcec321a69179"
+    },
+    {
+      "arquivo": "fundamentos-de-banco-de-dados/01-01-modelagem-de-dados-relacionamentos-e-sql.pdf",
+      "titulo": "Modelagem de dados, relacionamentos e SQL",
+      "tomo": 11,
+      "inicio": 8,
+      "fim": 13,
+      "paginas": 9,
+      "bytes": 648044,
+      "sha256": "63c150f39cb0b3c8c18456de68b342fd8311dbae764848d0f0a996854f109741"
+    },
+    {
+      "arquivo": "fundamentos-de-banco-de-dados/02-01-transacoes-e-atomicidade-no-banco-de-dados.pdf",
+      "titulo": "Transações e atomicidade no banco de dados",
+      "tomo": 3,
+      "inicio": 3,
+      "fim": 5,
+      "paginas": 6,
+      "bytes": 420055,
+      "sha256": "02061342f2a0c710198d97e2413663b2315c0a07a2d516cd888f0c619d46e774"
+    },
+    {
+      "arquivo": "fundamentos-de-infraestrutura-de-ti/01-01-arquitetura-de-computadores-e-barramentos.pdf",
+      "titulo": "Arquitetura de computadores e barramentos",
+      "tomo": 7,
+      "inicio": 14,
+      "fim": 16,
+      "paginas": 6,
+      "bytes": 356412,
+      "sha256": "6672dcf70cc91748b341ca783519f7a47bbd8a5814518140b064324cca419ab7"
+    },
+    {
+      "arquivo": "fundamentos-de-infraestrutura-de-ti/02-01-sistemas-operacionais-e-multiprogramacao.pdf",
+      "titulo": "Sistemas operacionais e multiprogramação",
+      "tomo": 10,
+      "inicio": 3,
+      "fim": 6,
+      "paginas": 7,
+      "bytes": 633016,
+      "sha256": "e872dac5f6b4716d31ddbabdaff5abc51a73929aa79d727093b893e93730b4cb"
+    },
+    {
+      "arquivo": "fundamentos-de-infraestrutura-de-ti/03-01-maquinas-virtuais-e-virtualizacao.pdf",
+      "titulo": "Máquinas virtuais e virtualização",
+      "tomo": 1,
+      "inicio": 18,
+      "fim": 21,
+      "paginas": 7,
+      "bytes": 421474,
+      "sha256": "6e1ec662f568e968a10d3571920f1339100a6527573dab18447824b103bf3002"
+    },
+    {
+      "arquivo": "fundamentos-de-infraestrutura-de-ti/04-01-redes-locais-hubs-e-switches.pdf",
+      "titulo": "Redes locais, hubs e switches",
+      "tomo": 3,
+      "inicio": 8,
+      "fim": 11,
+      "paginas": 7,
+      "bytes": 425518,
+      "sha256": "3b389e462e3fc172b67b58fbc6692e01a00d03c252fe8fed220822ac80b9343f"
+    },
+    {
+      "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/01-01-modelagem-de-processos-com-epc-e-aris.pdf",
+      "titulo": "Modelagem de processos com EPC e ARIS",
+      "tomo": 5,
+      "inicio": 5,
+      "fim": 7,
+      "paginas": 6,
+      "bytes": 527630,
+      "sha256": "52b828990d3c12507fdab7a88e7822a49c7a505d5e9456d55922baaf72b6e55a"
+    },
+    {
+      "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/01-02-processos-de-negocio-e-melhoria-continua.pdf",
+      "titulo": "Processos de negócio e melhoria contínua",
+      "tomo": 5,
+      "inicio": 12,
+      "fim": 13,
+      "paginas": 5,
+      "bytes": 461250,
+      "sha256": "b9ae009ed05720f6734179273a76bd7c2fb3db89b70322f58f44e4fdc62179e2"
+    },
+    {
+      "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/02-01-planejamento-riscos-e-continuidade-dos-negocios.pdf",
+      "titulo": "Planejamento, riscos e continuidade dos negócios",
+      "tomo": 7,
+      "inicio": 3,
+      "fim": 6,
+      "paginas": 7,
+      "bytes": 348510,
+      "sha256": "ee4cf4bb5f8c936683351a6a14002ba0524272dcc2a1d102f27de2cc2a56a364"
+    },
+    {
+      "arquivo": "gestao-de-processos-riscos-e-cidadania-digital/03-01-marco-civil-da-internet-e-direitos-dos-usuarios.pdf",
+      "titulo": "Marco Civil da Internet e direitos dos usuários",
+      "tomo": 7,
+      "inicio": 7,
+      "fim": 9,
+      "paginas": 6,
+      "bytes": 344365,
+      "sha256": "0f443efb495b970f2af2ee3803e16c580fe955c6a4d3c0c6c17a7994ab0e73f8"
+    }
+  ]
+}
