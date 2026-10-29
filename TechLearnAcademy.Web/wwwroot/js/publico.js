@@ -14,6 +14,7 @@ if (pagina === "login") {
 }
 
 if (pagina === "cadastro") {
+    configurarSexo("sexo", "area-sexo-outro", "sexo-outro");
     enviarFormulario("form-cadastro", async function (formulario) {
         const nome = textoCampo("nome");
         const email = textoCampo("email");
@@ -21,9 +22,11 @@ if (pagina === "cadastro") {
         verificarEmail(email);
         verificarSenha(valor("senha"), valor("confirmar-senha"));
         const resposta = await requisicao("/api/usuarios/cadastro", "POST", {
-            nome: nome, email: email, senha: valor("senha"), confirmarSenha: valor("confirmar-senha")
+            nome: nome, email: email, telefone: textoCampo("telefone"), sexo: valor("sexo"), sexoOutro: textoCampo("sexo-outro"),
+            senha: valor("senha"), confirmarSenha: valor("confirmar-senha")
         });
         formulario.reset();
+        campo("sexo").dispatchEvent(new Event("change"));
         aviso(resposta.mensagem, "sucesso");
     }, "Cadastrando...");
 }

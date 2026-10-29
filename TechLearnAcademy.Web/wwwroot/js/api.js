@@ -88,6 +88,18 @@ function dataBrasileira(valor) {
 function valor(id) { return campo(id).value; }
 function textoCampo(id) { return valor(id).trim(); }
 
+// Mostra a descrição somente quando a pessoa escolhe "Outro".
+function configurarSexo(selecao, areaOutro, campoOutro) {
+    const atualizar = function () {
+        const outro = valor(selecao) === "Outro";
+        campo(areaOutro).hidden = !outro;
+        campo(campoOutro).required = outro;
+        if (!outro) campo(campoOutro).value = "";
+    };
+    campo(selecao).addEventListener("change", atualizar);
+    atualizar();
+}
+
 // Os textos vindos da API são exibidos com textContent, sem executar HTML.
 function metricas(dados) {
     const area = campo("metricas");

@@ -24,6 +24,28 @@ public static class Validacao
 		}
 	}
 
+	public static string Telefone(string telefone)
+	{
+		string numeros = Regex.Replace(telefone, @"[\s()\-]", "");
+		if (!Regex.IsMatch(numeros, @"^[0-9]{10,11}$"))
+		{
+			throw new InvalidOperationException("Informe um telefone com DDD e 10 ou 11 números.");
+		}
+		return numeros;
+	}
+
+	public static void Sexo(string sexo, string descricao)
+	{
+		if (sexo != "Masculino" && sexo != "Feminino" && sexo != "Outro")
+		{
+			throw new InvalidOperationException("Escolha Masculino, Feminino ou Outro.");
+		}
+		if (sexo == "Outro" && (descricao.Trim().Length < 2 || descricao.Trim().Length > 60))
+		{
+			throw new InvalidOperationException("Descreva a opção Outro com 2 a 60 caracteres.");
+		}
+	}
+
 	public static void Senha(string senha, string confirmacao)
 	{
 		Rune[] array = senha.EnumerateRunes().ToArray();

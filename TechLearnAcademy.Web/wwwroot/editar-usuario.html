@@ -19,6 +19,9 @@
 <div class="campo"><label for="nome-editado-input">Nome</label><input id="nome-editado-input" required minlength="2" maxlength="100"></div>
 <div class="campo"><label for="email-editado-input">E-mail de acesso</label><input id="email-editado-input" type="email" required maxlength="254"></div>
 <div class="campo"><label for="contato-editado">E-mail pessoal para recuperação</label><input id="contato-editado" type="email" required maxlength="254"></div>
+<div class="campo"><label for="telefone-editado">Telefone com DDD</label><input id="telefone-editado" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required maxlength="20"></div>
+<div class="campo"><label for="sexo-editado">Sexo</label><select id="sexo-editado" required aria-controls="area-sexo-outro-editado"><option value="">Selecione</option><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option><option value="Outro">Outro</option></select></div>
+<div id="area-sexo-outro-editado" class="campo" hidden><label for="sexo-outro-editado">Como a pessoa descreve seu sexo?</label><input id="sexo-outro-editado" type="text" minlength="2" maxlength="60" autocomplete="off"></div>
 <div id="situacao-conta" class="campo"><label for="ativo">Situação da conta</label><select id="ativo"><option value="true">Ativo</option><option value="false">Inativo</option></select></div>
 <button type="submit">Salvar alterações</button></form><p class="linha"><a href="usuarios.html">Voltar aos usuários</a></p></section></div></main>
 <footer class="rodape">TechLearn Academy · Conhecimento para abrir novos caminhos.</footer>

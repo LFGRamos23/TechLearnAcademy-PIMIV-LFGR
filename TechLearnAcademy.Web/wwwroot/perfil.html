@@ -53,6 +53,12 @@
                             </div>
                             <div class="campo"><label for="email-contato">E-mail pessoal para recuperação de senha</label>
                                 <input id="email-contato" type="email" required maxlength="254"></div>
+                            <div class="campo"><label for="telefone">Telefone com DDD</label>
+                                <input id="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required maxlength="20"></div>
+                            <div class="campo"><label for="sexo">Sexo</label>
+                                <select id="sexo" required aria-controls="area-sexo-outro"><option value="">Selecione</option><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option><option value="Outro">Outro</option></select></div>
+                            <div id="area-sexo-outro" class="campo" hidden><label for="sexo-outro">Como você descreve seu sexo?</label>
+                                <input id="sexo-outro" type="text" minlength="2" maxlength="60" autocomplete="off"></div>
                             <button type="submit">Salvar dados</button>
                         </form>
                     </section>

@@ -3,6 +3,10 @@ iniciar([], async function (usuario) {
     campo("email").value = usuario.email;
     campo("email").readOnly = usuario.perfil !== "Aluno";
     campo("email-contato").value = usuario.emailContato || usuario.email;
+    campo("telefone").value = usuario.telefone || "";
+    campo("sexo").value = usuario.sexo || "";
+    campo("sexo-outro").value = usuario.sexoOutro || "";
+    configurarSexo("sexo", "area-sexo-outro", "sexo-outro");
     if (usuario.perfil !== "Administrador") campo("modelo-senha").before(campo("modelo-senha").content.cloneNode(true));
     campo("modelo-senha").remove();
     if (usuario.perfil === "Administrador") campo("email-contato").previousElementSibling.textContent = "E-mail pessoal de contato";
@@ -12,7 +16,10 @@ iniciar([], async function (usuario) {
         const email = textoCampo("email");
         verificarNome(nome);
         verificarEmail(email);
-        const resposta = await requisicao("/api/usuarios/perfil", "PUT", { nome: nome, email: email, emailContato: textoCampo("email-contato") });
+        const resposta = await requisicao("/api/usuarios/perfil", "PUT", {
+            nome: nome, email: email, emailContato: textoCampo("email-contato"),
+            telefone: textoCampo("telefone"), sexo: valor("sexo"), sexoOutro: textoCampo("sexo-outro")
+        });
         campo("nome-usuario").textContent = nome + " · " + usuario.perfil;
         aviso(resposta.mensagem, "sucesso");
     });

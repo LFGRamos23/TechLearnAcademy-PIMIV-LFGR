@@ -9,6 +9,7 @@ async function listarUsuarios(paginaNumero = 1) {
         const item = cartao(usuario.nome, usuario.email);
         item.append(elemento("p", usuario.perfil + " · " + (usuario.ativo ? "Ativo" : "Inativo")),
             criarLink("Editar dados", "editar-usuario.html?id=" + usuario.id));
+        if (usuario.telefone) item.append(elemento("p", "Telefone: " + usuario.telefone));
         if (autor.perfil === "Administrador") item.append(botaoAcao(usuario.ativo ? "Desativar conta" : "Ativar conta", async function () {
             if (!await dialogo("Situação da conta", (usuario.ativo ? "Desativar" : "Ativar") + " a conta de " + usuario.nome + "?")) return;
             const resposta = await requisicao("/api/administracao/usuarios/" + usuario.id, "PUT", { ativo: !usuario.ativo });
@@ -34,6 +35,7 @@ iniciar(["Administrador", "Gestor"], async function (usuario) {
         await listarUsuarios();
     }
     if (pagina === "cadastrar") {
+        configurarSexo("conta-sexo", "area-conta-sexo-outro", "conta-sexo-outro");
         if (usuario.perfil === "Gestor") {
             campo("titulo-cadastro").textContent = "Cadastrar mentor";
             campo("conta-perfil").querySelector('option[value="Gestor"]').remove();
@@ -44,9 +46,10 @@ iniciar(["Administrador", "Gestor"], async function (usuario) {
             verificarSenha(valor("conta-senha"), valor("conta-confirmacao"));
             const retorno = await requisicao("/api/administracao/usuarios", "POST", {
                 nome: textoCampo("conta-nome"), emailContato: textoCampo("conta-contato"), perfil: valor("conta-perfil"),
+                telefone: textoCampo("conta-telefone"), sexo: valor("conta-sexo"), sexoOutro: textoCampo("conta-sexo-outro"),
                 senha: valor("conta-senha"), confirmarSenha: valor("conta-confirmacao")
             });
-            form.reset(); aviso(retorno.mensagem, "sucesso");
+            form.reset(); campo("conta-sexo").dispatchEvent(new Event("change")); aviso(retorno.mensagem, "sucesso");
             await dialogo("Conta cadastrada", "E-mail de acesso: " + retorno.email + "\nInforme esse e-mail e a senha inicial ao usuário.", false, "Entendi");
         });
     }
@@ -56,12 +59,18 @@ iniciar(["Administrador", "Gestor"], async function (usuario) {
         campo("nome-editado-input").value = u.nome; campo("email-editado-input").value = u.email;
         campo("email-editado-input").readOnly = u.perfil !== "Aluno";
         campo("contato-editado").value = u.emailContato || u.email;
+        campo("telefone-editado").value = u.telefone || "";
+        campo("sexo-editado").value = u.sexo || "";
+        campo("sexo-outro-editado").value = u.sexoOutro || "";
+        configurarSexo("sexo-editado", "area-sexo-outro-editado", "sexo-outro-editado");
         campo("ativo").value = String(u.ativo);
         campo("situacao-conta").hidden = usuario.perfil !== "Administrador";
         enviarFormulario("form-usuario", async function () {
             const resposta = await requisicao("/api/administracao/usuarios/" + u.id, "PUT", {
                 nome: textoCampo("nome-editado-input"), email: textoCampo("email-editado-input"),
-                emailContato: textoCampo("contato-editado"), ativo: usuario.perfil === "Administrador" ? valor("ativo") === "true" : u.ativo
+                emailContato: textoCampo("contato-editado"), telefone: textoCampo("telefone-editado"),
+                sexo: valor("sexo-editado"), sexoOutro: textoCampo("sexo-outro-editado"),
+                ativo: usuario.perfil === "Administrador" ? valor("ativo") === "true" : u.ativo
             });
             aviso(resposta.mensagem, "sucesso");
         });

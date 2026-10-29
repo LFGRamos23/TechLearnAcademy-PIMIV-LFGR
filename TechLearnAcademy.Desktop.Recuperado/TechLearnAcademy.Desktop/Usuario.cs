@@ -10,6 +10,12 @@ public class Usuario
 
 	public string? EmailContato { get; set; }
 
+	public string? Telefone { get; set; }
+
+	public string? Sexo { get; set; }
+
+	public string? SexoOutro { get; set; }
+
 	public string Perfil { get; set; } = "";
 
 	public bool Ativo { get; set; } = true;
