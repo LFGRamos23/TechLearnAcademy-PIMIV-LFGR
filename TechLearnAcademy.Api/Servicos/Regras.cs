@@ -36,6 +36,21 @@ public static class Regras
         return valor.ToLowerInvariant();
     }
 
+    public static string Telefone(string? telefone)
+    {
+        string numeros = Regex.Replace(telefone ?? "", @"[\s()\-]", "");
+        Exigir(Regex.IsMatch(numeros, @"^[0-9]{10,11}$"), "Informe um telefone com DDD e 10 ou 11 números.");
+        return numeros;
+    }
+
+    public static (string Sexo, string? Outro) SexoInformado(string? sexo, string? descricao)
+    {
+        string escolha = (sexo ?? "").Trim();
+        Exigir(escolha is "Masculino" or "Feminino" or "Outro", "Escolha Masculino, Feminino ou Outro.");
+        if (escolha == "Outro") return (escolha, Texto(descricao, 2, 60, "Descrição de Outro"));
+        return (escolha, null);
+    }
+
     // Cada e-mail identifica somente uma pessoa, seja de acesso ou de recuperação.
     public static async Task EmailDisponivel(SqlConnection banco, string email, string contato, int usuarioId, SqlTransaction transacao)
     {

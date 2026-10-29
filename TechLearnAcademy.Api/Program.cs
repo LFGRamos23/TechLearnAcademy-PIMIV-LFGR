@@ -36,13 +36,23 @@ if (args.Contains("--criar-admin"))
     string nome = Console.ReadLine() ?? "";
     Console.Write("E-mail: ");
     string email = Console.ReadLine() ?? "";
+    Console.Write("Telefone com DDD: ");
+    string telefone = Console.ReadLine() ?? "";
+    Console.Write("Sexo (Masculino, Feminino ou Outro): ");
+    string sexo = Console.ReadLine() ?? "";
+    string sexoOutro = "";
+    if (sexo == "Outro")
+    {
+        Console.Write("Como descreve seu sexo? ");
+        sexoOutro = Console.ReadLine() ?? "";
+    }
     Console.Write("Senha (não será exibida): ");
     string senha = LerSenha();
     Console.Write("Confirmar senha: ");
     string confirmacao = LerSenha();
     try
     {
-        await usuarios.PrimeiroAdministrador(new DadosCadastro { Nome = nome, Email = email, Senha = senha, ConfirmarSenha = confirmacao });
+        await usuarios.PrimeiroAdministrador(new DadosCadastro { Nome = nome, Email = email, Telefone = telefone, Sexo = sexo, SexoOutro = sexoOutro, Senha = senha, ConfirmarSenha = confirmacao });
         Console.WriteLine("Administrador criado com os dados informados.");
     }
     catch (ErroAplicacao erro) { Console.Error.WriteLine(erro.Message); Environment.ExitCode = 1; }
@@ -105,7 +115,7 @@ app.Use(async (contexto, proximo) =>
         if (erro.Number == 547 || erro.Number == 51001 || erro.Number == 51002) { status = 400; mensagem = "Verifique os dados e os registros relacionados. O registro pode estar inativo."; }
         if (erro.Number == 51003) { status = 409; mensagem = "Você já está matriculado neste curso."; }
         if (erro.Number == 51004) { status = 409; mensagem = "O curso pode ter no máximo quatro módulos."; }
-        if (erro.Number == 207 || erro.Number == 208) { mensagem = "O banco precisa da atualização. Execute Banco/05-atualizar-funcionalidades.sql e Banco/07-corrigir-recuperacao-e-avaliacoes.sql no SQL Server e reinicie o site."; }
+        if (erro.Number == 207 || erro.Number == 208) { mensagem = "O banco precisa de atualização. Confira os scripts 05, 07 e 08 da pasta Banco e reinicie o site."; }
         contexto.Response.StatusCode = status;
         await contexto.Response.WriteAsJsonAsync(new { mensagem });
     }

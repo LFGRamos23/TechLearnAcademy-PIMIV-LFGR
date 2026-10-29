@@ -22,14 +22,14 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         var dados = new { busca = "%" + (busca ?? "").Trim() + "%", inicio = (pagina - 1) * 15, admin = autor.Perfil == "Administrador" };
         string filtro = " WHERE (@admin=1 OR Perfil IN('Aluno','Mentor')) AND (Nome LIKE @busca OR Email LIKE @busca)";
         int total = await ConexaoBanco.Numero(banco, "SELECT COUNT(*) FROM Usuarios" + filtro, dados);
-        var itens = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,EmailContato AS emailContato,Perfil AS perfil,Ativo AS ativo FROM Usuarios" + filtro + " ORDER BY Nome,Id OFFSET @inicio ROWS FETCH NEXT 15 ROWS ONLY", dados);
+        var itens = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,EmailContato AS emailContato,Telefone AS telefone,Sexo AS sexo,SexoOutro AS sexoOutro,Perfil AS perfil,Ativo AS ativo FROM Usuarios" + filtro + " ORDER BY Nome,Id OFFSET @inicio ROWS FETCH NEXT 15 ROWS ONLY", dados);
         return new { itens, pagina, totalPaginas = Math.Max(1, (total + 14) / 15), total };
     }
 
     public async Task<object> UsuarioDetalhes(Usuario autor, int id)
     {
         using var banco = await conexao.Abrir();
-        var lista = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,EmailContato AS emailContato,Perfil AS perfil,Ativo AS ativo FROM Usuarios WHERE Id=@id AND (@admin=1 OR Perfil IN('Aluno','Mentor'))", new { id, admin = autor.Perfil == "Administrador" });
+        var lista = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,EmailContato AS emailContato,Telefone AS telefone,Sexo AS sexo,SexoOutro AS sexoOutro,Perfil AS perfil,Ativo AS ativo FROM Usuarios WHERE Id=@id AND (@admin=1 OR Perfil IN('Aluno','Mentor'))", new { id, admin = autor.Perfil == "Administrador" });
         Regras.Exigir(lista.Count == 1, "Usuário não encontrado ou sem permissão.", 404);
         return lista[0];
     }
@@ -39,7 +39,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         using var banco = await conexao.Abrir();
         using var transacao = banco.BeginTransaction(System.Data.IsolationLevel.Serializable);
         var admins = await ConexaoBanco.Consultar(banco, "SELECT Id AS id FROM Usuarios WITH(UPDLOCK,HOLDLOCK) WHERE Perfil='Administrador' AND Ativo=1", null, transacao);
-        var lista = await ConexaoBanco.Consultar(banco, "SELECT Nome AS nome,Email AS email,EmailContato AS emailContato,Perfil AS perfil,Ativo AS ativo FROM Usuarios WITH(UPDLOCK,HOLDLOCK) WHERE Id=@id", new { id }, transacao);
+        var lista = await ConexaoBanco.Consultar(banco, "SELECT Nome AS nome,Email AS email,EmailContato AS emailContato,Telefone AS telefone,Sexo AS sexo,SexoOutro AS sexoOutro,Perfil AS perfil,Ativo AS ativo FROM Usuarios WITH(UPDLOCK,HOLDLOCK) WHERE Id=@id", new { id }, transacao);
         Regras.Exigir(lista.Count == 1, "Usuário não encontrado.", 404);
         var atual = lista[0];
         string perfil = (string)atual["perfil"]!;
@@ -50,9 +50,17 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         string nome = Regras.Texto(string.IsNullOrWhiteSpace(dados.Nome) ? (string)atual["nome"]! : dados.Nome, 2, 100, "Nome");
         string email = perfil == "Aluno" && !string.IsNullOrWhiteSpace(dados.Email) ? Regras.Email(dados.Email) : (string)atual["email"]!;
         string contato = Regras.Email(string.IsNullOrWhiteSpace(dados.EmailContato) ? (string?)atual["emailContato"] ?? email : dados.EmailContato);
+        string? telefone = string.IsNullOrWhiteSpace(dados.Telefone) ? (string?)atual["telefone"] : Regras.Telefone(dados.Telefone);
+        string? sexo = (string?)atual["sexo"], sexoOutro = (string?)atual["sexoOutro"];
+        if (!string.IsNullOrWhiteSpace(dados.Sexo))
+        {
+            var escolha = Regras.SexoInformado(dados.Sexo, dados.SexoOutro);
+            sexo = escolha.Sexo;
+            sexoOutro = escolha.Outro;
+        }
         await Regras.EmailDisponivel(banco, email, contato, id, transacao);
         // Perfil e e-mail institucional não mudam durante uma edição.
-        await ConexaoBanco.Gravar(banco, "UPDATE Usuarios SET Nome=@nome,Email=@email,EmailContato=@contato,Ativo=@ativo WHERE Id=@id; UPDATE Sessoes SET Revogada=1 WHERE UsuarioId=@id", new { id, nome, email, contato, ativo = dados.Ativo }, transacao);
+        await ConexaoBanco.Gravar(banco, "UPDATE Usuarios SET Nome=@nome,Email=@email,EmailContato=@contato,Telefone=@telefone,Sexo=@sexo,SexoOutro=@sexoOutro,Ativo=@ativo WHERE Id=@id; UPDATE Sessoes SET Revogada=1 WHERE UsuarioId=@id", new { id, nome, email, contato, telefone, sexo, sexoOutro, ativo = dados.Ativo }, transacao);
         if (!dados.Ativo)
             await ConexaoBanco.Gravar(banco, "UPDATE Chamados SET ResponsavelId=NULL,Status='Aberto' WHERE ResponsavelId=@id AND Status='Em atendimento'", new { id }, transacao);
         await transacao.CommitAsync();

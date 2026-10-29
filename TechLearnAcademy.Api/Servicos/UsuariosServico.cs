@@ -35,6 +35,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
     {
         Usuario usuario = new Usuario(perfil: perfil);
         usuario.AtualizarDados(dados.Nome, dados.Email);
+        usuario.AtualizarDadosPessoais(dados.Telefone, dados.Sexo, dados.SexoOutro);
         usuario.DefinirSenha(dados.Senha, dados.ConfirmarSenha);
         using var banco = await conexao.Abrir();
         using var transacao = banco.BeginTransaction(System.Data.IsolationLevel.Serializable);
@@ -46,7 +47,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         try
         {
             await Regras.EmailDisponivel(banco, usuario.Email, usuario.Email, 0, transacao);
-            await ConexaoBanco.Gravar(banco, "INSERT INTO Usuarios(Nome,Email,EmailContato,SenhaHash,Perfil) VALUES(@nome,@email,@email,@hash,@perfil)", new { nome = usuario.Nome, email = usuario.Email, hash = usuario.SenhaHash, perfil = usuario.Perfil }, transacao);
+            await ConexaoBanco.Gravar(banco, "INSERT INTO Usuarios(Nome,Email,EmailContato,SenhaHash,Perfil,Telefone,Sexo,SexoOutro) VALUES(@nome,@email,@email,@hash,@perfil,@telefone,@sexo,@sexoOutro)", new { nome = usuario.Nome, email = usuario.Email, hash = usuario.SenhaHash, perfil = usuario.Perfil, telefone = usuario.Telefone, sexo = usuario.Sexo, sexoOutro = usuario.SexoOutro }, transacao);
             await transacao.CommitAsync();
         }
         catch (SqlException erro) when (erro.Number == 2601 || erro.Number == 2627)
@@ -59,7 +60,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         Regras.Exigir(!string.IsNullOrEmpty(dados.Senha), "Informe a senha.");
         using var banco = await conexao.Abrir();
         using var transacao = banco.BeginTransaction();
-        var lista = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,Perfil AS perfil,SenhaHash AS senhaHash FROM Usuarios WITH(UPDLOCK,HOLDLOCK) WHERE Email=@email AND Ativo=1", new { email }, transacao);
+        var lista = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,EmailContato AS emailContato,Telefone AS telefone,Sexo AS sexo,SexoOutro AS sexoOutro,Perfil AS perfil,SenhaHash AS senhaHash FROM Usuarios WITH(UPDLOCK,HOLDLOCK) WHERE Email=@email AND Ativo=1", new { email }, transacao);
         // Apenas a senha armazenada em hash decide se o login é válido.
         Usuario? usuario = lista.Count == 1 ? Usuario.DoBanco(lista[0]) : null;
         Regras.Exigir(usuario != null && usuario.ConferirSenha(dados.Senha), "E-mail ou senha inválidos.", 401);
@@ -72,16 +73,16 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
             HttpOnly = true, Secure = https, SameSite = SameSiteMode.Strict,
             Path = "/", MaxAge = TimeSpan.FromHours(8), IsEssential = true
         });
-        return new { mensagem = "Login realizado com sucesso.", id = usuario!.Id, nome = usuario.Nome, email = usuario.Email, perfil = usuario.Perfil, token };
+        return new { mensagem = "Login realizado com sucesso.", id = usuario!.Id, nome = usuario.Nome, email = usuario.Email, emailContato = lista[0]["emailContato"], telefone = usuario.Telefone, sexo = usuario.Sexo, sexoOutro = usuario.SexoOutro, perfil = usuario.Perfil, token };
     }
 
     public async Task<object> Perfil(int id)
     {
         using var banco = await conexao.Abrir();
-        var lista = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,EmailContato AS emailContato,Perfil AS perfil,Ativo AS ativo FROM Usuarios WHERE Id=@id", new { id });
+        var lista = await ConexaoBanco.Consultar(banco, "SELECT Id AS id,Nome AS nome,Email AS email,EmailContato AS emailContato,Telefone AS telefone,Sexo AS sexo,SexoOutro AS sexoOutro,Perfil AS perfil,Ativo AS ativo FROM Usuarios WHERE Id=@id", new { id });
         Regras.Exigir(lista.Count == 1, "Usuário não encontrado.", 404);
         Usuario usuario = Usuario.DoBanco(lista[0]);
-        return new { id = usuario.Id, nome = usuario.Nome, email = usuario.Email, perfil = usuario.Perfil, ativo = usuario.Ativo, emailContato = lista[0]["emailContato"] };
+        return new { id = usuario.Id, nome = usuario.Nome, email = usuario.Email, perfil = usuario.Perfil, ativo = usuario.Ativo, emailContato = lista[0]["emailContato"], telefone = usuario.Telefone, sexo = usuario.Sexo, sexoOutro = usuario.SexoOutro };
     }
 
     public async Task AlterarPerfil(int id, DadosPerfil dados)
@@ -89,12 +90,22 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         string nome = Regras.Texto(dados.Nome, 2, 100, "Nome");
         using var banco = await conexao.Abrir();
         using var transacao = banco.BeginTransaction(System.Data.IsolationLevel.Serializable);
-        var atual = (await ConexaoBanco.Consultar(banco, "SELECT Email AS email,Perfil AS perfil FROM Usuarios WITH(UPDLOCK,HOLDLOCK) WHERE Id=@id", new { id }, transacao))[0];
+        var lista = await ConexaoBanco.Consultar(banco, "SELECT Email AS email,Perfil AS perfil,Telefone AS telefone,Sexo AS sexo,SexoOutro AS sexoOutro FROM Usuarios WITH(UPDLOCK,HOLDLOCK) WHERE Id=@id", new { id }, transacao);
+        Regras.Exigir(lista.Count == 1, "Usuário não encontrado.", 404);
+        var atual = lista[0];
         string perfil = (string)atual["perfil"]!;
         string email = perfil == "Aluno" ? Regras.Email(dados.Email) : (string)atual["email"]!;
         string contato = Regras.Email(string.IsNullOrWhiteSpace(dados.EmailContato) ? email : dados.EmailContato);
+        string? telefone = string.IsNullOrWhiteSpace(dados.Telefone) ? (string?)atual["telefone"] : Regras.Telefone(dados.Telefone);
+        string? sexo = (string?)atual["sexo"], sexoOutro = (string?)atual["sexoOutro"];
+        if (!string.IsNullOrWhiteSpace(dados.Sexo))
+        {
+            var escolha = Regras.SexoInformado(dados.Sexo, dados.SexoOutro);
+            sexo = escolha.Sexo;
+            sexoOutro = escolha.Outro;
+        }
         await Regras.EmailDisponivel(banco, email, contato, id, transacao);
-        await ConexaoBanco.Gravar(banco, "UPDATE Usuarios SET Nome=@nome,Email=@email,EmailContato=@contato WHERE Id=@id", new { nome, email, contato, id }, transacao);
+        await ConexaoBanco.Gravar(banco, "UPDATE Usuarios SET Nome=@nome,Email=@email,EmailContato=@contato,Telefone=@telefone,Sexo=@sexo,SexoOutro=@sexoOutro WHERE Id=@id", new { nome, email, contato, telefone, sexo, sexoOutro, id }, transacao);
         await transacao.CommitAsync();
     }
 
@@ -117,6 +128,8 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
             (autor.Perfil == "Gestor" && dados.Perfil == "Mentor"), "Você não pode cadastrar este perfil.", 403);
         string nome = Regras.Texto(dados.Nome, 2, 100, "Nome");
         string contato = Regras.Email(dados.EmailContato);
+        string telefone = Regras.Telefone(dados.Telefone);
+        var escolha = Regras.SexoInformado(dados.Sexo, dados.SexoOutro);
         EmailInstitucional(nome, 1, dados.Perfil);
         Regras.Senha(dados.Senha, dados.ConfirmarSenha);
         string hash = Regras.HashSenha(dados.Senha);
@@ -124,7 +137,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         using var transacao = banco.BeginTransaction(System.Data.IsolationLevel.Serializable);
         string temporario = Guid.NewGuid().ToString("N") + "@cadastro.techlearn.com";
         await Regras.EmailDisponivel(banco, temporario, contato, 0, transacao);
-        int id = await ConexaoBanco.Numero(banco, "INSERT INTO Usuarios(Nome,Email,EmailContato,SenhaHash,Perfil) VALUES(@nome,@temporario,@contato,@hash,@perfil); SELECT CAST(SCOPE_IDENTITY() AS int)", new { nome, temporario, contato, hash, perfil = dados.Perfil }, transacao);
+        int id = await ConexaoBanco.Numero(banco, "INSERT INTO Usuarios(Nome,Email,EmailContato,SenhaHash,Perfil,Telefone,Sexo,SexoOutro) VALUES(@nome,@temporario,@contato,@hash,@perfil,@telefone,@sexo,@sexoOutro); SELECT CAST(SCOPE_IDENTITY() AS int)", new { nome, temporario, contato, hash, perfil = dados.Perfil, telefone, sexo = escolha.Sexo, sexoOutro = escolha.Outro }, transacao);
         string email = EmailInstitucional(nome, id, dados.Perfil);
         await Regras.EmailDisponivel(banco, email, contato, id, transacao);
         await ConexaoBanco.Gravar(banco, "UPDATE Usuarios SET Email=@email WHERE Id=@id", new { id, email }, transacao);

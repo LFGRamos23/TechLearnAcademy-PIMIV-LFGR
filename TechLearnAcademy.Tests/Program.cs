@@ -37,12 +37,22 @@ Recusar(() => Regras.Texto("A", 2, 100, "Nome"), "Nome curto recusado");
 Recusar(() => Regras.Texto(new string('A', 101), 2, 100, "Nome"), "Nome longo recusado");
 Verificar(Regras.Email("  Pessoa@Example.test  ") == "pessoa@example.test", "E-mail normalizado");
 Recusar(() => Regras.Email("email-sem-formato"), "E-mail inválido recusado");
+Verificar(Regras.Telefone("(11) 99999-9999") == "11999999999", "Telefone com DDD é salvo só com números");
+Recusar(() => Regras.Telefone("99999-9999"), "Telefone sem DDD recusado");
+Recusar(() => Regras.Telefone("(11) 99999-ABCD"), "Telefone com letras recusado");
+Verificar(Regras.SexoInformado("Outro", " Não binário ").Outro == "Não binário", "Descrição de Outro é guardada");
+Recusar(() => Regras.SexoInformado("Outro", ""), "Outro exige descrição");
+Recusar(() => Regras.SexoInformado("Desconhecido", "texto"), "Sexo fora das opções recusado");
 Recusar(() => Regras.Url("javascript:alert(1)"), "Material não executa URL JavaScript");
 Verificar(Regras.Url("https://example.test/material.pdf") == "https://example.test/material.pdf", "Material HTTPS aceito");
 
 // Verificações da refatoração: perfis, sigilo e resultados continuam compatíveis.
 var aluno = new Usuario();
 aluno.AtualizarDados("  Pessoa Aluna  ", "  Pessoa@Example.test  ");
+aluno.AtualizarDadosPessoais("(11) 99999-9999", "Outro", "Não binário");
+Verificar(aluno.Telefone == "11999999999" && aluno.Sexo == "Outro" && aluno.SexoOutro == "Não binário", "Usuário guarda os novos dados pessoais");
+aluno.AtualizarDadosPessoais("11999999999", "Feminino", null);
+Verificar(aluno.Sexo == "Feminino" && aluno.SexoOutro == null, "Mudança de Outro limpa a descrição anterior");
 aluno.DefinirSenha(senha, senha);
 Verificar(aluno.Nome == "Pessoa Aluna" && aluno.Email == "pessoa@example.test", "Cadastro normaliza nome e e-mail pela classe Usuario");
 Verificar(aluno.ConferirSenha(senha) && !aluno.ConferirSenha("incorreta"), "Usuário confere a senha pelo hash");
