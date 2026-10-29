@@ -18,8 +18,8 @@
 <form id="form-conta"><div class="campo"><label for="conta-nome">Nome completo</label><input id="conta-nome" required minlength="2" maxlength="100" autocomplete="name"></div>
 <div class="campo"><label for="conta-contato">E-mail pessoal para recuperação de senha</label><input id="conta-contato" type="email" required maxlength="254" autocomplete="email"></div>
 <div class="campo"><label for="conta-telefone">Telefone com DDD</label><input id="conta-telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required maxlength="20"></div>
-<div class="campo"><label for="conta-sexo">Sexo</label><select id="conta-sexo" required aria-controls="area-conta-sexo-outro"><option value="">Selecione</option><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option><option value="Outro">Outro</option></select></div>
-<div id="area-conta-sexo-outro" class="campo" hidden><label for="conta-sexo-outro">Como a pessoa descreve seu sexo?</label><input id="conta-sexo-outro" type="text" minlength="2" maxlength="60" autocomplete="off"></div>
+<div class="campo"><label for="conta-sexo">Gênero</label><select id="conta-sexo" required aria-controls="area-conta-sexo-outro"><option value="">Selecione</option><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option><option value="Outro">Outro</option></select></div>
+<div id="area-conta-sexo-outro" class="campo" hidden><label for="conta-sexo-outro">Como a pessoa descreve seu gênero?</label><input id="conta-sexo-outro" type="text" minlength="2" maxlength="60" autocomplete="off"></div>
 <div class="campo"><label for="conta-perfil">Perfil da nova conta</label><select id="conta-perfil"><option value="Mentor">Mentor</option><option value="Gestor">Gestor</option></select></div>
 <div class="campo"><label for="conta-senha">Senha inicial</label><input id="conta-senha" type="password" required autocomplete="new-password" aria-describedby="regra-senha"></div>
 <p id="regra-senha" class="ajuda">Mínimo 8 caracteres, uma letra maiúscula, um número e um caractere especial. Sem espaços.</p>

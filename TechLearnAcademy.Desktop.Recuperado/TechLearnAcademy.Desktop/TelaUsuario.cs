@@ -70,12 +70,12 @@ public class TelaUsuario : Form
 		perfil.SelectedIndex = 0;
 		Controls.Add(perfil);
 		telefone = Estilo.Campo(this, "Telefone com DDD", 306);
-		Estilo.Texto(this, "Sexo", 28, 372, 490, 24, negrito: true);
+		Estilo.Texto(this, "Gênero", 28, 372, 490, 24, negrito: true);
 		sexo.SetBounds(28, 398, 490, 28);
-		sexo.AccessibleName = "Sexo";
+		sexo.AccessibleName = "Gênero";
 		sexo.Items.AddRange("Masculino", "Feminino", "Outro");
 		Controls.Add(sexo);
-		rotuloSexoOutro = Estilo.Texto(this, "Como descreve seu sexo?", 28, 438, 490, 24, negrito: true);
+		rotuloSexoOutro = Estilo.Texto(this, "Como descreve seu gênero?", 28, 438, 490, 24, negrito: true);
 		sexoOutro = new TextBox { Location = new Point(28, 464), Width = 490, MaxLength = 60, AccessibleName = "Descrição de Outro" };
 		Controls.Add(sexoOutro);
 		sexo.SelectedIndexChanged += (object? _, EventArgs _) =>

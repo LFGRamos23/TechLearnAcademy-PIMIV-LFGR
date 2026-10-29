@@ -38,12 +38,12 @@ if (args.Contains("--criar-admin"))
     string email = Console.ReadLine() ?? "";
     Console.Write("Telefone com DDD: ");
     string telefone = Console.ReadLine() ?? "";
-    Console.Write("Sexo (Masculino, Feminino ou Outro): ");
+    Console.Write("Gênero (Masculino, Feminino ou Outro): ");
     string sexo = Console.ReadLine() ?? "";
     string sexoOutro = "";
     if (sexo == "Outro")
     {
-        Console.Write("Como descreve seu sexo? ");
+        Console.Write("Como descreve seu gênero? ");
         sexoOutro = Console.ReadLine() ?? "";
     }
     Console.Write("Senha (não será exibida): ");
