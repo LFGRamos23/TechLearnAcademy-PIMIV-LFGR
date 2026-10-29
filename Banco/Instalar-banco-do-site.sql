@@ -34,6 +34,9 @@ CREATE TABLE dbo.Usuarios (
     Id int IDENTITY PRIMARY KEY,
     Nome nvarchar(100) NOT NULL,
     Email nvarchar(254) NOT NULL,
+    Telefone nvarchar(11) NULL,
+    Sexo nvarchar(20) NULL,
+    SexoOutro nvarchar(60) NULL,
     SenhaHash nvarchar(500) NOT NULL,
     Perfil nvarchar(20) NOT NULL DEFAULT N'Aluno',
     Ativo bit NOT NULL DEFAULT 1,
@@ -41,6 +44,9 @@ CREATE TABLE dbo.Usuarios (
     CONSTRAINT UQ_Usuarios_Email UNIQUE (Email),
     CONSTRAINT CK_Usuarios_Nome CHECK (LEN(LTRIM(RTRIM(Nome))) BETWEEN 2 AND 100),
     CONSTRAINT CK_Usuarios_Email CHECK (LEN(Email) BETWEEN 3 AND 254 AND Email = LTRIM(RTRIM(Email))),
+    CONSTRAINT CK_Usuarios_Telefone CHECK (Telefone IS NULL OR (LEN(Telefone) IN (10,11) AND Telefone NOT LIKE '%[^0-9]%')),
+    CONSTRAINT CK_Usuarios_Sexo CHECK (Sexo IS NULL OR Sexo IN (N'Masculino',N'Feminino',N'Outro')),
+    CONSTRAINT CK_Usuarios_SexoOutro CHECK ((ISNULL(Sexo,N'')=N'Outro' AND SexoOutro IS NOT NULL AND LEN(LTRIM(RTRIM(SexoOutro))) BETWEEN 2 AND 60) OR (ISNULL(Sexo,N'')<>N'Outro' AND SexoOutro IS NULL)),
     CONSTRAINT CK_Usuarios_Hash CHECK (LEN(SenhaHash) >= 20),
     CONSTRAINT CK_Usuarios_Perfil CHECK (Perfil IN (N'Aluno', N'Mentor', N'Gestor', N'Administrador'))
 );

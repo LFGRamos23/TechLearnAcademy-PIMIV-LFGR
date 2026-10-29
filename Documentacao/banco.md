@@ -1,5 +1,13 @@
 # Banco de dados — TechLearn Academy PIM IV
 
+## Telefone e sexo — 29/10/2026
+
+O script `Banco/08-dados-pessoais-usuarios.sql` acrescenta `Telefone`, `Sexo` e `SexoOutro` à tabela `Usuarios`. Execute-o no **banco já existente**, depois de conferir o nome da conexão. O script pode ser repetido e não apaga cadastros. Os campos dos usuários antigos começam vazios e podem ser preenchidos na página **Meu perfil** ou na edição de usuário.
+
+O telefone é salvo só com números, incluindo DDD (10 ou 11 dígitos). `Sexo` aceita Masculino, Feminino ou Outro. `SexoOutro` guarda o texto escrito apenas quando a escolha for Outro. O cadastro novo exige esses dados. A edição antiga que não envia esses campos continua funcionando e preserva os valores atuais.
+
+Para um banco criado do zero, `Banco/Instalar-banco-do-site.sql` já contém as três colunas.
+
 ## Correção de 11/10/2026
 
 Aplicada `Banco/07-corrigir-recuperacao-e-avaliacoes.sql`, após criar e conferir a cópia `Banco/Backups/TechLearnAcademy_PIMIV-antes-correcao-avaliacoes-20261011-170954.bak`.
