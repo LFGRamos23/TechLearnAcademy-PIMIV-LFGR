@@ -1,41 +1,25 @@
-# Site TechLearn Academy
+# Site TechLearn Academy — referência de 08/11/2026
 
-As regras de 06/10/2026 estão em [Documentacao/novas-funcoes.md](../Documentacao/novas-funcoes.md). O código e as rotas atuais incluem certificados, chamados, PDFs e perfis fixos. A referência anterior abaixo permanece como histórico.
+Esta pasta contém HTML, CSS e JavaScript sem framework de interface. A API ASP.NET Core é a fonte dos dados. Consulte [estado do repositório](../Documentacao/estado-atual-20261108.md) para distinguir código, publicação e testes datados.
 
-HTML monta as páginas, CSS define cores e espaços e JavaScript comunica com a API.
-Não há frameworks, CDN, usuários fixos, cursos fictícios nem armazenamento de senhas.
+## Abrir e entender
 
-## Execução principal
-Execute TechLearnAcademy.Api: ela hospeda este wwwroot na mesma origem.
-Abra a URL indicada no terminal. Assim os cookies HttpOnly funcionam sem configuração extra.
-A API e SQL Server precisam estar configurados para as funções terem dados reais.
+Execute `TechLearnAcademy.Api` e abra `https://localhost:7291/` com a conexão SQL de desenvolvimento configurada. A API serve os arquivos web da mesma origem, permitindo o envio de cookies HttpOnly. `TechLearnAcademy.Web` também permite prévia separada, mas os recursos de cadastro, login e cursos exigem a API acessível e a origem liberada no backend.
 
-## Prévia separada
-Execute dotnet run --project TechLearnAcademy.Web.
-O site abre, mas as funções precisam da API. Em wwwroot/js/config.js altere URL_API
-para a URL HTTPS real da API, e configure a origem da prévia em OrigensPermitidas no backend.
-Use HTTPS também na prévia quando os cookies forem Secure. Prefira a execução principal.
+`wwwroot/js/config.js` define `URL_API`: a string vazia usa a mesma origem. `api.js` centraliza pedidos `fetch`, mensagens, navegação por perfil e validações de interface. `publico.js` cuida de cadastro, login e recuperação; `perfil.js` edita conta; `aluno.js`, `mentor.js`, `gestor.js` e `administrador.js` organizam as telas por perfil. O atributo `data-pagina` escolhe o início de cada página.
 
-## Organização
-api.js: funções pequenas de fetch, mensagens, formulários, perfil e elementos seguros.
-publico.js: login, cadastro e recuperação; perfil.js: dados e troca de senha.
-aluno.js, mentor.js, gestor.js e administrador.js: ações de cada perfil.
-Cada página tem um atributo data-pagina para escolher apenas sua função.
-Essa divisão evita repetir códigos, mantendo o HTML visível e fácil de explicar.
+## Jornadas
 
-## Senha e sessão
-As senhas têm pelo menos 15 caracteres, uma maiúscula, um número e um símbolo.
-Os espaços são preservados. Nunca usamos localStorage ou sessionStorage.
-A API cria uma sessão real e envia um cookie HttpOnly; JavaScript não lê nem salva o token.
-Sair pede a revogação dessa sessão no servidor antes de voltar ao login.
-A API confere o perfil em cada rota. Esconder links no site não concede permissão.
+| Pessoa | Páginas e ações principais |
+| --- | --- |
+| Visitante | `index.html`, `cadastro.html`, `recuperar-senha.html` e `redefinir-senha.html`. |
+| Aluno | Painel, catálogo, matrícula, estudo por módulo, avaliação, resultado, chamados e certificados. |
+| Mentor | Painel, alunos vinculados, orientações e chamados. |
+| Gestor | Cursos, módulos, materiais, avaliações, relatórios, certificados e chamados. |
+| Administrador | Usuários, painel e atendimento administrativo. |
 
-## Explicação das duas expressões Unicode
-\\p{Lu} encontra letras maiúsculas, \\p{N} encontra números.
-[^\\p{L}\\p{N}\\s] encontra um caractere que não é letra, número ou espaço.
-Isso permite nomes e senhas em diferentes idiomas sem tratar letras acentuadas como símbolos.
+O cadastro atual pede nome, e-mail, telefone com DDD, gênero e senha. A regra visível e a API exigem pelo menos **8 caracteres**, maiúscula, número e símbolo, sem espaços. A API aplica de novo as validações; esconder menus não autoriza acesso. A web não guarda senha nem token em `localStorage` ou `sessionStorage`. O login usa cookie de sessão HttpOnly.
 
-## Estados reais
-As listas mostram apenas os registros recebidos da API. Uma lista vazia informa isso.
-Uma falha de conexão informa que o servidor precisa estar ligado.
-Nenhuma resposta de sucesso é inventada pelo site.
+A página carrega o widget VLibras de `vlibras.gov.br`, uma dependência externa de acessibilidade. Isso não traduz PDFs nem substitui testes de navegação por teclado e de tecnologias assistivas.
+
+O HTML `aplicativos.html` aponta para APK e ZIP desktop hospedados no Azure. Esses binários não aparecem na árvore do Git; `TechLearnAcademy.Mobile/` é um protótipo MAUI antigo e não gera o APK Java entregue.
