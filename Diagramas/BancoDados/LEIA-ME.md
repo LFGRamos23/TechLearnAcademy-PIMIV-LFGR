@@ -5,11 +5,12 @@ Arquivos gerados a partir da cópia real do Azure SQL `TechLearnAcademy_PIMIV-Az
 ## Conteúdo
 
 - `TechLearnAcademy_Modelagem_Banco.drawio`: arquivo editável com três páginas (MER conceitual, modelo lógico e modelo físico).
-- `01_MER_Conceitual.*`: visão de negócio, sem detalhes técnicos desnecessários.
-- `02_Modelo_Logico.*`: 19 tabelas, atributos e chaves.
-- `03_Modelo_Fisico.*`: 19 tabelas, 127 colunas, tipos SQL, nulabilidade, identidade e relacionamentos.
-- `TechLearnAcademy_Modelagem_Banco.pdf`: os três diagramas reunidos.
+- `01_MER_Conceitual.svg`: visão de negócio, sem detalhes técnicos desnecessários.
+- `02_Modelo_Logico.svg`: 19 tabelas, atributos e chaves.
+- `03_Modelo_Fisico.svg`: 19 tabelas, 127 colunas, tipos SQL, nulabilidade, identidade e relacionamentos.
 - `inventario_esquema.json`: inventário técnico utilizado para conferência.
+
+As três figuras também estão incorporadas ao PDF principal do PIM, permitindo a entrega acadêmica em arquivo único.
 
 ## Conferência
 
