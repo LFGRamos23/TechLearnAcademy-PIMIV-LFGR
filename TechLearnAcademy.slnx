@@ -3,4 +3,5 @@
   <Project Path="TechLearnAcademy.Web/TechLearnAcademy.Web.csproj" />
   <Project Path="TechLearnAcademy.Desktop.Recuperado/TechLearnAcademy.Desktop.csproj" />
   <Project Path="TechLearnAcademy.Tests/TechLearnAcademy.Tests.csproj" />
+  <Project Path="TechLearnAcademy.UnitTests/TechLearnAcademy.UnitTests.csproj" />
 </Solution>
