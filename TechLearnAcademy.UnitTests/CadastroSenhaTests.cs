@@ -1,4 +1,5 @@
 using TechLearnAcademy.Api.Servicos;
+using Xunit;
 
 namespace TechLearnAcademy.UnitTests;
 
