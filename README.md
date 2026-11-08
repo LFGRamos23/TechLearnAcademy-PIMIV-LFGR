@@ -28,7 +28,7 @@ O site usa HTML, CSS e JavaScript sem framework. O desktop do Administrador usa 
 | `Conteudos/` | Catálogo e manifesto dos materiais dos cursos. |
 | `output/pdf/cursos/` | PDFs organizados por curso, usados como materiais. |
 | `TechLearnAcademy.Desktop.Recuperado/` | Código C# reconstruído do executável desktop nativo entregue. |
-| `TechLearnAcademy.Tests/` e `Testes/` | Verificações do projeto. |
+| `TechLearnAcademy.UnitTests/`, `TechLearnAcademy.Tests/` e `Testes/` | Teste unitário xUnit e verificações do projeto. |
 | `Diagramas/` e `Documentacao/` | Diagramas UML, relatório e guias. |
 
 Para consultar no GitHub: [código da API](TechLearnAcademy.Api/), [páginas do site](TechLearnAcademy.Web/wwwroot/), [código do desktop](TechLearnAcademy.Desktop.Recuperado/), [scripts do banco](Banco/), [diagramas editáveis no Astah](Diagramas/TechLearnAcademy-Diagramas-simples.asta), [imagens dos diagramas](Diagramas/Imagens/) e [PDFs dos cursos](output/pdf/cursos/). Esses arquivos estão versionados no ramo `main`.
@@ -37,7 +37,7 @@ O protótipo antigo `TechLearnAcademy.Desktop/` foi retirado da árvore atual do
 
 ## Diagramas UML
 
-Abra [Diagramas/TechLearnAcademy-Diagramas-simples.asta](Diagramas/TechLearnAcademy-Diagramas-simples.asta) no Astah para editar ou apresentar os diagramas de casos de uso, classes, sequência e atividade. Para visualizar sem Astah, veja as [imagens exportadas](Diagramas/Imagens/) e o [guia dos diagramas](Diagramas/LEIA-ME-diagramas-simples.md). As versões anteriores continuam no histórico do Git e no PC.
+Abra [Diagramas/TechLearnAcademy-Diagramas-simples.asta](Diagramas/TechLearnAcademy-Diagramas-simples.asta) no Astah para editar ou apresentar os diagramas de casos de uso, classes, sequência e atividade. Para visualizar sem Astah, veja as [imagens exportadas](Diagramas/Imagens/) e o [guia dos diagramas](Diagramas/LEIA-ME-diagramas-simples.md). A modelagem do banco está em [Diagramas/BancoDados/](Diagramas/BancoDados/), com MER conceitual, modelo lógico, modelo físico, arquivo Draw.io e exportações SVG. As versões anteriores continuam no histórico do Git e no PC.
 
 ## Executar localmente
 
@@ -62,6 +62,6 @@ Os arquivos publicados do site e a DLL da API foram conferidos com a cópia do A
 
 Veja também [arquitetura e POO](Documentacao/orientacao-a-objetos.md), [banco](Documentacao/banco.md), [API atual](TechLearnAcademy.Api/API-LEIA-ME.md), [site atual](TechLearnAcademy.Web/README-Web.md), [requisitos históricos](Documentacao/requisitos.md) e [aplicativos](APLICATIVOS-LEIA-ME.md).
 
-O PDF em `Documentacao/TechLearnAcademy-PIMIV.pdf` recebeu uma atualização em 08/11/2026, mas sua correspondência com o Word final não foi conferida nesta revisão. Para a entrega, use a exportação do Word atualizado e confira as páginas do PDF resultante. O APK e os ZIPs distribuídos pelo site não constam desta árvore Git; os links de download estão em `aplicativos.html`.
+O PDF em `Documentacao/TechLearnAcademy-PIMIV.pdf` foi atualizado em 08/11/2026 com o teste unitário e a modelagem completa do banco. Para a entrega, mantenha o Word principal e o PDF sincronizados e confira todas as páginas da exportação final. O APK e os ZIPs distribuídos pelo site não constam desta árvore Git; os links de download estão em `aplicativos.html`.
 
 Para explicar os commits e o fluxo de trabalho, leia [Git e GitHub para a banca](Documentacao/git-e-github-para-banca.md).
