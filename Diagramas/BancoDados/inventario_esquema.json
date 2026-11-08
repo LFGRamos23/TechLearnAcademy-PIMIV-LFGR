@@ -1,0 +1,1573 @@
+{
+  "fonte": "TechLearnAcademy_PIMIV-Azure-20261107-211435.bacpac",
+  "tabelas": {
+    "AcompanhamentosMentor": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "MentorId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "AlunoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Alternativas": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": true
+      },
+      {
+        "name": "QuestaoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "Texto",
+        "sql_type": "nvarchar(1000)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Correta",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "AuditoriaUsuarios": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "UsuarioId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "PerfilAnterior",
+        "sql_type": "nvarchar(20)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "PerfilNovo",
+        "sql_type": "nvarchar(20)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "AtivoAnterior",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "AtivoNovo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataAlteracao",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Avaliacoes": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "ModuloId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Titulo",
+        "sql_type": "nvarchar(150)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Excluido",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Chamados": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "SolicitanteId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "ResponsavelId",
+        "sql_type": "int",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "CursoId",
+        "sql_type": "int",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Tipo",
+        "sql_type": "nvarchar(30)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DestinatarioPerfil",
+        "sql_type": "nvarchar(20)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Assunto",
+        "sql_type": "nvarchar(150)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Descricao",
+        "sql_type": "nvarchar(4000)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Status",
+        "sql_type": "nvarchar(20)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataAbertura",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataEncerramento",
+        "sql_type": "datetime2(7)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Cursos": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Nome",
+        "sql_type": "nvarchar(150)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Descricao",
+        "sql_type": "nvarchar(2000)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "CargaHoraria",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Excluido",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Materiais": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "ModuloId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Titulo",
+        "sql_type": "nvarchar(150)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Tipo",
+        "sql_type": "nvarchar(10)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Url",
+        "sql_type": "nvarchar(2000)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Excluido",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "ArquivoNome",
+        "sql_type": "nvarchar(255)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "ArquivoPdf",
+        "sql_type": "varbinary(max)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Matriculas": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "AlunoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "CursoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataMatricula",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "TentativaCurso",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "MensagensChamado": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "ChamadoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "UsuarioId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Texto",
+        "sql_type": "nvarchar(4000)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataEnvio",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Modulos": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "CursoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Titulo",
+        "sql_type": "nvarchar(150)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Ordem",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Excluido",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "OrientacoesMentor": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "MentorId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "AlunoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Texto",
+        "sql_type": "nvarchar(4000)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataOrientacao",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "ProgressoModulos": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "AlunoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "ModuloId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "DataConclusao",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Questoes": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": true
+      },
+      {
+        "name": "AvaliacaoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "Enunciado",
+        "sql_type": "nvarchar(2000)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "RecuperacoesSenha": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "UsuarioId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "TokenHash",
+        "sql_type": "char(64)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": true
+      },
+      {
+        "name": "Validade",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Utilizado",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataCriacao",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "RespostasAluno": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "TentativaId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "AvaliacaoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "QuestaoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "AlternativaId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Correta",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Sessoes": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "UsuarioId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "TokenHash",
+        "sql_type": "char(64)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": true
+      },
+      {
+        "name": "Validade",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Revogada",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataCriacao",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "SolicitacoesCertificado": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "AlunoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "CursoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "Status",
+        "sql_type": "nvarchar(20)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "GestorId",
+        "sql_type": "int",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "Motivo",
+        "sql_type": "nvarchar(1000)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Codigo",
+        "sql_type": "varchar(64)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "NomeAluno",
+        "sql_type": "nvarchar(100)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "NomeCurso",
+        "sql_type": "nvarchar(150)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "CargaHoraria",
+        "sql_type": "int",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataSolicitacao",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataAprovacao",
+        "sql_type": "datetime2(7)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "TentativasAvaliacao": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": true
+      },
+      {
+        "name": "AlunoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": false
+      },
+      {
+        "name": "AvaliacaoId",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": true,
+        "uq": true
+      },
+      {
+        "name": "Acertos",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "TotalQuestoes",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Percentual",
+        "sql_type": "decimal(5,2)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Nota",
+        "sql_type": "decimal(4,2)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Aprovado",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataTentativa",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "TentativaCurso",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ],
+    "Usuarios": [
+      {
+        "name": "Id",
+        "sql_type": "int",
+        "nullable": false,
+        "identity": true,
+        "pk": true,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Nome",
+        "sql_type": "nvarchar(100)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Email",
+        "sql_type": "nvarchar(254)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": true
+      },
+      {
+        "name": "SenhaHash",
+        "sql_type": "nvarchar(500)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Perfil",
+        "sql_type": "nvarchar(20)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Ativo",
+        "sql_type": "bit",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "DataCadastro",
+        "sql_type": "datetime2(7)",
+        "nullable": false,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "EmailContato",
+        "sql_type": "nvarchar(254)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Telefone",
+        "sql_type": "nvarchar(11)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "Sexo",
+        "sql_type": "nvarchar(20)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      },
+      {
+        "name": "SexoOutro",
+        "sql_type": "nvarchar(60)",
+        "nullable": true,
+        "identity": false,
+        "pk": false,
+        "fk": false,
+        "uq": false
+      }
+    ]
+  },
+  "chaves_estrangeiras": [
+    {
+      "child_table": "MensagensChamado",
+      "child_columns": [
+        "ChamadoId"
+      ],
+      "parent_table": "Chamados",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Mensagens__Chama__45BE5BA9"
+    },
+    {
+      "child_table": "MensagensChamado",
+      "child_columns": [
+        "UsuarioId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Mensagens__Usuar__46B27FE2"
+    },
+    {
+      "child_table": "Modulos",
+      "child_columns": [
+        "CursoId"
+      ],
+      "parent_table": "Cursos",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Modulos__CursoId__47A6A41B"
+    },
+    {
+      "child_table": "ProgressoModulos",
+      "child_columns": [
+        "ModuloId"
+      ],
+      "parent_table": "Modulos",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Progresso__Modul__489AC854"
+    },
+    {
+      "child_table": "ProgressoModulos",
+      "child_columns": [
+        "AlunoId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Progresso__Aluno__498EEC8D"
+    },
+    {
+      "child_table": "Questoes",
+      "child_columns": [
+        "AvaliacaoId"
+      ],
+      "parent_table": "Avaliacoes",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Questoes__Avalia__4A8310C6"
+    },
+    {
+      "child_table": "RecuperacoesSenha",
+      "child_columns": [
+        "UsuarioId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Recuperac__Usuar__4B7734FF"
+    },
+    {
+      "child_table": "Sessoes",
+      "child_columns": [
+        "UsuarioId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Sessoes__Usuario__4F47C5E3"
+    },
+    {
+      "child_table": "SolicitacoesCertificado",
+      "child_columns": [
+        "AlunoId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Solicitac__Aluno__503BEA1C"
+    },
+    {
+      "child_table": "SolicitacoesCertificado",
+      "child_columns": [
+        "CursoId"
+      ],
+      "parent_table": "Cursos",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Solicitac__Curso__51300E55"
+    },
+    {
+      "child_table": "SolicitacoesCertificado",
+      "child_columns": [
+        "GestorId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Solicitac__Gesto__5224328E"
+    },
+    {
+      "child_table": "TentativasAvaliacao",
+      "child_columns": [
+        "AlunoId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Tentativa__Aluno__531856C7"
+    },
+    {
+      "child_table": "TentativasAvaliacao",
+      "child_columns": [
+        "AvaliacaoId"
+      ],
+      "parent_table": "Avaliacoes",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Tentativa__Avali__540C7B00"
+    },
+    {
+      "child_table": "AcompanhamentosMentor",
+      "child_columns": [
+        "AlunoId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Acompanha__Aluno__3B40CD36"
+    },
+    {
+      "child_table": "AcompanhamentosMentor",
+      "child_columns": [
+        "MentorId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Acompanha__Mento__3C34F16F"
+    },
+    {
+      "child_table": "Alternativas",
+      "child_columns": [
+        "QuestaoId"
+      ],
+      "parent_table": "Questoes",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Alternati__Quest__3D2915A8"
+    },
+    {
+      "child_table": "AuditoriaUsuarios",
+      "child_columns": [
+        "UsuarioId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Auditoria__Usuar__3E1D39E1"
+    },
+    {
+      "child_table": "Avaliacoes",
+      "child_columns": [
+        "ModuloId"
+      ],
+      "parent_table": "Modulos",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Avaliacoe__Modul__3F115E1A"
+    },
+    {
+      "child_table": "Chamados",
+      "child_columns": [
+        "SolicitanteId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Chamados__Solici__40058253"
+    },
+    {
+      "child_table": "Chamados",
+      "child_columns": [
+        "ResponsavelId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Chamados__Respon__40F9A68C"
+    },
+    {
+      "child_table": "Chamados",
+      "child_columns": [
+        "CursoId"
+      ],
+      "parent_table": "Cursos",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Chamados__CursoI__41EDCAC5"
+    },
+    {
+      "child_table": "Materiais",
+      "child_columns": [
+        "ModuloId"
+      ],
+      "parent_table": "Modulos",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Materiais__Modul__42E1EEFE"
+    },
+    {
+      "child_table": "Matriculas",
+      "child_columns": [
+        "CursoId"
+      ],
+      "parent_table": "Cursos",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Matricula__Curso__43D61337"
+    },
+    {
+      "child_table": "Matriculas",
+      "child_columns": [
+        "AlunoId"
+      ],
+      "parent_table": "Usuarios",
+      "parent_columns": [
+        "Id"
+      ],
+      "name": "FK__Matricula__Aluno__44CA3770"
+    },
+    {
+      "child_table": "RespostasAluno",
+      "child_columns": [
+        "AlternativaId",
+        "QuestaoId"
+      ],
+      "parent_table": "Alternativas",
+      "parent_columns": [
+        "Id",
+        "QuestaoId"
+      ],
+      "name": "FK"
+    },
+    {
+      "child_table": "RespostasAluno",
+      "child_columns": [
+        "QuestaoId",
+        "AvaliacaoId"
+      ],
+      "parent_table": "Questoes",
+      "parent_columns": [
+        "Id",
+        "AvaliacaoId"
+      ],
+      "name": "FK"
+    },
+    {
+      "child_table": "RespostasAluno",
+      "child_columns": [
+        "TentativaId",
+        "AvaliacaoId"
+      ],
+      "parent_table": "TentativasAvaliacao",
+      "parent_columns": [
+        "Id",
+        "AvaliacaoId"
+      ],
+      "name": "FK"
+    }
+  ],
+  "objetos": {
+    "procedures": [
+      "sp_RealizarMatricula",
+      "sp_RelatorioCurso"
+    ],
+    "triggers": [
+      "tr_AuditoriaUsuarios",
+      "tr_LimiteModulos"
+    ],
+    "indexes": [
+      "IX_Acompanhamentos_Aluno",
+      "IX_Alternativas_Questao",
+      "UQ_Alternativas_Correta",
+      "IX_Auditoria_Usuario",
+      "IX_Avaliacoes_Modulo",
+      "IX_Chamados_Fila",
+      "IX_Chamados_Solicitante",
+      "IX_Cursos_AtivoNome",
+      "IX_Materiais_Modulo",
+      "IX_Matriculas_Curso",
+      "UQ_Matriculas_Ativas",
+      "UQ_Modulos_OrdemAtual",
+      "IX_Orientacoes_Aluno",
+      "IX_Progresso_Modulo",
+      "IX_Questoes_Avaliacao",
+      "IX_Recuperacoes_Usuario",
+      "IX_Respostas_Alternativa",
+      "IX_Sessoes_Usuario",
+      "UQ_Certificado_Codigo",
+      "IX_Tentativas_Aluno",
+      "IX_Tentativas_Avaliacao",
+      "IX_Tentativas_CursoAtual",
+      "IX_Usuarios_Nome",
+      "IX_Usuarios_PerfilAtivo",
+      "UQ_Usuarios_EmailContato"
+    ],
+    "checks": [
+      "",
+      "",
+      "",
+      "",
+      "CK_Acompanhamentos_Pessoas",
+      "CK_Alternativas_Texto",
+      "CK_Avaliacoes_Titulo",
+      "CK_Cursos_CargaHoraria",
+      "CK_Cursos_Descricao",
+      "CK_Cursos_Nome",
+      "CK_Materiais_Tipo",
+      "CK_Materiais_Titulo",
+      "CK_Materiais_Url",
+      "CK_Matriculas_TentativaCurso",
+      "CK_Modulos_Ordem",
+      "CK_Modulos_Titulo",
+      "CK_Orientacoes_Texto",
+      "CK_Questoes_Enunciado",
+      "CK_RecuperacoesSenha_Hash",
+      "CK_RecuperacoesSenha_Validade",
+      "CK_Sessoes_Hash",
+      "CK_Sessoes_Validade",
+      "CK_Tentativas_Acertos",
+      "CK_Tentativas_Aprovacao",
+      "CK_Tentativas_Curso",
+      "CK_Tentativas_Nota",
+      "CK_Tentativas_Percentual",
+      "CK_Usuarios_Email",
+      "CK_Usuarios_Hash",
+      "CK_Usuarios_Nome",
+      "CK_Usuarios_Perfil",
+      "CK_Usuarios_Sexo",
+      "CK_Usuarios_SexoOutro",
+      "CK_Usuarios_Telefone"
+    ]
+  },
+  "resumo": {
+    "quantidade_tabelas": 19,
+    "quantidade_colunas": 127,
+    "quantidade_chaves_estrangeiras": 27,
+    "quantidade_procedures": 2,
+    "quantidade_triggers": 2,
+    "quantidade_indices": 25,
+    "quantidade_checks": 34
+  }
+}
