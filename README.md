@@ -29,6 +29,8 @@ O site usa HTML, CSS e JavaScript sem framework. O desktop do Administrador usa 
 | `TechLearnAcademy.Tests/` e `Testes/` | Verificações do projeto. |
 | `Diagramas/` e `Documentacao/` | Diagramas UML, relatório e guias. |
 
+Para consultar no GitHub: [código da API](TechLearnAcademy.Api/), [páginas do site](TechLearnAcademy.Web/wwwroot/), [código do desktop](TechLearnAcademy.Desktop.Recuperado/), [scripts do banco](Banco/), [diagramas editáveis no Astah](Diagramas/TechLearnAcademy-Diagramas-simples.asta), [imagens dos diagramas](Diagramas/PNG-sequencias-professor/) e [PDFs dos cursos](output/pdf/cursos/). Esses arquivos já estão versionados no ramo `main`.
+
 `TechLearnAcademy.Desktop/` e `TechLearnAcademy.Mobile/` guardam **protótipos antigos** com WebView. Eles não correspondem aos aplicativos nativos distribuídos hoje. O projeto-fonte original do aplicativo Android nativo não foi encontrado; o APK continua disponível na [página de aplicativos](https://techlearn-proj-pim-hyayf7cehyd3edfq.westus3-01.azurewebsites.net/aplicativos.html). O código do desktop recuperado compila, mas não preserva os comentários nem a formatação originais.
 
 ## Diagramas UML
