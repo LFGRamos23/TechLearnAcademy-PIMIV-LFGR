@@ -1,6 +1,6 @@
 # Roteiro atual de apresentação da TechLearn Academy
 
-**Duração sugerida:** cinco minutos. Abra antes o [site publicado](https://techlearn-proj-pim-hyayf7cehyd3edfq.westus3-01.azurewebsites.net/), o [código](../README.md), o [Astah](../Diagramas/TechLearnAcademy-Diagramas-simples.asta) e o [estado atual](estado-atual-20261107.md). Use contas de demonstração criadas pelo grupo, sem expor senhas ou dados reais.
+**Duração sugerida:** cinco minutos. Abra antes o [site publicado](https://techlearn-proj-pim-hyayf7cehyd3edfq.westus3-01.azurewebsites.net/), o [código](../README.md), o [Astah](../Diagramas/TechLearnAcademy-Diagramas-simples.asta) e o [estado atual](estado-atual-20261108.md). Use contas de demonstração criadas pelo grupo, sem expor senhas ou dados reais.
 
 ## 0:00 a 0:35 — Problema e proposta
 
