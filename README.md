@@ -43,9 +43,11 @@ Abra [Diagramas/TechLearnAcademy-Diagramas-simples.asta](Diagramas/TechLearnAcad
 4. Abra `TechLearnAcademy.slnx` no Visual Studio e execute `TechLearnAcademy.Api`. O perfil local usa `https://localhost:7291/`.
 5. Para abrir o desktop nativo, execute o projeto `TechLearnAcademy.Desktop.Recuperado`. Ele já aponta para a API publicada no Azure por `servidor.txt`.
 
+Nesta cópia do PC, a API local já está configurada para usar a base importada do Azure em 07/11/2026. Não é preciso executar novamente o instalador SQL para usar essa cópia. Veja [o estado da sincronização](Documentacao/sincronizacao-azure-20261107.md).
+
 O banco do Azure e as credenciais de e-mail ficam nas configurações do serviço, **fora do Git**. Um clone do repositório não copia as contas e registros reais; os scripts criam a estrutura do banco.
 
-Os arquivos públicos do site foram comparados com a versão no Azure em 27/10/2026. O código C# foi organizado a partir da cópia local do projeto; não foi possível confirmar uma comparação binária completa da DLL publicada no Azure. Antes de uma próxima publicação, compare as alterações da API com o serviço em execução.
+Os arquivos publicados do site e a DLL da API foram conferidos com a cópia do Azure em 07/11/2026. A DLL publicada corresponde ao commit `e5b69e0`; o código local tem apenas uma correção posterior de texto no comando de criar administrador. Os detalhes estão no [registro da sincronização](Documentacao/sincronizacao-azure-20261107.md).
 
 ## Para apresentar ao professor
 
