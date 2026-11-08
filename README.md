@@ -1,6 +1,6 @@
 # TechLearn Academy — PIM IV
 
-**Documentação vigente (08/11/2026):** [Estado atual e rastreabilidade](Documentacao/estado-atual-20261108.md). O [roteiro de apresentação](Documentacao/roteiro-banca.md) e o PIM em Word devem ser conferidos com essa fotografia do código. Guias de outubro identificados como históricos não descrevem os aplicativos entregues.
+**Documentação vigente (inspeção de 08/11/2026):** [Estado atual e rastreabilidade](Documentacao/estado-atual-20261108.md). O [roteiro de apresentação](Documentacao/roteiro-banca.md) e o PIM em Word devem ser conferidos com essa fotografia do código. Guias de outubro identificados como históricos não descrevem os aplicativos entregues.
 
 Plataforma acadêmica de cursos com quatro perfis: Aluno, Mentor, Gestor e Administrador. O site e a API estão hospedados no Azure; a API grava os dados no Azure SQL Database.
 
@@ -62,6 +62,6 @@ Os arquivos publicados do site e a DLL da API foram conferidos com a cópia do A
 
 Veja também [arquitetura e POO](Documentacao/orientacao-a-objetos.md), [banco](Documentacao/banco.md), [API atual](TechLearnAcademy.Api/API-LEIA-ME.md), [site atual](TechLearnAcademy.Web/README-Web.md), [requisitos históricos](Documentacao/requisitos.md) e [aplicativos](APLICATIVOS-LEIA-ME.md).
 
-O PDF antigo em `Documentacao/TechLearnAcademy-PIMIV.pdf` ainda não foi confrontado com a revisão do Word de 08/11. Para entrega, exporte o Word atualizado e confira o PDF resultante. O APK e os ZIPs distribuídos pelo site não constam desta árvore Git; os links de download estão em `aplicativos.html`.
+O PDF em `Documentacao/TechLearnAcademy-PIMIV.pdf` recebeu uma atualização em 08/11/2026, mas sua correspondência com o Word final não foi conferida nesta revisão. Para a entrega, use a exportação do Word atualizado e confira as páginas do PDF resultante. O APK e os ZIPs distribuídos pelo site não constam desta árvore Git; os links de download estão em `aplicativos.html`.
 
 Para explicar os commits e o fluxo de trabalho, leia [Git e GitHub para a banca](Documentacao/git-e-github-para-banca.md).
