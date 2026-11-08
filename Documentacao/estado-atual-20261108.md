@@ -1,6 +1,6 @@
 # Estado do repositório — 08/11/2026
 
-Revisão documental do ramo `main` no commit `94da0a874a2fcf209faea66114e7e755f87da63a`. A árvore completa contém 285 arquivos (31 Markdown, 50 C#, 30 HTML, 9 SQL, 52 PDF e 50 PNG). As contagens são de arquivos, não de testes aprovados. Foram lidos os arquivos de orientação e os fontes centrais da API, web, banco e desktop. Esta revisão não executou o servidor, o banco remoto, o EXE nem o APK; o registro de sincronização e os resultados de testes mantêm suas datas próprias.
+Revisão documental do ramo `main` no commit `9e4fa9f93d0de77eabfbb653215fe32ecbb09ede`. Os cinco commits desde `94da0a8` alteraram apenas documentação e PDF, sem mudanças nos fontes de programação. A árvore completa contém 285 arquivos (31 Markdown, 50 C#, 30 HTML, 9 SQL, 52 PDF e 50 PNG). As contagens são de arquivos, não de testes aprovados. Foram lidos os arquivos de orientação e os fontes centrais da API, web, banco e desktop. Esta revisão não executou o servidor, o banco remoto, o EXE nem o APK; o registro de sincronização e os resultados de testes mantêm suas datas próprias.
 
 ## Qual versão usar
 
@@ -30,7 +30,7 @@ O diagrama de classes resume nove classes de negócio. Controllers, serviços, t
 
 O registro `sincronizacao-azure-20261107.md` documenta uma conferência pontual do Azure e importação de BACPAC em LocalDB. Essa cópia não é sincronizada automaticamente. A DLL então publicada correspondia a `e5b69e0`; o commit `94da0a8` atualiza documentação do Git e não constitui publicação no Azure. A leitura de `Dockerfile` prova uma opção de empacotamento; não demonstra implantação por contêiner ou pipeline.
 
-`Documentacao/TechLearnAcademy-PIMIV.pdf` é um PDF antigo do repositório, não uma exportação verificada do Word atualizado em 08/11. Para a entrega acadêmica, exportar o Word principal atualizado e conferir as páginas geradas antes de enviar um único PDF. `Documentacao/relatorio-academico.md`, `requisitos.md`, `testes-executados.md`, `CONTRATO.md` e `LEIA-ME.md` estão marcados como registros históricos e contêm regras de versões anteriores.
+`Documentacao/TechLearnAcademy-PIMIV.pdf` recebeu uma versão em 08/11/2026, após a revisão textual; sua identidade com a exportação final do Word não foi verificada. Para a entrega acadêmica, usar o PDF gerado do Word principal atualizado e conferir suas páginas antes de enviar um único arquivo. `Documentacao/relatorio-academico.md`, `requisitos.md`, `testes-executados.md`, `CONTRATO.md` e `LEIA-ME.md` estão marcados como registros históricos e contêm regras de versões anteriores.
 
 **Pendências de aceite:** obter o projeto-fonte Java correspondente ao APK, executar e registrar M01–M06 em aparelho, comparar o desktop recompilado ao executável distribuído, conferir fluxos web e permissões na publicação atual, validar acessibilidade com teclado/tecnologias assistivas e decidir a necessidade e retenção de telefone e gênero. Os resultados de 04/10, 18/10 e 07/11 não devem ser apresentados como reteste de 08/11.
 
