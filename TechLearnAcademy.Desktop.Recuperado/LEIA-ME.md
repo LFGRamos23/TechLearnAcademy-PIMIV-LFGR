@@ -28,4 +28,4 @@ O código foi reconstruído por descompilação. Ele permite estudar e modificar
 
 As outras classes pequenas representam dados recebidos da API, como `Usuario`, `Chamado` e `ResumoAdmin`.
 
-**Atenção:** a pasta `TechLearnAcademy.Desktop` ao lado desta contém uma versão antiga baseada em WebView2. Para estudar a versão nativa entregue, abra o projeto desta pasta `TechLearnAcademy.Desktop.Recuperado`.
+**Atenção:** o protótipo antigo `TechLearnAcademy.Desktop` com WebView2 não faz parte da árvore atual do Git, embora continue no PC e no histórico. Para estudar a versão nativa entregue, abra o projeto desta pasta `TechLearnAcademy.Desktop.Recuperado`.

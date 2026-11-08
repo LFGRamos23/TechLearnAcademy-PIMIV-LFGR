@@ -10,7 +10,7 @@ Os aplicativos instalados usam a API publicada no Azure. Eles enviam pedidos por
 - **Código disponível:** `TechLearnAcademy.Desktop.Recuperado/`. Foi reconstruído do executável entregue e compilou com zero erros e avisos. Leia o `LEIA-ME.md` da pasta antes de estudar o código.
 - **Configuração:** `servidor.txt` contém a raiz HTTPS da API. Internet e API disponíveis são necessários.
 
-O ZIP publicado no Azure contém o executável, `servidor.txt` e um manual, mas não contém os arquivos-fonte originais. A pasta `TechLearnAcademy.Desktop/` deste repositório é um protótipo antigo que abre o site em WebView2; não representa o executável nativo distribuído.
+O ZIP publicado no Azure contém o executável, `servidor.txt` e um manual, mas não contém os arquivos-fonte originais. O protótipo antigo com WebView2 foi retirado da árvore atual do Git para deixar apenas o código desktop nativo em destaque; ele continua no PC e no histórico do repositório.
 
 ## Aplicativo Android
 
@@ -22,4 +22,4 @@ Não apresente o código MAUI como se fosse o código do APK. Para alterar o apl
 
 ## Explicação curta para a banca
 
-“O site, o desktop e o Android usam a mesma API no Azure. A API valida o login e as permissões e grava no Azure SQL. O desktop é feito com Windows Forms e permite ao Administrador gerenciar usuários e chamados. Os protótipos antigos com WebView foram mantidos apenas como histórico e estão fora da solução principal.”
+“O site, o desktop e o Android usam a mesma API no Azure. A API valida o login e as permissões e grava no Azure SQL. O desktop é feito com Windows Forms e permite ao Administrador gerenciar usuários e chamados. O protótipo desktop com WebView permanece apenas no histórico do Git e está fora da solução principal.”
