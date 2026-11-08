@@ -16,7 +16,7 @@ No Visual Studio, abra **TechLearnAcademy.Api → Modelos**.
 
 ## Diagrama de classes para a apresentação
 
-Este é o diagrama do sistema, com as nove classes. As relações representam as relações guardadas pelos identificadores no banco.
+Este é um resumo textual das nove classes. O [Astah editável](../Diagramas/TechLearnAcademy-Diagramas-simples.asta) e as [imagens](../Diagramas/Imagens/) são a versão para apresentação. As relações representam as relações guardadas pelos identificadores no banco.
 
 ```mermaid
 classDiagram
@@ -24,9 +24,13 @@ classDiagram
         Id
         Nome
         Email
+        Telefone
+        Sexo
+        SexoOutro
         Perfil
         Ativo
         AtualizarDados()
+        AtualizarDadosPessoais()
         DefinirSenha()
         ConferirSenha()
     }
@@ -88,7 +92,7 @@ classDiagram
 
 ## Como explicar
 
-Uma classe reúne os dados e comportamentos de uma parte do sistema. Por exemplo, Usuario guarda Nome e Email e oferece o método AtualizarDados, que verifica esses dados antes de alterá-los.
+Uma classe reúne dados e comportamentos. Usuario guarda Nome, Email, Telefone, Sexo e SexoOutro; AtualizarDados valida nome e e-mail, e AtualizarDadosPessoais valida telefone e gênero antes da persistência. A tabela SQL permite nulos para contas anteriores, enquanto o formulário atual exige os novos dados no cadastro.
 
 O campo Perfil de Usuario informa se a pessoa é Aluno, Mentor, Gestor ou Administrador. O cadastro público cria um aluno. As permissões continuam sendo verificadas pela API. Os quatro perfis usam a mesma classe.
 

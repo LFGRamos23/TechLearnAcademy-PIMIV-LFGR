@@ -1,5 +1,7 @@
 # TechLearn Academy — PIM IV
 
+> **Documento histórico.** Reúne instruções antigas de MAUI/WebView2, 16 tabelas e SMTP local. Comece pelo README principal. Para o estado atual, consulte [Estado atual e rastreabilidade](Documentacao/estado-atual-20261107.md). O texto abaixo preserva decisões e testes da data indicada, sem representar a versão final.
+
 > **Leia primeiro o [README.md](README.md) atualizado.** Este documento registra etapas anteriores do desenvolvimento e contém instruções que já não descrevem os aplicativos distribuídos nem a recuperação de senha atual.
 
 ## Site publicado no Azure — 11/10/2026

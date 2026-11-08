@@ -1,5 +1,7 @@
 # Cursos organizados a partir dos PDFs enviados
 
+> Este é o catálogo inicial de sete cursos preparado a partir dos PDFs. O registro da cópia do Azure em 07/11/2026 informa oito cursos e 27 módulos; veja [Estado atual e rastreabilidade](estado-atual-20261107.md). Os dados do banco publicado podem mudar após essa exportação.
+
 Organização cadastrada em 11/10/2026. Os tomos foram separados por assunto, com no máximo quatro módulos por curso.
 
 **Resumo:** 7 cursos, 25 módulos, 50 matérias em PDF e 25 avaliações com 75 questões originais de revisão.

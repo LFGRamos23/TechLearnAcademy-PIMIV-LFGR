@@ -1,5 +1,7 @@
 # API da nova solução
 
+> **Guia inicial de configuração.** Para a arquitetura e os aplicativos atuais, consulte [Estado atual e rastreabilidade](../Documentacao/estado-atual-20261107.md). Trechos abaixo descrevem a fase de outubro e não comprovam testes atuais.
+
 As regras de 06/10/2026 estão em [Documentacao/novas-funcoes.md](../Documentacao/novas-funcoes.md). O código e as rotas atuais incluem certificados, chamados, PDFs e perfis fixos. A referência anterior abaixo permanece como histórico.
 
 Esta API acessa somente o SQL Server indicado pelo operador. Ela nunca executa scripts nem cria contas ao iniciar. O projeto antigo não participa desta solução.

@@ -1,5 +1,7 @@
 # TechLearn Academy — Relatório acadêmico do PIM IV
 
+> **Documento histórico.** É um rascunho de 04/10, com assinatura hipotética e aplicativos WebView; não use como PIM final. O PIM em Word foi atualizado separadamente. Para o estado atual, consulte [Estado atual e rastreabilidade](estado-atual-20261107.md). O texto abaixo preserva decisões e testes da data indicada, sem representar a versão final.
+
 Atualização de 06/10/2026: consulte [novas-funcoes.md](novas-funcoes.md) para as regras atuais de chamados, certificados, perfis fixos, senhas e materiais. As descrições e evidências abaixo registram a versão anterior.
 
 **Instituição:** [PREENCHER]  

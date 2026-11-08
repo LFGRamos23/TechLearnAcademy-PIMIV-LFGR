@@ -1,5 +1,7 @@
 # Contrato da nova solução independente
 
+> **Documento histórico.** É o contrato inicial de escopo; a versão entregue evoluiu para oferta gratuita, certificados e aplicativos nativos. Para o estado atual, consulte [Estado atual e rastreabilidade](Documentacao/estado-atual-20261107.md). O texto abaixo preserva decisões e testes da data indicada, sem representar a versão final.
+
 As regras de 06/10/2026 estão em [Documentacao/novas-funcoes.md](Documentacao/novas-funcoes.md). O código e as rotas atuais incluem certificados, chamados, PDFs e perfis fixos. A referência anterior abaixo permanece como histórico.
 
 Esta solução segue o TXT do PIM IV. O projeto antigo não será alterado.

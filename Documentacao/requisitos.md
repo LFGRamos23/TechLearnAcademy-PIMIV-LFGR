@@ -1,5 +1,7 @@
 # Requisitos e rastreabilidade — TechLearn Academy PIM IV
 
+> **Documento histórico.** A matriz preserva o TXT e a cobertura de 04/10; referências a 16 tabelas, MAUI e desktop WebView2 são históricas. Para o estado atual, consulte [Estado atual e rastreabilidade](estado-atual-20261107.md). O texto abaixo preserva decisões e testes da data indicada, sem representar a versão final.
+
 Atualização de 06/10/2026: consulte [novas-funcoes.md](novas-funcoes.md) para as regras atuais de chamados, certificados, perfis fixos, senhas e materiais. As descrições e evidências abaixo registram a versão anterior.
 
 Fonte integral: TXT fornecido pelo grupo, “Resumo definitivo do PIM IV — TechLearn Academy”. A interpretação operacional está em `CONTRATO.md`. Esta matriz refere-se **somente à solução nova**, não modifica nem certifica o projeto antigo.

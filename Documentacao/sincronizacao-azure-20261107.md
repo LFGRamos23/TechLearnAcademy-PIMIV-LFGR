@@ -1,5 +1,7 @@
 # Estado da cópia local — 07/11/2026
 
+Este registro é uma fotografia da conferência de 07/11/2026. Quatro commits posteriores reorganizaram documentação, diagramas e o protótipo desktop no GitHub; a afirmação abaixo sobre o ramo `main` vale apenas para o momento da conferência. Não há prova neste registro de uma nova publicação desses commits no Azure.
+
 Esta pasta foi conferida com o aplicativo `techlearn-proj-pim` e o banco `TechLearnAcademy_PIMIV` no Azure. A estrutura do projeto foi mantida.
 
 ## Código e site

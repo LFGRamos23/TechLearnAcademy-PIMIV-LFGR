@@ -1,5 +1,7 @@
 # Testes realmente executados — 4 de outubro de 2026
 
+> **Documento histórico.** Os 69 eventos descritos pertencem à execução de 04/10; outros números em documentos posteriores se referem a conjuntos e datas distintos. Não foram repetidos nesta revisão. Para o estado atual, consulte [Estado atual e rastreabilidade](estado-atual-20261107.md). O texto abaixo preserva decisões e testes da data indicada, sem representar a versão final.
+
 Atualização de 06/10/2026: consulte [novas-funcoes.md](novas-funcoes.md) para as regras atuais de chamados, certificados, perfis fixos, senhas e materiais. As descrições e evidências abaixo registram a versão anterior.
 
 Esta é a nova solução independente. O projeto anterior e o TXT original foram preservados. Na conferência anterior à entrega, os hashes SHA256 dos 13 arquivos originais comparados permaneceram iguais. Nenhum teste de banco foi realizado na instância ou no banco do projeto anterior.

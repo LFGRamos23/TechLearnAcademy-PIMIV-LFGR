@@ -1,5 +1,7 @@
 # TechLearn Academy — PIM IV
 
+**Documentação vigente (07/11/2026):** [Estado atual e rastreabilidade](Documentacao/estado-atual-20261107.md). O [roteiro de apresentação](Documentacao/roteiro-banca.md) e o PIM em Word foram revisados com o código atual. Guias de outubro identificados como históricos não descrevem os aplicativos entregues.
+
 Plataforma acadêmica de cursos com quatro perfis: Aluno, Mentor, Gestor e Administrador. O site e a API estão hospedados no Azure; a API grava os dados no Azure SQL Database.
 
 **Site:** https://techlearn-proj-pim-hyayf7cehyd3edfq.westus3-01.azurewebsites.net/

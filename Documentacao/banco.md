@@ -1,5 +1,7 @@
 # Banco de dados — TechLearn Academy PIM IV
 
+> **Leitura por versão.** O banco atual tem 19 tabelas, duas procedures e duas triggers no [instalador vigente](../Banco/Instalar-banco-do-site.sql). O texto abaixo registra também o esquema anterior de 16 tabelas e a atualização posterior; não some contagens de momentos diferentes. Consulte [Estado atual e rastreabilidade](estado-atual-20261107.md) para a fotografia da publicação de 07/11/2026.
+
 ## Telefone e sexo — 29/10/2026
 
 O script `Banco/08-dados-pessoais-usuarios.sql` acrescenta `Telefone`, `Sexo` e `SexoOutro` à tabela `Usuarios`. Execute-o no **banco já existente**, depois de conferir o nome da conexão. O script pode ser repetido e não apaga cadastros. Os campos dos usuários antigos começam vazios e podem ser preenchidos na página **Meu perfil** ou na edição de usuário.
