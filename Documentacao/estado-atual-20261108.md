@@ -1,6 +1,6 @@
 # Estado do repositório — 08/11/2026
 
-Revisão documental do ramo `main` no commit `9e4fa9f93d0de77eabfbb653215fe32ecbb09ede`. Os cinco commits desde `94da0a8` alteraram apenas documentação e PDF, sem mudanças nos fontes de programação. A árvore completa contém 285 arquivos (31 Markdown, 50 C#, 30 HTML, 9 SQL, 52 PDF e 50 PNG). As contagens são de arquivos, não de testes aprovados. Foram lidos os arquivos de orientação e os fontes centrais da API, web, banco e desktop. Esta revisão não executou o servidor, o banco remoto, o EXE nem o APK; o registro de sincronização e os resultados de testes mantêm suas datas próprias.
+Revisão documental do ramo `main` com base no commit `81f2d947edcc876bf35bf9e27124af816edd95b3`. Até esse ponto, os quinze commits posteriores a `94da0a8` acrescentaram o projeto de teste unitário xUnit, a modelagem completa do banco e atualizações documentais, sem alterar os fluxos funcionais da API, da web ou do desktop. A árvore contém 295 arquivos, incluindo 51 arquivos C#, 9 SQL, 50 PNG e 6 SVG. As contagens são de arquivos, não de testes aprovados. Foram lidos os arquivos de orientação e os fontes centrais da API, web, banco e desktop. Esta revisão não executou o servidor, o banco remoto, o EXE, o APK nem o teste xUnit; o registro de sincronização e os resultados de testes mantêm suas datas próprias.
 
 ## Qual versão usar
 
@@ -12,7 +12,7 @@ Revisão documental do ramo `main` no commit `9e4fa9f93d0de77eabfbb653215fe32ecb
 | Desktop distribuído | `TechLearnAcademy.Desktop.Recuperado/` | Fonte C# reconstruído do executável Windows Forms 1.0.2; não é o projeto-fonte original. |
 | Android distribuído | `TechLearnAcademy.Web/wwwroot/aplicativos.html` | Página aponta a downloads no Azure. APK e fonte Java/Gradle da versão nativa não estão nesta árvore Git. |
 | Mobile antigo | `TechLearnAcademy.Mobile/` | Protótipo .NET MAUI/WebView; não é o código do APK nativo. |
-| UML | `Diagramas/TechLearnAcademy-Diagramas-simples.asta` e `Diagramas/Imagens/` | Astah editável e 44 PNG dos quatro tipos: casos de uso, classes, sequência e atividade. |
+| UML | `Diagramas/TechLearnAcademy-Diagramas-simples.asta` e `Diagramas/Imagens/` | Astah editável e 44 PNG dos quatro tipos: casos de uso, classes, sequência e atividade. |\n| Modelagem do banco | `Diagramas/BancoDados/` | Draw.io editável, três SVG e inventário do esquema exportado do Azure SQL: MER conceitual, modelo lógico e modelo físico. |\n| Teste unitário | `TechLearnAcademy.UnitTests/` | Um teste xUnit da confirmação de senha está implementado; execução e captura no Visual Studio permanecem pendentes. |
 
 O diagrama de classes resume nove classes de negócio. Controllers, serviços, tipos de pedido, componentes do desktop e tabelas SQL existem além dessas nove; a contagem de classes do diagrama não representa o total de arquivos C# ou das tabelas. Os 14 casos de uso modelados não incluem um caso separado para cada função posterior, como certificado e relatório.
 
@@ -30,7 +30,7 @@ O diagrama de classes resume nove classes de negócio. Controllers, serviços, t
 
 O registro `sincronizacao-azure-20261107.md` documenta uma conferência pontual do Azure e importação de BACPAC em LocalDB. Essa cópia não é sincronizada automaticamente. A DLL então publicada correspondia a `e5b69e0`; o commit `94da0a8` atualiza documentação do Git e não constitui publicação no Azure. A leitura de `Dockerfile` prova uma opção de empacotamento; não demonstra implantação por contêiner ou pipeline.
 
-`Documentacao/TechLearnAcademy-PIMIV.pdf` recebeu uma versão em 08/11/2026, após a revisão textual; sua identidade com a exportação final do Word não foi verificada. Para a entrega acadêmica, usar o PDF gerado do Word principal atualizado e conferir suas páginas antes de enviar um único arquivo. `Documentacao/relatorio-academico.md`, `requisitos.md`, `testes-executados.md`, `CONTRATO.md` e `LEIA-ME.md` estão marcados como registros históricos e contêm regras de versões anteriores.
+`Documentacao/TechLearnAcademy-PIMIV.pdf` foi atualizado em 08/11/2026 com o teste unitário e a modelagem completa do banco. Para a entrega acadêmica, manter o Word principal e o PDF sincronizados e conferir visualmente todas as páginas antes de enviar o arquivo único. `Documentacao/relatorio-academico.md`, `requisitos.md`, `testes-executados.md`, `CONTRATO.md` e `LEIA-ME.md` estão marcados como registros históricos e contêm regras de versões anteriores.
 
 **Pendências de aceite:** obter o projeto-fonte Java correspondente ao APK, executar e registrar M01–M06 em aparelho, comparar o desktop recompilado ao executável distribuído, conferir fluxos web e permissões na publicação atual, validar acessibilidade com teclado/tecnologias assistivas e decidir a necessidade e retenção de telefone e gênero. Os resultados de 04/10, 18/10 e 07/11 não devem ser apresentados como reteste de 08/11.
 
