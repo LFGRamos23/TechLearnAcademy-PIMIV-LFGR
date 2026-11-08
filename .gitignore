@@ -29,3 +29,9 @@ Conteudos/resultado-importacao.json
 Documentacao/evidencia-recuperacao-*.md
 TechLearnAcademy.Desktop.Recuperado/.vs/
 TechLearnAcademy.Desktop.Codigo-Recuperado/
+# Rascunhos antigos continuam no PC e no histórico do Git.
+TechLearnAcademy.Desktop/
+Diagramas/Backups/
+Diagramas/PNG-*/
+Diagramas/TechLearnAcademy-Diagramas.asta
+Diagramas/Casos-de-uso-TechLearn-Academy-refinado.png

@@ -2,6 +2,6 @@
 
 **Arquivo para abrir no Astah:** [TechLearnAcademy-Diagramas-simples.asta](TechLearnAcademy-Diagramas-simples.asta).
 
-Esse arquivo reúne o diagrama geral de casos de uso e, dentro de cada caso, os diagramas de classes, sequência e atividade. As [imagens PNG](PNG-sequencias-professor/) permitem visualizar os desenhos sem instalar o Astah. O [guia de leitura](LEIA-ME-diagramas-simples.md) explica os símbolos e onde encontrar cada diagrama.
+Esse é o arquivo editável dos **seus 14 casos de uso**, sem casos acrescentados. Dentro de cada caso estão os diagramas de classes, sequência e atividade. As [44 imagens PNG](Imagens/) foram exportadas diretamente desse mesmo `.asta` e permitem visualizar os desenhos sem instalar o Astah. O [guia de leitura](LEIA-ME-diagramas-simples.md) explica os símbolos e onde encontrar cada diagrama.
 
-O arquivo `TechLearnAcademy-Diagramas.asta` é uma versão anterior. A pasta `Backups/` guarda rascunhos e versões de segurança; para a apresentação, use o arquivo **simples** indicado acima.
+Os rascunhos e exportações anteriores foram retirados da árvore atual do Git para evitar confusão. Permanecem no histórico do repositório e no PC. Para a apresentação, abra somente o arquivo indicado acima.

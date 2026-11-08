@@ -9,7 +9,7 @@ Abra **TechLearnAcademy-Diagramas-simples.asta** no Astah. O projeto contém os 
 | Sequência | Dentro de **cada um dos 14 casos de uso** | Ator, interface, controle e página(s) do site, nessa ordem. |
 | Atividade | Dentro de **cada um dos 14 casos de uso** | Passos da função, decisão e caminhos de êxito/erro. |
 
-Cada caso de uso contém **três diagramas próprios**: classes, sequência e atividade. Para encontrá-los, expanda o caso no painel à esquerda do Astah. O diagrama de casos de uso geral continua na raiz. A pasta **PNG-diagramas-simples** guarda imagens dos diagramas de classes; o arquivo `.asta` é a versão completa para edição e apresentação.
+Cada caso de uso contém **três diagramas próprios**: classes, sequência e atividade. Para encontrá-los, expanda o caso no painel à esquerda do Astah. O diagrama de casos de uso geral continua na raiz. A pasta [Imagens](Imagens/) reúne a exportação atual; o arquivo `.asta` é a versão completa para edição e apresentação.
 
 ## Onde entra a interface com o usuário
 
@@ -57,4 +57,4 @@ Os construtores e métodos desenhados existem nas classes C#. Tipos longos foram
 
 O diagrama de casos de uso fornecido não contém casos próprios para recursos mais recentes do site, como certificados e relatórios. Os 14 desenhos focados correspondem aos **14 casos já presentes no modelo Astah**. Para desenhar esses recursos novos por caso, o diagrama de casos de uso também precisará ser ampliado.
 
-O arquivo `.asta` original e a primeira versão dos diagramas foram preservados. Para a apresentação, use somente a versão **simples** indicada acima.
+O arquivo `.asta` original e as exportações anteriores permanecem no histórico do Git e no PC. Para a apresentação, use somente a versão **simples** indicada acima.
