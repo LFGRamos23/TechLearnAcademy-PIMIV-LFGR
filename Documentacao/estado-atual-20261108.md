@@ -12,7 +12,9 @@ Revisão documental do ramo `main` com base no commit `81f2d947edcc876bf35bf9e27
 | Desktop distribuído | `TechLearnAcademy.Desktop.Recuperado/` | Fonte C# reconstruído do executável Windows Forms 1.0.2; não é o projeto-fonte original. |
 | Android distribuído | `TechLearnAcademy.Web/wwwroot/aplicativos.html` | Página aponta a downloads no Azure. APK e fonte Java/Gradle da versão nativa não estão nesta árvore Git. |
 | Mobile antigo | `TechLearnAcademy.Mobile/` | Protótipo .NET MAUI/WebView; não é o código do APK nativo. |
-| UML | `Diagramas/TechLearnAcademy-Diagramas-simples.asta` e `Diagramas/Imagens/` | Astah editável e 44 PNG dos quatro tipos: casos de uso, classes, sequência e atividade. |\n| Modelagem do banco | `Diagramas/BancoDados/` | Draw.io editável, três SVG e inventário do esquema exportado do Azure SQL: MER conceitual, modelo lógico e modelo físico. |\n| Teste unitário | `TechLearnAcademy.UnitTests/` | Um teste xUnit da confirmação de senha está implementado; execução e captura no Visual Studio permanecem pendentes. |
+| UML | `Diagramas/TechLearnAcademy-Diagramas-simples.asta` e `Diagramas/Imagens/` | Astah editável e 44 PNG dos quatro tipos: casos de uso, classes, sequência e atividade. |
+| Modelagem do banco | `Diagramas/BancoDados/` | Draw.io editável, três SVG e inventário do esquema exportado do Azure SQL: MER conceitual, modelo lógico e modelo físico. |
+| Teste unitário | `TechLearnAcademy.UnitTests/` | Um teste xUnit da confirmação de senha está implementado; execução e captura no Visual Studio permanecem pendentes. |
 
 O diagrama de classes resume nove classes de negócio. Controllers, serviços, tipos de pedido, componentes do desktop e tabelas SQL existem além dessas nove; a contagem de classes do diagrama não representa o total de arquivos C# ou das tabelas. Os 14 casos de uso modelados não incluem um caso separado para cada função posterior, como certificado e relatório.
 
@@ -32,6 +34,6 @@ O registro `sincronizacao-azure-20261107.md` documenta uma conferência pontual 
 
 `Documentacao/TechLearnAcademy-PIMIV.pdf` foi atualizado em 08/11/2026 com o teste unitário e a modelagem completa do banco. Para a entrega acadêmica, manter o Word principal e o PDF sincronizados e conferir visualmente todas as páginas antes de enviar o arquivo único. `Documentacao/relatorio-academico.md`, `requisitos.md`, `testes-executados.md`, `CONTRATO.md` e `LEIA-ME.md` estão marcados como registros históricos e contêm regras de versões anteriores.
 
-**Pendências de aceite:** obter o projeto-fonte Java correspondente ao APK, executar e registrar M01–M06 em aparelho, comparar o desktop recompilado ao executável distribuído, conferir fluxos web e permissões na publicação atual, validar acessibilidade com teclado/tecnologias assistivas e decidir a necessidade e retenção de telefone e gênero. Os resultados de 04/10, 18/10 e 07/11 não devem ser apresentados como reteste de 08/11.
+**Pendências de aceite:** executar o teste unitário xUnit e guardar a captura do resultado, obter o projeto-fonte Java correspondente ao APK, executar e registrar M01–M06 em aparelho, comparar o desktop recompilado ao executável distribuído, conferir fluxos web e permissões na publicação atual, validar acessibilidade com teclado/tecnologias assistivas e decidir a necessidade e retenção de telefone e gênero. Os resultados de 04/10, 18/10 e 07/11 não devem ser apresentados como reteste de 08/11.
 
 Para preparar a banca: mostrar um fluxo completo da web à API e ao SQL, explicar uma regra no serviço, abrir o Astah e distinguir a demonstração do desktop reconstruído da origem do APK. A apresentação acadêmica deve usar o Word/PDF principal revisado, o manual web e os diagramas editáveis; não usar os rascunhos de outubro como descrição final.
