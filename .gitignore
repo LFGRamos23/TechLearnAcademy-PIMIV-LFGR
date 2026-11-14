@@ -17,6 +17,9 @@ publicacao/
 *.exe
 *.apk
 *.bin
+!TechLearnAcademy.Web/wwwroot/aplicativos/TechLearnAcademy-Desktop-Windows.zip
+!TechLearnAcademy.Web/wwwroot/aplicativos/TechLearnAcademy-Android.apk
+!TechLearnAcademy.Web/wwwroot/aplicativos/TechLearnAcademy-Android.zip
 *.br
 *.gz
 *.log

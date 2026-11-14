@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.FileProviders;
 using TechLearnAcademy.Api.Banco;
@@ -167,7 +168,9 @@ if (Directory.Exists(pastaWeb))
         }
         await proximo();
     });
-    app.UseStaticFiles(new StaticFileOptions { FileProvider = arquivos });
+    var tiposDeArquivo = new FileExtensionContentTypeProvider();
+    tiposDeArquivo.Mappings[".apk"] = "application/vnd.android.package-archive";
+    app.UseStaticFiles(new StaticFileOptions { FileProvider = arquivos, ContentTypeProvider = tiposDeArquivo });
 }
 
 app.UseCors();
