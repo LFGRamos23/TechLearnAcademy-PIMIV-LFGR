@@ -26,7 +26,7 @@ botaoApk.addEventListener("click", async function (evento) {
         setTimeout(function () { URL.revokeObjectURL(endereco); }, 60000);
         mensagemDownload.textContent = "Download solicitado. Abra o APK no celular para instalar.";
     } catch (erro) {
-        mensagemDownload.textContent = "Não foi possível baixar o APK. Tente novamente ou utilize o arquivo ZIP.";
+        mensagemDownload.textContent = "Não foi possível baixar o APK. Tente novamente mais tarde.";
     } finally {
         baixando = false;
         botaoApk.removeAttribute("aria-disabled");
