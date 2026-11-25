@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿// Inicia a aplicação Android do protótipo MAUI.
+using Android.App;
 using Android.Runtime;
 
 namespace TechLearnAcademy.Mobile;

@@ -1,3 +1,4 @@
+// Abre conexões SQL e executa comandos com parâmetros para proteger os valores recebidos.
 using Microsoft.Data.SqlClient;
 using System.Data;
 using TechLearnAcademy.Api.Servicos;
@@ -6,6 +7,7 @@ namespace TechLearnAcademy.Api.Banco;
 
 public class ConexaoBanco(IConfiguration configuracao)
 {
+    // Lê a conexão configurada no ambiente e abre o SQL Server.
     public async Task<SqlConnection> Abrir()
     {
         string conexao = configuracao.GetConnectionString("Banco") ?? "";

@@ -1,3 +1,4 @@
+// Representa a orientação registrada por um mentor para um aluno.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;

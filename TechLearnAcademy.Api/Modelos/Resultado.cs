@@ -1,3 +1,4 @@
+// Calcula percentual, nota e aprovação a partir dos acertos.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;
@@ -9,8 +10,9 @@ public sealed class Resultado
     public int Total { get; }
     public decimal Percentual { get; }
     public decimal Nota { get; }
-    public bool Aprovado => Percentual >= 60;
+    public bool Aprovado => Percentual >= 60; // A nota mínima é 60% dos pontos.
 
+    // Calcula a nota a partir dos acertos e do total de questões.
     public Resultado(int acertos, int total)
     {
         Regras.Exigir(total > 0 && acertos >= 0 && acertos <= total, "Informe uma quantidade válida de acertos e questões.");

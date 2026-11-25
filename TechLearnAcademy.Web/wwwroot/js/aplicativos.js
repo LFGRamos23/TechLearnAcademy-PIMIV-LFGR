@@ -1,7 +1,9 @@
+// Apresenta os aplicativos disponíveis e o link do APK publicado.
 const botaoApk = document.getElementById("baixar-apk");
 const mensagemDownload = document.getElementById("mensagem-download");
 let baixando = false;
 
+// O arquivo é baixado do próprio site; a mensagem avisa se ele estiver indisponível.
 botaoApk.addEventListener("click", async function (evento) {
     evento.preventDefault();
     if (baixando) return;

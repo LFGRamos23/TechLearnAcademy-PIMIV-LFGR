@@ -1,3 +1,4 @@
+// Executa verificações simples do domínio e mostra falhas no console.
 using TechLearnAcademy.Api.Servicos;
 using TechLearnAcademy.Api.Modelos;
 using TechLearnAcademy.Api.Banco;

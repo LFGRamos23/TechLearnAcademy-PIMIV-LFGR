@@ -1,3 +1,4 @@
+// Guarda os dados de usuário recebidos pelo desktop.
 namespace TechLearnAcademy.Desktop;
 
 public class Usuario

@@ -1,3 +1,4 @@
+// Define os dados que a API recebe dos formulários e devolve nas respostas.
 namespace TechLearnAcademy.Api.Modelos;
 
 // Campos dos formulários HTTP reunidos aqui. Não fazem parte do diagrama de classes.
@@ -17,6 +18,7 @@ public struct DadosAvaliacao
     public bool Ativo { get; set; } = true;
 }
 
+// O cadastro público envia confirmação de senha para a API validar as duas entradas.
 public struct DadosCadastro
 {
     public DadosCadastro() { }
@@ -100,6 +102,7 @@ public struct DadosProgresso
     public int ModuloId { get; set; }
 }
 
+// A tentativa identifica a rodada do curso; cada resposta aponta para uma alternativa.
 public struct DadosProva
 {
     public DadosProva() { }
@@ -145,6 +148,7 @@ public struct DadosUsuario
     public bool Ativo { get; set; } = true;
 }
 
+// O cadastro institucional recebe o perfil permitido e o e-mail pessoal de contato.
 public struct DadosConta
 {
     public DadosConta() { }
@@ -158,6 +162,7 @@ public struct DadosConta
     public string ConfirmarSenha { get; set; } = "";
 }
 
+// O curso identifica ajuda acadêmica; os demais chamados seguem o perfil do solicitante.
 public struct DadosChamado
 {
     public DadosChamado() { }
@@ -172,6 +177,7 @@ public struct DadosMensagem
     public string Texto { get; set; } = "";
 }
 
+// O mesmo pedido serve para solicitar e para registrar a decisão do gestor.
 public struct DadosCertificado
 {
     public DadosCertificado() { }

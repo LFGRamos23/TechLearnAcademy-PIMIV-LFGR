@@ -1,3 +1,4 @@
+// Guarda o endereço da API e carrega o recurso de Libras nas páginas.
 // Vazio usa a mesma origem da API que hospeda o site.
 // Na prévia Web separada, informe aqui a URL HTTPS da API.
 const URL_API = "";

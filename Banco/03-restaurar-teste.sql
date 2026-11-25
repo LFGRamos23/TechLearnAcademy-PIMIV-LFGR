@@ -1,3 +1,4 @@
+-- Restaura um backup em um banco separado para conferência.
 -- Restaura uma cópia em um banco NOVO, nunca substitui o original.
 USE master;
 

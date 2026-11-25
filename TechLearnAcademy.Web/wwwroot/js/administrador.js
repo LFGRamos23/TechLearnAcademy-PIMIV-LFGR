@@ -1,6 +1,8 @@
+// Monta a visão administrativa de usuários e contas ativas.
 const pagina = document.body.dataset.pagina;
 let autor;
 
+// Busca uma página de usuários; só o administrador recebe a ação de ativar conta.
 async function listarUsuarios(paginaNumero = 1) {
     const retorno = await requisicao("/api/administracao/usuarios?busca=" + encodeURIComponent(textoCampo("busca")) + "&pagina=" + paginaNumero);
     const area = campo("lista"); area.replaceChildren();
@@ -34,6 +36,7 @@ iniciar(["Administrador", "Gestor"], async function (usuario) {
         campo("form-busca").onsubmit = function (e) { e.preventDefault(); listarUsuarios().catch(erro => aviso(erro.message, "erro")); };
         await listarUsuarios();
     }
+    // O gestor só pode cadastrar mentor; o administrador escolhe mentor ou gestor.
     if (pagina === "cadastrar") {
         configurarSexo("conta-sexo", "area-conta-sexo-outro", "conta-sexo-outro");
         if (usuario.perfil === "Gestor") {
@@ -53,6 +56,7 @@ iniciar(["Administrador", "Gestor"], async function (usuario) {
             await dialogo("Conta cadastrada", "E-mail de acesso: " + retorno.email + "\nInforme esse e-mail e a senha inicial ao usuário.", false, "Entendi");
         });
     }
+    // O perfil e o e-mail institucional não são alterados nesta tela.
     if (pagina === "editar") {
         const u = await requisicao("/api/administracao/usuarios/" + numeroId());
         campo("nome-editado").textContent = u.nome; campo("perfil-editado").textContent = u.perfil;

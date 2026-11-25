@@ -1,3 +1,4 @@
+// Cria avaliações, limita cada prova a uma resposta por tentativa do curso e calcula o resultado.
 using Microsoft.Data.SqlClient;
 using TechLearnAcademy.Api.Banco;
 using TechLearnAcademy.Api.Modelos;
@@ -6,13 +7,14 @@ namespace TechLearnAcademy.Api.Servicos;
 
 public class AvaliacoesServico(ConexaoBanco conexao)
 {
+    // Mostra a tentativa atual; quem já respondeu não pode abrir outra prova.
     public async Task<object> Listar(int moduloId, Usuario usuario)
     {
         using var banco = await conexao.Abrir();
         int cursoId = await Regras.AcessoModulo(banco, moduloId, usuario);
         bool reprovado = usuario.Perfil == "Aluno" && await CursosServico.CursoReprovado(banco, usuario.Id, cursoId);
         var lista = await ConexaoBanco.Consultar(banco, "SELECT a.Id AS id,a.ModuloId AS moduloId,a.Titulo AS titulo,a.Ativo AS ativo,t.Id AS resultadoId,t.Nota AS nota,t.Aprovado AS aprovado FROM Avaliacoes a JOIN Modulos m ON m.Id=a.ModuloId LEFT JOIN Matriculas ma ON ma.CursoId=m.CursoId AND ma.AlunoId=@alunoId AND ma.Ativo=1 OUTER APPLY(SELECT TOP(1) h.Id,h.Nota,h.Aprovado FROM TentativasAvaliacao h WHERE h.AvaliacaoId=a.Id AND h.AlunoId=@alunoId AND h.TentativaCurso=ma.TentativaCurso ORDER BY h.Id DESC) t WHERE a.ModuloId=@moduloId AND a.Excluido=0 AND (a.Ativo=1 OR @gestor=1) ORDER BY a.Id", new { moduloId, alunoId = usuario.Id, gestor = usuario.Perfil == "Gestor" });
-        foreach (var avaliacao in lista) avaliacao["podeResponder"] = usuario.Perfil == "Aluno" && !reprovado && avaliacao["resultadoId"] == null;
+        foreach (var avaliacao in lista) avaliacao["podeResponder"] = usuario.Perfil == "Aluno" && !reprovado && avaliacao["resultadoId"] == null; // Bloqueia nova prova na mesma tentativa.
         return lista;
     }
 
@@ -49,6 +51,7 @@ public class AvaliacoesServico(ConexaoBanco conexao)
         return lista[0];
     }
 
+    // Entrega questões sem revelar qual alternativa é a correta ao aluno.
     public async Task<object> Detalhes(int id, Usuario usuario)
     {
         using var banco = await conexao.Abrir();
@@ -130,6 +133,7 @@ public class AvaliacoesServico(ConexaoBanco conexao)
         await transacao.CommitAsync();
     }
 
+    // Grava as respostas uma única vez por avaliação e tentativa do curso.
     public async Task<object> Corrigir(int id, DadosProva dados, Usuario usuario)
     {
         Regras.Exigir(dados.Respostas != null && dados.Respostas.Count > 0, "Responda todas as questões.");
@@ -191,6 +195,7 @@ public class AvaliacoesServico(ConexaoBanco conexao)
         await transacao.CommitAsync();
     }
 
+    // Consulta o histórico de notas sem apagar tentativas anteriores.
     public async Task<object> Resultados(int alunoId)
     {
         using var banco = await conexao.Abrir();

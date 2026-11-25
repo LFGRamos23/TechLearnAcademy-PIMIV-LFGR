@@ -1,3 +1,4 @@
+// Registra o aplicativo MAUI e suas configurações iniciais.
 namespace TechLearnAcademy.Mobile;
 
 public static class MauiProgram

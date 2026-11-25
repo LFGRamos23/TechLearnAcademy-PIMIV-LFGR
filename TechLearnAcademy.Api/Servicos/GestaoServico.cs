@@ -1,3 +1,4 @@
+// Aplica as regras de usuários, chamados, certificados e relatórios.
 using Microsoft.Data.SqlClient;
 using TechLearnAcademy.Api.Banco;
 using TechLearnAcademy.Api.Modelos;
@@ -34,6 +35,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         return lista[0];
     }
 
+    // Gestor edita aluno e mentor; só o administrador pode agir sobre outros perfis.
     public async Task AlterarUsuario(Usuario autor, int id, DadosUsuario dados)
     {
         using var banco = await conexao.Abrir();
@@ -66,7 +68,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         await transacao.CommitAsync();
     }
 
-    // Chamados: aluno -> mentor/gestor; mentor -> gestor; gestor -> administrador.
+    // Chamados seguem o perfil: aluno -> mentor/gestor; mentor -> gestor; gestor -> administrador.
     public async Task<int> AbrirChamado(Usuario usuario, DadosChamado dados)
     {
         Regras.Exigir(usuario.Perfil != "Administrador", "O administrador recebe os chamados dos gestores.", 403);
@@ -89,6 +91,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
 
     private const string ChamadoSql = "SELECT c.Id AS id,c.SolicitanteId AS solicitanteId,c.ResponsavelId AS responsavelId,c.CursoId AS cursoId,c.Tipo AS tipo,c.DestinatarioPerfil AS destinatarioPerfil,c.Assunto AS assunto,c.Descricao AS descricao,c.Status AS status,c.DataAbertura AS data,c.DataEncerramento AS dataEncerramento,u.Nome AS solicitante,r.Nome AS responsavel,cu.Nome AS curso FROM Chamados c JOIN Usuarios u ON u.Id=c.SolicitanteId LEFT JOIN Usuarios r ON r.Id=c.ResponsavelId LEFT JOIN Cursos cu ON cu.Id=c.CursoId";
 
+    // Separa os pedidos recebidos dos chamados abertos pelo próprio usuário.
     public async Task<object> Chamados(Usuario usuario)
     {
         using var banco = await conexao.Abrir();
@@ -98,6 +101,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         return lista;
     }
 
+    // O solicitante acompanha o status, mas não atende o próprio chamado.
     private static void PermissoesChamado(Dictionary<string, object?> chamado, Usuario usuario)
     {
         bool proprio = (int)chamado["solicitanteId"]! == usuario.Id;
@@ -109,6 +113,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         chamado["podeEncerrar"] = aberto && responsavel;
     }
 
+    // Confere se a pessoa participa do chamado ou pode atendê-lo pelo seu perfil.
     private static async Task<Dictionary<string, object?>> AcessoChamado(SqlConnection banco, int id, Usuario usuario, SqlTransaction? transacao = null)
     {
         var lista = await ConexaoBanco.Consultar(banco, ChamadoSql + " WHERE c.Id=@id", new { id }, transacao);
@@ -131,6 +136,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         return chamado;
     }
 
+    // Reserva o chamado disponível para quem tem permissão de atendê-lo.
     public async Task AssumirChamado(int id, Usuario usuario)
     {
         using var banco = await conexao.Abrir();
@@ -138,6 +144,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         Regras.Exigir(alterados == 1, "Este chamado já foi assumido ou não pertence à sua fila. Atualize a lista.", 409);
     }
 
+    // Confere o responsável antes de registrar uma resposta na conversa.
     public async Task ResponderChamado(int id, Usuario usuario, DadosMensagem dados)
     {
         string texto = Regras.Texto(dados.Texto, 1, 4000, "Mensagem");
@@ -215,6 +222,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         return lista;
     }
 
+    // Aceita o pedido somente após a conclusão e aprovação no curso.
     public async Task SolicitarCertificado(Usuario usuario, int cursoId)
     {
         using var banco = await conexao.Abrir();
@@ -226,6 +234,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         await transacao.CommitAsync();
     }
 
+    // Registra a aprovação ou recusa do gestor para emitir o certificado.
     public async Task DecidirCertificado(int id, Usuario gestor, DadosCertificado dados)
     {
         string motivo = dados.Aprovar ? "" : Regras.Texto(dados.Motivo, 3, 1000, "Motivo da recusa");
@@ -263,6 +272,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         return new { quantidadeCursos = totais[0]["cursos"], totalMatriculas = totais[0]["matriculas"], mediaGeral = totais[0]["media"], aprovacao = totais[0]["aprovacao"], cursos = lista, atendimentos = atendimento, chamadosMentores = mentores };
     }
 
+    // O gestor escolhe um curso antes de ver seus alunos matriculados.
     public async Task<object> AlunosCurso(int cursoId)
     {
         using var banco = await conexao.Abrir();
@@ -272,6 +282,7 @@ public class GestaoServico(ConexaoBanco conexao, CursosServico cursos)
         return lista[0];
     }
 
+    // Reúne as notas de um aluno no curso escolhido pelo gestor.
     public async Task<object> Desempenho(int cursoId, int alunoId)
     {
         using var banco = await conexao.Abrir();

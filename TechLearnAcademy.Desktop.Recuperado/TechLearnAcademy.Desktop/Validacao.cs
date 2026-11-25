@@ -1,3 +1,4 @@
+// Valida campos do desktop antes de enviá-los à API.
 using System;
 using System.Linq;
 using System.Net.Mail;
@@ -24,6 +25,7 @@ public static class Validacao
 		}
 	}
 
+	// Remove a máscara e envia ao servidor apenas os números com DDD.
 	public static string Telefone(string telefone)
 	{
 		string numeros = Regex.Replace(telefone, @"[\s()\-]", "");
@@ -46,6 +48,7 @@ public static class Validacao
 		}
 	}
 
+	// Repete as regras da API para avisar o usuário antes do envio.
 	public static void Senha(string senha, string confirmacao)
 	{
 		Rune[] array = senha.EnumerateRunes().ToArray();

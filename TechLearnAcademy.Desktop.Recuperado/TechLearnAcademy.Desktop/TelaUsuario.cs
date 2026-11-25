@@ -1,3 +1,4 @@
+// Mostra e altera os dados de um usuário no desktop.
 using System;
 using System.Drawing;
 using System.Net.Http;
@@ -50,6 +51,7 @@ public class TelaUsuario : Form
 
 	public bool Alterou { get; private set; }
 
+	// A mesma janela serve ao cadastro e à edição; o perfil próprio usa a rota pessoal.
 	public TelaUsuario(ApiCliente api, Usuario? usuario = null, bool proprioPerfil = false)
 	{
 		this.api = api;
@@ -139,6 +141,7 @@ public class TelaUsuario : Form
 		};
 	}
 
+	// Valida os campos e escolhe a rota de cadastro, edição ou perfil próprio.
 	private async void Salvar(object? sender, EventArgs e)
 	{
 		if (salvando)

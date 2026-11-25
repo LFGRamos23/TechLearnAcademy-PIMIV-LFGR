@@ -1,3 +1,4 @@
+// Informa se a API está disponível para receber pedidos.
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechLearnAcademy.Api.Banco;
@@ -10,6 +11,7 @@ public class StatusController(ConexaoBanco conexao) : BaseController
     [HttpGet]
     public IActionResult Status() => Mensagem("API TechLearn Academy disponível.");
 
+    // Apenas o administrador pode testar se a conexão com o SQL responde.
     [Authorize(Roles = "Administrador"), HttpGet("banco")]
     public async Task<IActionResult> Banco()
     {

@@ -1,3 +1,4 @@
+// Guarda o endereço usado pelo desktop para chegar à API.
 using System;
 using System.IO;
 
@@ -13,6 +14,7 @@ public static class Configuracao
 		return ValidarEndereco(File.Exists(path) ? File.ReadAllText(path).Trim() : "https://techlearn-proj-pim-hyayf7cehyd3edfq.westus3-01.azurewebsites.net/");
 	}
 
+	// Aceita somente um endereço web absoluto para impedir uma API inválida.
 	public static Uri ValidarEndereco(string endereco)
 	{
 		if (!Uri.TryCreate(endereco, UriKind.Absolute, out Uri result) || result.Scheme != "https" || result.UserInfo != "" || result.Query != "" || result.Fragment != "" || result.AbsolutePath != "/")

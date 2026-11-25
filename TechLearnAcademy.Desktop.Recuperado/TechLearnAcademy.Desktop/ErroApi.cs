@@ -1,3 +1,4 @@
+// Representa uma mensagem de erro devolvida pela API.
 using System;
 
 namespace TechLearnAcademy.Desktop;

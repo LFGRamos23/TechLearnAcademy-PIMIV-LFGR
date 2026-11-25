@@ -1,3 +1,4 @@
+// Recebe as credenciais e pede uma sessão à API.
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -87,6 +88,7 @@ public class TelaLogin : Form
 		formulario.Top = Math.Max(12, (conteudo.ClientSize.Height - formulario.Height) / 2);
 	}
 
+	// Confere as credenciais na API e só então abre o painel administrativo.
 	private async void Entrar(object? sender, EventArgs e)
 	{
 		if (enviando)

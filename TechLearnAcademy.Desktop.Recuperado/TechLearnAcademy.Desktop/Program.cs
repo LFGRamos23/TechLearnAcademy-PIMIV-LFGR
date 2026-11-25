@@ -1,3 +1,4 @@
+// Inicia o desktop reconstruído e abre a tela de login.
 using System;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ internal static class Program
 		try
 		{
 			using ApiCliente api = new ApiCliente(Configuracao.LerEndereco());
+			// Se a sessão vencer, volta ao login sem encerrar o programa.
 			while (true)
 			{
 				using TelaLogin telaLogin = new TelaLogin(api);

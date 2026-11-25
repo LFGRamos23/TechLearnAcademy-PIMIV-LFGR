@@ -1,3 +1,4 @@
+// Inicia a janela principal do protótipo MAUI.
 namespace TechLearnAcademy.Mobile;
 
 public partial class App : Application

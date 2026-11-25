@@ -1,3 +1,4 @@
+// Representa o usuário e mantém a atualização de dados e senha dentro da classe.
 using System.Text.Json.Serialization;
 using TechLearnAcademy.Api.Servicos;
 
@@ -32,6 +33,7 @@ public sealed class Usuario
         Ativo = ativo;
     }
 
+    // Atualiza o usuário somente depois de validar nome e e-mail.
     public void AtualizarDados(string nome, string email)
     {
         string nomeValidado = Regras.Texto(nome, 2, 100, "Nome");
@@ -49,6 +51,7 @@ public sealed class Usuario
         SexoOutro = escolha.Outro;
     }
 
+    // Guarda o hash após validar a senha e sua confirmação.
     public void DefinirSenha(string senha, string confirmacao)
     {
         Regras.Senha(senha, confirmacao);

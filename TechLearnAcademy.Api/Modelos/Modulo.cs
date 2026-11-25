@@ -1,3 +1,4 @@
+// Representa uma etapa ordenada de um curso.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;
@@ -17,6 +18,7 @@ public sealed class Modulo
         Ativo = ativo;
     }
 
+    // No cadastro, confere também o curso ao qual o módulo será ligado.
     public static Modulo ParaCadastro(int cursoId, string titulo, int ordem)
     {
         string tituloValidado = Regras.Texto(titulo, 1, 150, "Título");

@@ -1,3 +1,4 @@
+// Cuida do cadastro, login, perfil e recuperação de senha.
 using System.Net;
 using System.Net.Mail;
 using Azure;
@@ -10,10 +11,11 @@ namespace TechLearnAcademy.Api.Servicos;
 
 public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
 {
+    // O cadastro público cria somente contas de aluno.
     public Task Cadastro(DadosCadastro dados) => Cadastrar(dados, "Aluno", false);
     public Task PrimeiroAdministrador(DadosCadastro dados) => Cadastrar(dados, "Administrador", true);
 
-    // Recuperação administrativa: usada apenas pelo comando local, nunca por uma rota do site.
+    // Recuperação administrativa: usada somente pelo comando do servidor.
     public async Task RedefinirSenhaAdministrador(string emailInformado, string senha, string confirmacao)
     {
         string email = Regras.Email(emailInformado);
@@ -31,6 +33,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         await transacao.CommitAsync();
     }
 
+    // Valida os dados e impede e-mails pessoais repetidos entre usuários.
     private async Task Cadastrar(DadosCadastro dados, string perfil, bool primeiroAdministrador)
     {
         Usuario usuario = new Usuario(perfil: perfil);
@@ -54,6 +57,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         { throw new ErroAplicacao(409, "Este e-mail já está cadastrado."); }
     }
 
+    // Confere a senha e cria uma sessão para as próximas chamadas.
     public async Task<object> Login(DadosLogin dados, HttpResponse resposta, bool https)
     {
         string email = Regras.Email(dados.Email);
@@ -122,6 +126,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         return primeiro + "." + segundo + "." + id + "@" + perfil.ToLowerInvariant() + ".techlearn.com";
     }
 
+    // Administrador cadastra gestores e mentores; gestor cadastra mentores.
     public async Task<object> CriarConta(Usuario autor, DadosConta dados)
     {
         Regras.Exigir((autor.Perfil == "Administrador" && (dados.Perfil == "Mentor" || dados.Perfil == "Gestor")) ||
@@ -156,6 +161,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         await transacao.CommitAsync();
     }
 
+    // Cria um token com prazo e pede o envio do link ao e-mail de contato.
     public async Task Recuperar(DadosEmail dados)
     {
         string email = Regras.Email(dados.Email);
@@ -200,6 +206,7 @@ public class UsuariosServico(ConexaoBanco conexao, IConfiguration configuracao)
         }
     }
 
+    // Aceita somente token válido ainda não utilizado.
     public async Task Redefinir(DadosSenha dados)
     {
         Regras.Senha(dados.Senha, dados.ConfirmarSenha);

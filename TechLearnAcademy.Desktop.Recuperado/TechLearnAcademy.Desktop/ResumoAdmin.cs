@@ -1,3 +1,4 @@
+// Guarda os totais exibidos no painel administrativo.
 using System.Collections.Generic;
 
 namespace TechLearnAcademy.Desktop;

@@ -1,3 +1,4 @@
+// Recebe pedidos HTTP de avaliações e encaminha as regras ao serviço.
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechLearnAcademy.Api.Modelos;
@@ -8,12 +9,14 @@ namespace TechLearnAcademy.Api.Controllers;
 [Authorize, ApiController, Route("api")]
 public class AvaliacoesController(AvaliacoesServico servico) : BaseController
 {
+    // Aluno e gestor consultam avaliações, mas recebem dados conforme seu perfil.
     [Authorize(Roles = "Aluno,Gestor"), HttpGet("modulos/{id:int}/avaliacoes")]
     public async Task<IActionResult> Listar(int id) => Ok(await servico.Listar(id, Usuario));
 
     [Authorize(Roles = "Aluno,Gestor"), HttpGet("avaliacoes/{id:int}")]
     public async Task<IActionResult> Detalhes(int id) => Ok(await servico.Detalhes(id, Usuario));
 
+    // Apenas o gestor cria e altera avaliações e questões.
     [Authorize(Roles = "Gestor"), HttpPost("avaliacoes")]
     public async Task<IActionResult> Criar(DadosAvaliacao dados) => StatusCode(201, new { id = await servico.Criar(dados), mensagem = "Avaliação cadastrada." });
 
@@ -26,12 +29,14 @@ public class AvaliacoesController(AvaliacoesServico servico) : BaseController
     [Authorize(Roles = "Gestor"), HttpPut("questoes/{id:int}")]
     public async Task<IActionResult> AlterarQuestao(int id, DadosQuestao dados) { await servico.AlterarQuestao(id, dados); return Mensagem("Questão atualizada."); }
 
+    // O serviço confere a tentativa antes de gravar respostas e calcular a nota.
     [Authorize(Roles = "Aluno"), HttpPost("avaliacoes/{id:int}/respostas")]
     public async Task<IActionResult> Corrigir(int id, DadosProva dados) => Ok(await servico.Corrigir(id, dados, Usuario));
 
     [Authorize(Roles = "Aluno"), HttpGet("resultados")]
     public async Task<IActionResult> Resultados() => Ok(await servico.Resultados(Usuario.Id));
 
+    // O serviço verifica quem pode consultar cada resultado individual.
     [Authorize(Roles = "Aluno,Mentor,Gestor"), HttpGet("resultados/{id:int}")]
     public async Task<IActionResult> Resultado(int id) => Ok(await servico.Resultado(id, Usuario));
 

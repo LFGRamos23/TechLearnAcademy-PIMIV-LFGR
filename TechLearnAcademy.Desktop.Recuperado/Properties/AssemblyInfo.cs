@@ -1,3 +1,4 @@
+// Registra os metadados de versão do desktop reconstruído.
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;

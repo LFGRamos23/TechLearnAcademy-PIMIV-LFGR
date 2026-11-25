@@ -1,3 +1,4 @@
+// Preenche e envia os dados pessoais mostrados na página de perfil.
 iniciar([], async function (usuario) {
     campo("nome").value = usuario.nome;
     campo("email").value = usuario.email;
@@ -7,10 +8,11 @@ iniciar([], async function (usuario) {
     campo("sexo").value = usuario.sexo || "";
     campo("sexo-outro").value = usuario.sexoOutro || "";
     configurarSexo("sexo", "area-sexo-outro", "sexo-outro");
-    if (usuario.perfil !== "Administrador") campo("modelo-senha").before(campo("modelo-senha").content.cloneNode(true));
+    if (usuario.perfil !== "Administrador") campo("modelo-senha").before(campo("modelo-senha").content.cloneNode(true)); // Admin não troca senha pelo site.
     campo("modelo-senha").remove();
     if (usuario.perfil === "Administrador") campo("email-contato").previousElementSibling.textContent = "E-mail pessoal de contato";
     campo("perfil").textContent = usuario.perfil;
+    // Os mesmos campos servem para os quatro perfis; a API confere o que cada um pode alterar.
     enviarFormulario("form-perfil", async function () {
         const nome = textoCampo("nome");
         const email = textoCampo("email");

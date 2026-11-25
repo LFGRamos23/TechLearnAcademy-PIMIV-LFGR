@@ -1,3 +1,4 @@
+// Abre o site e acompanha a navegação da tela do protótipo MAUI.
 namespace TechLearnAcademy.Mobile;
 
 public partial class MainPage : ContentPage
@@ -6,6 +7,7 @@ public partial class MainPage : ContentPage
 
     public MainPage() { InitializeComponent(); }
 
+    // Aceita somente o endereço HTTPS da plataforma antes de abrir o navegador interno.
     private void AbrirPlataforma(object? sender, EventArgs e)
     {
         string endereco = (Endereco.Text ?? "").Trim();
@@ -22,6 +24,7 @@ public partial class MainPage : ContentPage
         Navegador.Source = endereco;
     }
 
+    // Links externos e PDFs abrem no leitor do dispositivo.
     private async void PaginaAbrindo(object? sender, WebNavigatingEventArgs e)
     {
         if (!Uri.TryCreate(e.Url, UriKind.Absolute, out Uri? url))

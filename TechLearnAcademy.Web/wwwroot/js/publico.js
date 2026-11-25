@@ -1,5 +1,7 @@
+// Controla cadastro, login e recuperação de senha antes da entrada no site.
 const pagina = document.body.dataset.pagina;
 
+// O login recebe o perfil da API e segue para o painel correspondente.
 if (pagina === "login") {
     enviarFormulario("form-login", async function () {
         const email = textoCampo("email");
@@ -13,6 +15,7 @@ if (pagina === "login") {
     }, "Entrando...");
 }
 
+// O formulário público cria um aluno após validar dados pessoais e senha.
 if (pagina === "cadastro") {
     configurarSexo("sexo", "area-sexo-outro", "sexo-outro");
     enviarFormulario("form-cadastro", async function (formulario) {
@@ -31,6 +34,7 @@ if (pagina === "cadastro") {
     }, "Cadastrando...");
 }
 
+// A resposta é igual para e-mails cadastrados ou não, sem expor contas existentes.
 if (pagina === "recuperar") {
     enviarFormulario("form-recuperar", async function (formulario) {
         const email = textoCampo("email");

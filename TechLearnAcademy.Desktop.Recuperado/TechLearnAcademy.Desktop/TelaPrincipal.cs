@@ -1,3 +1,4 @@
+// Organiza a navegação principal do desktop.
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -63,6 +64,7 @@ public class TelaPrincipal : Form
 
 	public bool VoltarAoLogin { get; private set; }
 
+	// Monta as abas de painel, usuários, chamados e perfil do administrador.
 	public TelaPrincipal(ApiCliente api, Usuario administrador)
 	{
 		this.api = api;
@@ -271,6 +273,7 @@ public class TelaPrincipal : Form
 		return panel;
 	}
 
+	// Evita duas operações ao mesmo tempo e mostra os erros na própria janela.
 	private async void Executar(Func<Task> tarefa)
 	{
 		if (ocupado)
@@ -310,6 +313,7 @@ public class TelaPrincipal : Form
 		}
 	}
 
+	// Atualiza somente a aba selecionada, consultando a API quando necessário.
 	private Task CarregarAba()
 	{
 		if (abas.SelectedIndex == 0)
@@ -351,6 +355,7 @@ public class TelaPrincipal : Form
 		Executar(CarregarUsuarios);
 	}
 
+	// A busca é paginada; cada linha guarda o usuário usado na edição.
 	private async Task CarregarUsuarios()
 	{
 		PaginaUsuarios paginaUsuarios = await api.Enviar<PaginaUsuarios>("api/administracao/usuarios?busca=" + Uri.EscapeDataString(buscaAtual) + "&pagina=" + pagina, HttpMethod.Get);
@@ -412,6 +417,7 @@ public class TelaPrincipal : Form
 		}
 	}
 
+	// Pede confirmação antes de ativar ou desativar uma conta.
 	private async Task AlterarSituacao()
 	{
 		Usuario usuario = SelecionarUsuario();
@@ -430,6 +436,7 @@ public class TelaPrincipal : Form
 		}
 	}
 
+	// Aplica o filtro da tela aos chamados que a API permite visualizar.
 	private async Task CarregarChamados()
 	{
 		int selecionado = (chamados.CurrentRow?.Tag as Chamado)?.Id ?? 0;
@@ -480,6 +487,7 @@ public class TelaPrincipal : Form
 		}
 	}
 
+	// Encerra a sessão antes de fechar a janela administrativa.
 	private async void Fechar(object? sender, FormClosingEventArgs e)
 	{
 		if (fechamentoPronto)

@@ -1,3 +1,4 @@
+// Representa um link ou PDF de estudo pertencente a um módulo.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;

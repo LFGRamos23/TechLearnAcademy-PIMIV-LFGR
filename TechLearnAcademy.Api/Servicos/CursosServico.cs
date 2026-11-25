@@ -1,3 +1,4 @@
+// Organiza cursos, módulos, materiais, matrículas e progresso do aluno.
 using Microsoft.Data.SqlClient;
 using TechLearnAcademy.Api.Banco;
 using TechLearnAcademy.Api.Modelos;
@@ -6,7 +7,7 @@ namespace TechLearnAcademy.Api.Servicos;
 
 public class CursosServico(ConexaoBanco conexao)
 {
-    public const string ProgressoSql = "CAST(CASE WHEN COUNT(*)=0 THEN 0 ELSE 100.0*SUM(CASE WHEN p.Id IS NOT NULL THEN 1 ELSE 0 END)/COUNT(*) END AS decimal(5,2))";
+    public const string ProgressoSql = "CAST(CASE WHEN COUNT(*)=0 THEN 0 ELSE 100.0*SUM(CASE WHEN p.Id IS NOT NULL THEN 1 ELSE 0 END)/COUNT(*) END AS decimal(5,2))"; // Porcentagem de módulos concluídos.
 
     public async Task<object> Listar(Usuario usuario, string busca, int pagina, bool todos)
     {
@@ -46,6 +47,7 @@ public class CursosServico(ConexaoBanco conexao)
         Regras.Exigir(alterados == 1, "Curso não encontrado.", 404);
     }
 
+    // Limita a quatro módulos por curso, conforme a regra do projeto.
     public async Task<int> CriarModulo(DadosModulo dados)
     {
         var modulo = Modulo.ParaCadastro(dados.CursoId, dados.Titulo, dados.Ordem);
@@ -92,7 +94,7 @@ public class CursosServico(ConexaoBanco conexao)
         Regras.Exigir(alterados == 1, "Material não encontrado.", 404);
     }
 
-    // O documento fica no banco. O acesso ao módulo é conferido no download.
+    // Valida o PDF antes de guardá-lo no banco; o download confere o acesso ao módulo.
     public async Task<int> SalvarPdf(int id, int moduloId, string titulo, bool ativo, IFormFile arquivo)
     {
         Regras.Exigir(arquivo != null && arquivo.Length > 0 && arquivo.Length <= 10 * 1024 * 1024, "Selecione um PDF de até 10 MB.");
@@ -138,7 +140,7 @@ public class CursosServico(ConexaoBanco conexao)
         await transacao.CommitAsync();
     }
 
-    // A matrícula guarda em qual tentativa do curso o aluno está.
+    // A matrícula indica qual tentativa do curso vale agora para o aluno.
     public static async Task<int> TentativaAtual(SqlConnection banco, int alunoId, int cursoId, SqlTransaction? transacao = null)
     {
         string bloqueio = transacao == null ? "" : " WITH(UPDLOCK,HOLDLOCK)";
@@ -147,6 +149,7 @@ public class CursosServico(ConexaoBanco conexao)
         return tentativa;
     }
 
+    // Uma avaliação reprovada bloqueia o avanço até o curso ser reiniciado.
     public static async Task<bool> CursoReprovado(SqlConnection banco, int alunoId, int cursoId, SqlTransaction? transacao = null)
     {
         int reprovacoes = await ConexaoBanco.Numero(banco,
@@ -155,6 +158,7 @@ public class CursosServico(ConexaoBanco conexao)
         return reprovacoes > 0;
     }
 
+    // Abre nova tentativa somente depois da reprovação e zera o progresso atual.
     public async Task Reiniciar(Usuario usuario, int cursoId)
     {
         Regras.Aluno(usuario);
@@ -169,6 +173,7 @@ public class CursosServico(ConexaoBanco conexao)
     }
 
     // Apenas os resultados da tentativa atual contam para concluir o módulo.
+    // Todas as avaliações ativas do módulo precisam de aprovação.
     public static async Task<bool> ModuloAprovado(SqlConnection banco, int alunoId, int moduloId, SqlTransaction? transacao = null)
     {
         var dados = new { alunoId, moduloId };
@@ -191,6 +196,7 @@ public class CursosServico(ConexaoBanco conexao)
         }
     }
 
+    // Confere a aprovação nos módulos antes de liberar o certificado.
     public static async Task<bool> CursoAprovado(SqlConnection banco, int alunoId, int cursoId, SqlTransaction? transacao = null)
     {
         int matriculado = await ConexaoBanco.Numero(banco, "SELECT COUNT(*) FROM Matriculas ma JOIN Cursos c ON c.Id=ma.CursoId WHERE ma.AlunoId=@alunoId AND ma.CursoId=@cursoId AND ma.Ativo=1 AND c.Ativo=1 AND c.Excluido=0", new { alunoId, cursoId }, transacao);
@@ -201,6 +207,7 @@ public class CursosServico(ConexaoBanco conexao)
         return true;
     }
 
+    // Cria a matrícula do aluno no curso escolhido.
     public async Task Matricular(int alunoId, int cursoId)
     {
         var matricula = new Matricula(alunoId, cursoId);
@@ -216,6 +223,7 @@ public class CursosServico(ConexaoBanco conexao)
         return lista;
     }
 
+    // Marca o módulo concluído somente quando suas condições foram atendidas.
     public async Task Concluir(Usuario usuario, int moduloId)
     {
         using var banco = await conexao.Abrir();

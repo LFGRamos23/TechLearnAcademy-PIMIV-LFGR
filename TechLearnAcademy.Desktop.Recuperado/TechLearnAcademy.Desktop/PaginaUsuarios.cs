@@ -1,3 +1,4 @@
+// Guarda a lista paginada de usuários vinda da API.
 using System.Collections.Generic;
 
 namespace TechLearnAcademy.Desktop;

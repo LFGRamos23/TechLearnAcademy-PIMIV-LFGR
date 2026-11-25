@@ -1,3 +1,4 @@
+-- Acrescenta telefone e gênero aos dados dos usuários.
 -- Execute no banco TechLearn Academy já existente, após conferir a conexão.
 -- Pode ser repetido. Os usuários atuais permanecem cadastrados; os novos campos começam vazios.
 SET XACT_ABORT ON;
@@ -10,6 +11,7 @@ IF COL_LENGTH('dbo.Usuarios', 'Sexo') IS NULL
 IF COL_LENGTH('dbo.Usuarios', 'SexoOutro') IS NULL
     ALTER TABLE dbo.Usuarios ADD SexoOutro nvarchar(60) NULL;
 
+-- As três restrições conferem DDD, opções de gênero e a descrição de "Outro".
 IF NOT EXISTS (SELECT 1 FROM sys.check_constraints WHERE name='CK_Usuarios_Telefone' AND parent_object_id=OBJECT_ID('dbo.Usuarios'))
     EXEC(N'ALTER TABLE dbo.Usuarios ADD CONSTRAINT CK_Usuarios_Telefone
         CHECK (Telefone IS NULL OR (LEN(Telefone) IN (10,11) AND Telefone NOT LIKE ''%[^0-9]%''))');

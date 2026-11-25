@@ -1,3 +1,4 @@
+// Representa a ligação do aluno com o curso e sua tentativa atual.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;
@@ -9,6 +10,7 @@ public sealed class Matricula
     public decimal Progresso { get; private set; }
     public int TentativaCurso { get; private set; }
 
+    // A tentativa começa em 1 e o progresso pode ser carregado do banco.
     public Matricula(int alunoId, int cursoId, decimal progresso = 0, int tentativaCurso = 1)
     {
         Regras.Exigir(cursoId > 0, "Selecione um curso.");
@@ -18,6 +20,7 @@ public sealed class Matricula
         TentativaCurso = tentativaCurso;
     }
 
+    // Aumenta a tentativa e volta o progresso ao início após reprovação.
     public void Reiniciar(bool reprovado)
     {
         Regras.Exigir(reprovado, "O curso só pode ser reiniciado após uma reprovação.", 409);

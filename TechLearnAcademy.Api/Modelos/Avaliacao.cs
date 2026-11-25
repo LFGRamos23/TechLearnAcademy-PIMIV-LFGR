@@ -1,3 +1,4 @@
+// Representa a avaliação ligada a um módulo e valida seus dados principais.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;

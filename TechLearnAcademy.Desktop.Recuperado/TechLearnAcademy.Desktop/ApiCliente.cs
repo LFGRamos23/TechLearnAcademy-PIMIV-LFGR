@@ -1,3 +1,4 @@
+// Envia os pedidos do desktop à API e trata suas respostas.
 using System;
 using System.Net;
 using System.Net.Http;
@@ -20,6 +21,7 @@ public sealed class ApiCliente : IDisposable
 
 	public Uri Endereco { get; }
 
+	// O mesmo cliente guarda os cookies da sessão entre as chamadas à API.
 	public ApiCliente(Uri endereco)
 	{
 		Endereco = endereco;
@@ -35,6 +37,7 @@ public sealed class ApiCliente : IDisposable
 		};
 	}
 
+	// O desktop só abre para quem a API confirma como administrador.
 	public async Task<Usuario> EntrarAdministrador(string email, string senha)
 	{
 		if ((await Enviar<Usuario>("api/usuarios/login", HttpMethod.Post, new { email, senha })).Perfil == "Administrador")
@@ -56,6 +59,7 @@ public sealed class ApiCliente : IDisposable
 		throw new ErroApi(403, "Este aplicativo é exclusivo para Administradores. Use o site com o seu perfil.");
 	}
 
+	// Envia JSON e transforma falhas HTTP em mensagens que as telas podem mostrar.
 	public async Task<T> Enviar<T>(string caminho, HttpMethod metodo, object? dados = null)
 	{
 		using HttpRequestMessage pedido = new HttpRequestMessage(metodo, caminho);
@@ -116,6 +120,7 @@ public sealed class ApiCliente : IDisposable
 		}
 	}
 
+	// Expira os cookies locais ao sair ou quando o acesso é recusado.
 	public void LimparSessao()
 	{
 		foreach (Cookie allCookie in cookies.GetAllCookies())

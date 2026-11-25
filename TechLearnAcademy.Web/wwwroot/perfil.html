@@ -13,6 +13,7 @@
         </script>
     </head>
     <body data-pagina="perfil">
+        <!-- Esta página apresenta consulta e edição dos dados pessoais; os dados dinâmicos vêm da API pelo JavaScript. -->
         <a class="pular" href="#conteudo">Ir para o conteúdo</a>
         <header class="cabecalho">
             <a class="marca" href="perfil.html">
@@ -42,6 +43,7 @@
                         <p>Perfil: <strong id="perfil">
                             </strong>
                         </p>
+                        <!-- Todos os perfis editam dados pessoais; as permissões são conferidas pela API. -->
                         <form id="form-perfil">
                             <div class="campo">
                                 <label for="nome">Nome</label>
@@ -62,6 +64,7 @@
                             <button type="submit">Salvar dados</button>
                         </form>
                     </section>
+                    <!-- O JavaScript insere esta seção somente para aluno, mentor e gestor. -->
                     <template id="modelo-senha"><section class="cartao">
                         <h2>Trocar senha</h2>
                         <form id="form-senha">

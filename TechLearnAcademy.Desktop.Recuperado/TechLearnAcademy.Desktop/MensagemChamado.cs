@@ -1,3 +1,4 @@
+// Guarda uma mensagem da conversa de um chamado.
 using System;
 
 namespace TechLearnAcademy.Desktop;

@@ -1,3 +1,4 @@
+// Guarda os dados de retorno das operações da API.
 namespace TechLearnAcademy.Desktop;
 
 public class RespostaApi

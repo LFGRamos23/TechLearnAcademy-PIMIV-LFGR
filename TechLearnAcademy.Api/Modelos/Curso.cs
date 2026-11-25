@@ -1,3 +1,4 @@
+// Representa um curso e valida os dados usados no cadastro.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;

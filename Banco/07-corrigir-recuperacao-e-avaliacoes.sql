@@ -1,3 +1,4 @@
+-- Corrige índices de recuperação de senha e de tentativas de avaliação.
 -- Execute no banco utilizado pelo site. Não apaga notas nem matrículas.
 SET ANSI_NULLS ON;
 SET QUOTED_IDENTIFIER ON;
@@ -11,6 +12,7 @@ BEGIN TRY
     BEGIN TRANSACTION;
     IF COL_LENGTH('dbo.Usuarios','EmailContato') IS NULL
         THROW 51000, 'Execute primeiro Banco/05-atualizar-funcionalidades.sql.', 1;
+    -- A migração para se houver e-mails pessoais repetidos, antes de criar o índice único.
     IF EXISTS(SELECT EmailContato FROM dbo.Usuarios WHERE EmailContato IS NOT NULL GROUP BY EmailContato HAVING COUNT(*)>1)
         THROW 51000, 'Há e-mails pessoais repetidos. Edite os usuários para informar um contato diferente em cada conta antes desta atualização.', 1;
     IF NOT EXISTS(SELECT 1 FROM sys.indexes WHERE object_id=OBJECT_ID('dbo.Usuarios') AND name='UQ_Usuarios_EmailContato')

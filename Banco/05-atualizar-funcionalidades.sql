@@ -1,3 +1,4 @@
+-- Atualiza tabelas e regras necessárias às funções novas.
 -- Atualização das novas funções. Execute no banco atual; pode ser repetida.
 USE TechLearnAcademy_PIMIV;
 GO
@@ -17,6 +18,7 @@ BEGIN TRY
     IF COL_LENGTH('dbo.Usuarios','EmailContato') IS NULL
         ALTER TABLE dbo.Usuarios ADD EmailContato nvarchar(254) NULL;
     EXEC(N'UPDATE dbo.Usuarios SET EmailContato=Email WHERE EmailContato IS NULL;');
+    -- A exclusão lógica tira o conteúdo da tela sem apagar o histórico associado.
     IF COL_LENGTH('dbo.Cursos','Excluido') IS NULL
         ALTER TABLE dbo.Cursos ADD Excluido bit NOT NULL DEFAULT 0;
     IF COL_LENGTH('dbo.Modulos','Excluido') IS NULL
@@ -25,6 +27,7 @@ BEGIN TRY
         ALTER TABLE dbo.Materiais ADD Excluido bit NOT NULL DEFAULT 0;
     IF COL_LENGTH('dbo.Avaliacoes','Excluido') IS NULL
         ALTER TABLE dbo.Avaliacoes ADD Excluido bit NOT NULL DEFAULT 0;
+    -- O PDF fica no banco, enquanto materiais de link continuam usando a URL.
     IF COL_LENGTH('dbo.Materiais','ArquivoNome') IS NULL
         ALTER TABLE dbo.Materiais ADD ArquivoNome nvarchar(255) NULL, ArquivoPdf varbinary(max) NULL;
     IF EXISTS(SELECT 1 FROM sys.key_constraints WHERE name='UQ_Modulos_Ordem')
@@ -36,6 +39,7 @@ BEGIN TRY
     EXEC(N'ALTER TABLE dbo.Materiais ADD CONSTRAINT CK_Materiais_Url CHECK
         ((Tipo=N''PDF'' AND ArquivoPdf IS NOT NULL AND DATALENGTH(ArquivoPdf)<=10485760)
          OR (ArquivoPdf IS NULL AND (Url LIKE N''https://%'' OR Url LIKE N''http://%'')));');
+    -- Cada chamado guarda solicitante, destinatário e responsável pelo atendimento.
     IF OBJECT_ID('dbo.Chamados','U') IS NULL
     BEGIN
         CREATE TABLE dbo.Chamados(
@@ -62,6 +66,7 @@ BEGIN TRY
             Texto nvarchar(4000) NOT NULL,
             DataEnvio datetime2 NOT NULL DEFAULT SYSUTCDATETIME()
         );
+    -- O gestor registra a decisão e o código do certificado na mesma solicitação.
     IF OBJECT_ID('dbo.SolicitacoesCertificado','U') IS NULL
     BEGIN
         CREATE TABLE dbo.SolicitacoesCertificado(

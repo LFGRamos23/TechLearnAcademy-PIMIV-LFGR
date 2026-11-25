@@ -1,3 +1,4 @@
+// Monta os formulários de conteúdo, avaliações e relatórios do gestor.
 const pagina = document.body.dataset.pagina;
 
 async function todosCursos() {
@@ -45,6 +46,7 @@ function editarBotao(tarefa) {
     return botao;
 }
 
+// Confirma a exclusão antes de chamar a rota correspondente na API.
 function excluirBotao(tipo, id, nome, atualizar) {
     return botaoAcao("Excluir", async function () {
         if (!await dialogo("Excluir " + tipo, "Deseja excluir " + nome + "? O conteúdo sairá do site. O histórico de notas e certificados será preservado.", false, "Excluir")) return;
@@ -54,6 +56,7 @@ function excluirBotao(tipo, id, nome, atualizar) {
     }, "perigo");
 }
 
+// Mostra cursos paginados e oferece edição e exclusão em cada cartão.
 async function listarCursos(paginaNumero = 1) {
     const retorno = await requisicao("/api/cursos?todos=true&busca=" + encodeURIComponent(textoCampo("busca")) + "&pagina=" + paginaNumero);
     const area = campo("lista");
@@ -105,6 +108,7 @@ async function configurarCursos() {
     await listarCursos();
 }
 
+// Busca apenas os materiais do módulo escolhido pelo gestor.
 async function listarMateriais() {
     const area = campo("materiais");
     area.replaceChildren();
@@ -133,6 +137,7 @@ async function listarMateriais() {
     }
 }
 
+// Exibe o limite de quatro módulos e os materiais do módulo selecionado.
 async function listarModulos() {
     const modulos = await carregarModulos();
     campo("limite-modulos").textContent = modulos.length + " de 4 módulos cadastrados. É possível adicionar vários materiais em cada módulo.";
@@ -158,6 +163,7 @@ async function listarModulos() {
 
 let materialTemArquivo = false;
 
+// Alterna entre o campo de link e o envio de um arquivo PDF.
 function configurarOrigemMaterial() {
     const arquivo = valor("origem-material") === "arquivo";
     campo("campo-link").hidden = arquivo;
@@ -168,6 +174,7 @@ function configurarOrigemMaterial() {
     if (arquivo) campo("tipo").value = "PDF";
 }
 
+// Liga os formulários de módulo e material às respectivas rotas da API.
 async function configurarConteudo() {
     campo("origem-material").onchange = configurarOrigemMaterial;
     configurarOrigemMaterial();
@@ -244,6 +251,7 @@ async function configurarConteudo() {
 let avaliacaoAtual = 0;
 let contadorAlternativas = 0;
 
+// A interface só permite até cinco opções, identificadas de A a E.
 function adicionarAlternativa(texto = "", correta = false) {
     if (contadorAlternativas >= 5) { aviso("Uma questão pode ter no máximo cinco alternativas: A a E.", "erro"); return; }
     const indice = contadorAlternativas++;
@@ -281,6 +289,7 @@ function novaQuestao() {
     adicionarAlternativa();
 }
 
+// Mostra questões e gabarito somente na tela de gestão.
 async function abrirQuestoes(id, titulo) {
     avaliacaoAtual = id;
     campo("avaliacao-atual").textContent = titulo;
@@ -335,6 +344,7 @@ async function listarAvaliacoes() {
     }
 }
 
+// Liga os formulários de avaliações e questões às rotas da API.
 async function configurarAvaliacoes() {
     campo("avaliacao-ativo").disabled = true;
     await selecionarCursos();
@@ -393,6 +403,7 @@ async function configurarAvaliacoes() {
     vazio(campo("questoes"), "Selecione uma avaliação para consultar suas questões.");
 }
 
+// Monta os indicadores e os links para notas detalhadas de cada curso.
 async function relatorio() {
     const retorno = await requisicao("/api/relatorios");
     if (!Array.isArray(retorno.cursos) || !Array.isArray(retorno.atendimentos) || !Array.isArray(retorno.chamadosMentores))

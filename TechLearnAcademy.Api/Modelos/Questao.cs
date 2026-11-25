@@ -1,3 +1,4 @@
+// Representa o enunciado e as alternativas de uma avaliação.
 using TechLearnAcademy.Api.Servicos;
 
 namespace TechLearnAcademy.Api.Modelos;
@@ -10,6 +11,7 @@ public sealed class Questao
     // As alternativas são dados da própria questão.
     public IReadOnlyList<(string Texto, bool Correta)> Alternativas { get; }
 
+    // A questão aceita de duas a cinco alternativas e exatamente uma correta.
     public Questao(int avaliacaoId, string enunciado,
         List<(string Texto, bool Correta)>? alternativas, bool ativo = true)
     {

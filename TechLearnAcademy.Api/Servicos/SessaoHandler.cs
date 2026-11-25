@@ -1,3 +1,4 @@
+// Lê o token da sessão e identifica o usuário em cada chamada protegida.
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
@@ -18,6 +19,7 @@ public class SessaoHandler(IOptionsMonitor<AuthenticationSchemeOptions> opcoes, 
         return pedido.Cookies["TechLearnSessao"] ?? "";
     }
 
+    // Recusa sessões vencidas, revogadas ou de usuários desativados.
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
     {
         string token = Token(Request);

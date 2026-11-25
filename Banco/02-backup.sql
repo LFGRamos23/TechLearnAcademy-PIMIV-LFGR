@@ -1,3 +1,4 @@
+-- Mostra como salvar uma cópia do banco local.
 -- Preencha o caminho de um NOVO arquivo na máquina do SQL Server.
 -- Não execute automaticamente nem use o banco antigo do grupo.
 USE master;

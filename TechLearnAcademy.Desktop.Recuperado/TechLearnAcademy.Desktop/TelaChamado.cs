@@ -1,3 +1,4 @@
+// Mostra e envia mensagens de chamados no desktop.
 using System;
 using System.Drawing;
 using System.Globalization;
@@ -129,6 +130,7 @@ public class TelaChamado : Form
 		LiberarAcoes();
 	}
 
+	// Os botões seguem as permissões devolvidas pela API para este chamado.
 	private void LiberarAcoes(bool manterDigitacao = false)
 	{
 		atender.Enabled = !ocupado && (chamado?.PodeAtender ?? false);
@@ -140,6 +142,7 @@ public class TelaChamado : Form
 		encerrar.Enabled = !ocupado && (chamado?.PodeEncerrar ?? false);
 	}
 
+	// Depois de uma ação, busca a conversa atualizada e mantém a digitação na atualização automática.
 	private async void Executar(Func<Task> tarefa, bool automatico = false)
 	{
 		if (ocupado)
@@ -203,6 +206,7 @@ public class TelaChamado : Form
 		}
 	}
 
+	// Envia o texto apenas se houver conteúdo; a API decide quem pode responder.
 	private async Task EnviarMensagem()
 	{
 		string text = resposta.Text.Trim();
@@ -217,6 +221,7 @@ public class TelaChamado : Form
 		resposta.Clear();
 	}
 
+	// A confirmação evita encerrar por engano e preserva a conversa no histórico.
 	private async Task Encerrar()
 	{
 		if (MessageBox.Show("Encerrar este atendimento? A conversa será mantida no histórico.", "Encerrar chamado", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)

@@ -1,3 +1,4 @@
+// Reúne validações e verificações de acesso usadas pela API.
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
@@ -36,6 +37,7 @@ public static class Regras
         return valor.ToLowerInvariant();
     }
 
+    // Guarda somente os números com DDD, mesmo que o formulário use máscara.
     public static string Telefone(string? telefone)
     {
         string numeros = Regex.Replace(telefone ?? "", @"[\s()\-]", "");
@@ -43,6 +45,7 @@ public static class Regras
         return numeros;
     }
 
+    // A descrição livre só é aceita quando a pessoa seleciona "Outro".
     public static (string Sexo, string? Outro) SexoInformado(string? sexo, string? descricao)
     {
         string escolha = (sexo ?? "").Trim();
@@ -60,6 +63,7 @@ public static class Regras
         Exigir(repetidos == 0, "Este e-mail de acesso ou de recuperação já pertence a outro usuário. Informe outro e-mail pessoal.", 409);
     }
 
+    // Exige oito caracteres, maiúscula, número e símbolo, sem espaços.
     public static void Senha(string? senha, string? confirmacao)
     {
         Exigir(senha != null && senha.EnumerateRunes().Count() >= 8,
@@ -71,6 +75,7 @@ public static class Regras
         Exigir(senha == confirmacao, "As senhas devem ser exatamente iguais.");
     }
 
+    // Salva o resumo seguro da senha, nunca a senha digitada.
     public static string HashSenha(string senha)
     {
         byte[] sal = RandomNumberGenerator.GetBytes(16);
@@ -78,6 +83,7 @@ public static class Regras
         return "600000." + Convert.ToBase64String(sal) + "." + Convert.ToBase64String(hash);
     }
 
+    // Compara a senha informada com o resumo armazenado.
     public static bool ConferirSenha(string senha, string hashSalvo)
     {
         try
@@ -98,6 +104,7 @@ public static class Regras
     public static void Gestor(Usuario usuario) => Exigir(usuario.Perfil == "Gestor", "Esta função é exclusiva do Gestor.", 403);
     public static void Aluno(Usuario usuario) => Exigir(usuario.Perfil == "Aluno", "Esta função é exclusiva do Aluno.", 403);
 
+    // Restringe o curso aos perfis e matrículas permitidos.
     public static async Task AcessoCurso(SqlConnection banco, int cursoId, Usuario usuario, SqlTransaction? transacao = null)
     {
         int existe = await ConexaoBanco.Numero(banco, "SELECT COUNT(*) FROM Cursos WHERE Id=@cursoId AND Excluido=0", new { cursoId }, transacao);
@@ -118,6 +125,7 @@ public static class Regras
         return cursoId;
     }
 
+    // O mentor só consulta dados de alunos cujos chamados de curso assumiu.
     public static async Task AcessoAlunoMentor(SqlConnection banco, int mentorId, int alunoId, int? cursoId = null)
     {
         int possui = await ConexaoBanco.Numero(banco, "SELECT COUNT(*) FROM Chamados c WHERE c.ResponsavelId=@mentorId AND c.SolicitanteId=@alunoId AND c.Tipo='AjudaCurso' AND (@cursoId IS NULL OR c.CursoId=@cursoId)", new { mentorId, alunoId, cursoId });

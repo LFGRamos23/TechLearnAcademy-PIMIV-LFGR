@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿// Inicia a atividade Android do protótipo MAUI.
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 

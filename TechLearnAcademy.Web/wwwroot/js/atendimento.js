@@ -1,3 +1,4 @@
+// Monta conversas de chamados, certificados e desempenho por curso.
 // Cada página usa as mesmas funções de comunicação e de mensagens de api.js.
 const pagina = document.body.dataset.pagina;
 let usuarioAtual;
@@ -11,6 +12,7 @@ function nomeTipo(tipo) {
     return "Ouvidoria / ajuda com o gestor";
 }
 
+// Mostra separadamente os chamados recebidos e os enviados.
 async function listarChamados() {
     const lista = await requisicao("/api/chamados");
     const filtro = valor("filtro-chamados");
@@ -37,6 +39,7 @@ async function listarChamados() {
     if (!exibidos) vazio(area, "Nenhum chamado neste filtro.");
 }
 
+// Carrega as mensagens e ações disponíveis para este chamado.
 async function abrirConversa(id, automatico = false) {
     chamadoAtual = id;
     const chamado = await requisicao("/api/chamados/" + id);
@@ -77,6 +80,7 @@ async function abrirConversa(id, automatico = false) {
     if (!automatico) detalhe.scrollIntoView({ block: "start", behavior: "smooth" });
 }
 
+// Define quem pode abrir chamado e inicia a atualização periódica da conversa.
 async function configurarChamados() {
     if (usuarioAtual.perfil === "Administrador") {
         campo("novo-chamado").hidden = true;
@@ -125,6 +129,7 @@ async function configurarChamados() {
     }, 5000);
 }
 
+// Exibe pedidos pendentes ao gestor e certificados disponíveis ao aluno.
 async function listarCertificados() {
     const lista = await requisicao("/api/certificados");
     const area = campo("lista"); area.replaceChildren();
@@ -162,6 +167,7 @@ async function listarCertificados() {
     }
 }
 
+// Mostra ao gestor notas atuais e histórico de tentativas de um aluno.
 async function abrirDesempenho(alunoId) {
     const r = await requisicao("/api/relatorios/cursos/" + numeroId() + "/alunos/" + alunoId);
     campo("relatorio-aluno").hidden = false;

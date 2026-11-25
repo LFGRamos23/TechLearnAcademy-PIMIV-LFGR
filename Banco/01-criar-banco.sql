@@ -1,3 +1,4 @@
+-- Cria o esquema SQL em uma instância nova e aplica restrições de integridade.
 -- Execute somente em uma instância NOVA, no modo SQLCMD do SSMS.
 -- O script interrompe se já existir um banco com este nome.
 :ON ERROR EXIT
@@ -152,7 +153,7 @@ CREATE TABLE dbo.TentativasAvaliacao (
     CONSTRAINT CK_Tentativas_Acertos CHECK (TotalQuestoes > 0 AND Acertos BETWEEN 0 AND TotalQuestoes),
     CONSTRAINT CK_Tentativas_Percentual CHECK (Percentual BETWEEN 0 AND 100 AND Percentual = ROUND(100.0 * Acertos / TotalQuestoes, 2)),
     CONSTRAINT CK_Tentativas_Nota CHECK (Nota BETWEEN 0 AND 10 AND Nota = ROUND(10.0 * Acertos / TotalQuestoes, 2)),
-    CONSTRAINT CK_Tentativas_Aprovacao CHECK ((Aprovado = 1 AND Percentual >= 60) OR (Aprovado = 0 AND Percentual < 60))
+    CONSTRAINT CK_Tentativas_Aprovacao CHECK ((Aprovado = 1 AND Percentual >= 60) OR (Aprovado = 0 AND Percentual < 60)) -- Aprovação exige pelo menos 60%.
 );
 
 -- As chaves compostas ligam tentativa, questão e alternativa corretamente.
@@ -218,7 +219,7 @@ CREATE INDEX IX_Matriculas_Curso ON dbo.Matriculas(CursoId, Ativo);
 CREATE INDEX IX_Avaliacoes_Modulo ON dbo.Avaliacoes(ModuloId, Ativo);
 CREATE INDEX IX_Questoes_Avaliacao ON dbo.Questoes(AvaliacaoId, Ativo);
 CREATE INDEX IX_Alternativas_Questao ON dbo.Alternativas(QuestaoId);
-CREATE UNIQUE INDEX UQ_Alternativas_Correta ON dbo.Alternativas(QuestaoId) WHERE Correta = 1;
+CREATE UNIQUE INDEX UQ_Alternativas_Correta ON dbo.Alternativas(QuestaoId) WHERE Correta = 1; -- Cada questão tem no máximo uma resposta certa.
 CREATE INDEX IX_Tentativas_Aluno ON dbo.TentativasAvaliacao(AlunoId, DataTentativa);
 CREATE INDEX IX_Tentativas_Avaliacao ON dbo.TentativasAvaliacao(AvaliacaoId);
 CREATE INDEX IX_Respostas_Alternativa ON dbo.RespostasAluno(AlternativaId, QuestaoId);

@@ -1,5 +1,7 @@
+// Monta cursos, estudo, avaliações e resultados vistos pelo aluno.
 const pagina = document.body.dataset.pagina;
 
+// O aluno confirma antes de apagar o progresso da tentativa atual.
 function botaoReiniciarCurso(cursoId) {
     return botaoAcao("Reiniciar curso", async function () {
         if (!await dialogo("Reiniciar curso", "O progresso de todos os módulos será zerado. Você começará uma nova tentativa do curso e poderá responder cada avaliação uma vez. As notas anteriores continuarão no histórico. Deseja reiniciar?", false, "Reiniciar curso")) return;
@@ -17,6 +19,7 @@ function cardCurso(curso, mostrarProgresso = false) {
     return item;
 }
 
+// A busca consulta a API e mostra uma página de cursos por vez.
 async function catalogo(paginaNumero = 1) {
     const retorno = await requisicao("/api/cursos?busca=" + encodeURIComponent(textoCampo("busca")) + "&pagina=" + paginaNumero);
     const area = campo("lista");
@@ -26,6 +29,7 @@ async function catalogo(paginaNumero = 1) {
     paginacao(retorno, catalogo);
 }
 
+// A página usa a matrícula para decidir entre entrar no curso e matricular-se.
 async function detalheCurso() {
     const curso = await requisicao("/api/cursos/" + numeroId());
     const area = campo("detalhes");
@@ -63,6 +67,7 @@ async function detalheCurso() {
     }
 }
 
+// Materiais e conclusão são carregados para o módulo indicado no endereço.
 async function estudar() {
     const curso = await requisicao("/api/cursos/" + numeroId("curso"));
     const modulo = curso.modulos.find(item => item.id === numeroId());
@@ -98,6 +103,7 @@ async function estudar() {
     }
 }
 
+// Busca a avaliação permitida para a tentativa atual do curso.
 async function abrirAvaliacao() {
     const avaliacao = await requisicao("/api/avaliacoes/" + numeroId());
     campo("titulo-avaliacao").textContent = avaliacao.titulo;
@@ -158,6 +164,7 @@ async function abrirAvaliacao() {
     }, "Enviando respostas...");
 }
 
+// Exibe a nota e a aprovação devolvidas pela API.
 async function mostrarResultado(usuario) {
     const resultado = await requisicao("/api/resultados/" + numeroId());
     metricas([["Acertos", resultado.acertos], ["Erros", resultado.total - resultado.acertos],

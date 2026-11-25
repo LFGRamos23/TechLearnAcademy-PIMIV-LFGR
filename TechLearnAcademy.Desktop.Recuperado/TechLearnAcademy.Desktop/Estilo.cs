@@ -1,3 +1,4 @@
+// Aplica cores, fontes e espaçamentos às telas do desktop.
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -16,6 +17,7 @@ public static class Estilo
 
 	public static readonly Color TextoCor = Color.FromArgb(24, 44, 67);
 
+	// As telas compartilham cores, tamanho inicial e fonte.
 	public static void Preparar(Form tela, string titulo, int largura, int altura)
 	{
 		tela.Text = titulo + " | TechLearn Academy";
@@ -44,6 +46,7 @@ public static class Estilo
 		return label;
 	}
 
+	// Reúne rótulo e entrada para os formulários manterem o mesmo alinhamento.
 	public static TextBox Campo(Control pai, string rotulo, int y, bool senha = false, bool mostrar = true)
 	{
 		Texto(pai, rotulo, 28, y, 490, 24, negrito: true).Visible = mostrar;
@@ -62,6 +65,7 @@ public static class Estilo
 		return textBox;
 	}
 
+	// Permite colar texto nos campos mesmo com o menu padrão do Windows substituído.
 	public static void HabilitarColagem(TextBox campo)
 	{
 		campo.ShortcutsEnabled = true;
@@ -154,6 +158,7 @@ public static class Estilo
 		return button;
 	}
 
+	// Cria tabelas com o mesmo estilo para usuários, chamados e perfis.
 	public static DataGridView Tabela(Control pai, params string[] colunas)
 	{
 		DataGridView dataGridView = new DataGridView
@@ -192,6 +197,7 @@ public static class Estilo
 		return dataGridView;
 	}
 
+	// Mensagens de erro e sucesso aparecem na própria tela do desktop.
 	public static void Aviso(Label label, string texto, bool erro = false)
 	{
 		label.Text = texto;

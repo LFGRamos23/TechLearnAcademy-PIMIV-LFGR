@@ -1,3 +1,4 @@
+// Guarda os dados de um chamado recebidos pela tela desktop.
 using System.Collections.Generic;
 
 namespace TechLearnAcademy.Desktop;

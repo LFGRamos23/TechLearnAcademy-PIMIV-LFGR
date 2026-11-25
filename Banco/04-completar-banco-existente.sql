@@ -1,3 +1,4 @@
+-- Acrescenta ao banco existente as estruturas exigidas pelas funções atuais.
 -- Completa o esquema da TechLearn Academy sem apagar a tabela dbo.Usuarios nem seus dados.
 -- Execute somente depois de conferir que dbo.Usuarios pertence a esta solução.
 -- No SSMS: habilite Modo SQLCMD antes de executar.

@@ -1,3 +1,4 @@
+// Configura a API, a autenticação, os serviços e as respostas de erro.
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;

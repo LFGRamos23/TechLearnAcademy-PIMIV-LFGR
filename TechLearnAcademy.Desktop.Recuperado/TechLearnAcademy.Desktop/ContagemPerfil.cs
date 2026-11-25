@@ -1,3 +1,4 @@
+// Guarda a quantidade de usuários por perfil exibida no painel.
 namespace TechLearnAcademy.Desktop;
 
 public class ContagemPerfil

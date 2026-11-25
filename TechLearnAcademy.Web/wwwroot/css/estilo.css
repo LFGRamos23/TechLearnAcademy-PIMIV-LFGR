@@ -79,7 +79,7 @@ tr:last-child td { border-bottom: 0; }
 .selo { display: inline-block; padding: 4px 10px; border-radius: 20px; background: #e7f4f2; color: #07686d; font-size: .8rem; font-weight: 700; }
 .rodape { padding: 20px; text-align: center; color: #577087; font-size: .85rem; border-top: 1px solid #dce6ec; }
 [hidden] { display: none !important; }
-/* Unidades relativas permitem aumentar o texto pelo navegador. */
+/* Em telas estreitas, colunas viram uma coluna e os controles ganham espaço. */
 @media (max-width: 760px) {
     .publico { grid-template-columns: 1fr; }
     .apresentacao { min-height: 280px; padding: 27px; gap: 32px; }
@@ -116,6 +116,7 @@ input[readonly] { background: #edf3f7 !important; }
 #aviso-atualizacao button { margin-left: 12px; }
 #aviso-atualizacao button:focus-visible { outline: 3px solid #087e89; outline-offset: 3px; }
 
+/* A impressão esconde menus e mantém somente o certificado em tamanho A4. */
 .certificado { background: #fff; border: 5px double #16374e; padding: 40px; text-align: center; color: #16374e; }
 .certificado h2 { font-size: clamp(1.4rem, 4vw, 2rem); }
 .certificado h3 { font-size: 1.5rem; overflow-wrap: anywhere; }

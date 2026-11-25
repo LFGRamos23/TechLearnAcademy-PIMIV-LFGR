@@ -1,6 +1,8 @@
+// Serve as páginas públicas do site e encaminha as chamadas da API.
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 string pastaWeb = Path.Combine(app.Environment.ContentRootPath, "wwwroot");
+// Evita que o navegador mantenha uma resposta antiga em cache.
 app.Use(async (contexto, proximo) =>
 {
     contexto.Response.Headers.CacheControl = "no-store";

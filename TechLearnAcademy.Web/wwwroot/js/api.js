@@ -1,4 +1,4 @@
-// Funções comuns evitam repetir a comunicação e as mensagens.
+// Funções comuns para comunicação com a API, sessão, mensagens e componentes das páginas.
 function campo(id) { return document.getElementById(id); }
 
 function elemento(tag, texto, classe) {
@@ -20,6 +20,7 @@ function aviso(texto, tipo = "informacao") {
     }
 }
 
+// Envia o pedido à API e transforma erros em mensagens legíveis.
 async function requisicao(caminho, metodo = "GET", dados) {
     const opcoes = { method: metodo, credentials: "include", cache: "no-store" };
     if (dados !== undefined) {
@@ -88,7 +89,7 @@ function dataBrasileira(valor) {
 function valor(id) { return campo(id).value; }
 function textoCampo(id) { return valor(id).trim(); }
 
-// Mostra a descrição somente quando a pessoa escolhe "Outro".
+// Mostra a descrição livre somente quando o gênero escolhido é "Outro".
 function configurarSexo(selecao, areaOutro, campoOutro) {
     const atualizar = function () {
         const outro = valor(selecao) === "Outro";
@@ -119,6 +120,7 @@ function destinoPerfil(perfil) {
     return "";
 }
 
+// Monta apenas as opções de navegação permitidas para o perfil recebido.
 function menu(perfil) {
     const links = [[destinoPerfil(perfil), "Visão geral"]];
     if (perfil === "Aluno") links.push(["cursos.html", "Catálogo"], ["meus-cursos.html", "Meus cursos"], ["resultado.html", "Resultados"], ["certificados.html", "Certificados"]);
@@ -135,7 +137,7 @@ function menu(perfil) {
     }
 }
 
-// Esta conferência organiza a navegação. A API controla as permissões reais.
+// Confere a sessão para montar a navegação; a API controla as permissões reais.
 async function iniciar(perfis, tarefa) {
     const area = campo("conteudo");
     if (area) area.inert = true;
@@ -186,6 +188,7 @@ function enviarFormulario(id, tarefa, texto = "Salvando...") {
     });
 }
 
+// Repete no formulário as regras de senha aplicadas pela API.
 function verificarSenha(senha, confirmacao) {
     if (Array.from(senha).length < 8) throw new Error("A senha deve ter pelo menos 8 caracteres.");
     if (/\s/u.test(senha)) throw new Error("A senha não pode conter espaços.");
@@ -218,6 +221,7 @@ function paginacao(retorno, carregar) {
     area.append(anterior, elemento("span", "Página " + retorno.pagina + " de " + retorno.totalPaginas), proximo);
 }
 
+// Usa o endereço da API para PDFs guardados no banco e o link direto nos demais casos.
 function linkMaterial(material) {
     if (material.arquivo) {
         const link = criarLink("PDF · " + material.titulo, URL_API + "/api/materiais/" + material.id + "/arquivo", "material");
@@ -243,7 +247,7 @@ function listarResultados(lista, area) {
 }
 
 
-// Confirmação e motivo usam a mesma janela, com contraste e foco visíveis.
+// Confirmação e motivo usam a mesma janela com contraste e foco visíveis.
 function dialogo(titulo, texto, pedirTexto = false, confirmar = "Confirmar") {
     return new Promise(function (resolver) {
         const janela = elemento("dialog", undefined, "dialogo");
@@ -298,6 +302,7 @@ document.addEventListener("input", function (evento) {
 document.addEventListener("reset", function (evento) {
     delete evento.target.dataset.pendente;
 });
+// Avisa sobre uma versão nova da página sem interromper formulários em andamento.
 function aplicarAtualizacao() {
     if (!atualizacaoDisponivel) return;
     const digitando = document.querySelector('form[data-pendente="true"]');

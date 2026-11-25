@@ -7,6 +7,7 @@
 <script src="js/config.js" defer></script><script src="js/api.js" defer></script><script src="js/atendimento.js" defer></script>
 </head>
 <body data-pagina="chamados">
+        <!-- Esta página apresenta lista e conversa dos chamados; os dados dinâmicos vêm da API pelo JavaScript. -->
 <a class="pular" href="#conteudo">Ir para o conteúdo</a>
 <header class="cabecalho"><a class="marca" href="perfil.html"><span class="simbolo" aria-hidden="true">TL</span>TechLearn Academy</a>
 <div class="usuario"><span id="nome-usuario"></span><button id="sair" type="button">Sair</button></div></header>
@@ -16,6 +17,7 @@
 <div id="conteudo">
 <section id="novo-chamado" class="cartao bloco"><h2 id="titulo-novo">Novo chamado</h2>
 <p id="destino-chamado"></p>
+<!-- O perfil e o curso escolhido determinam quem recebe o chamado. -->
 <form id="form-chamado">
 <div id="campo-curso" class="campo" hidden><label for="curso-chamado">Tipo de ajuda</label>
 <select id="curso-chamado"><option value="0">Ouvidoria / ajuda com o gestor</option></select></div>
@@ -31,6 +33,7 @@
 <section id="detalhe-chamado" class="cartao" hidden aria-labelledby="titulo-chamado">
 <h2 id="titulo-chamado"></h2><p id="dados-chamado"></p><p id="descricao-chamado" class="texto-mensagem"></p>
 <div id="acoes-chamado" class="acoes"></div><h3>Conversa</h3><p id="situacao-conversa" class="ajuda" role="status"></p><div id="conversa" class="conversa"></div>
+<!-- A API libera resposta somente para quem participa do atendimento. -->
 <form id="form-mensagem" hidden><div class="campo"><label for="texto-mensagem">Sua mensagem</label>
 <textarea id="texto-mensagem" required maxlength="4000"></textarea></div><button type="submit">Enviar mensagem</button></form>
 </section></div></main>

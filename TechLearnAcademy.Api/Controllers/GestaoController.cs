@@ -1,3 +1,4 @@
+// Expõe as rotas HTTP de gestão, chamados, certificados e relatórios.
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechLearnAcademy.Api.Modelos;
@@ -8,6 +9,7 @@ namespace TechLearnAcademy.Api.Controllers;
 [Authorize, ApiController, Route("api")]
 public class GestaoController(GestaoServico servico, UsuariosServico usuarios) : BaseController
 {
+    // O mentor consulta alunos atendidos e registra orientações para eles.
     [Authorize(Roles = "Mentor"), HttpGet("mentor/alunos")]
     public async Task<IActionResult> Alunos() => Ok(await servico.AlunosMentor(Usuario.Id));
     [Authorize(Roles = "Mentor"), HttpGet("mentor/alunos/{id:int}")]
@@ -17,6 +19,7 @@ public class GestaoController(GestaoServico servico, UsuariosServico usuarios) :
     [Authorize(Roles = "Aluno"), HttpGet("aluno/orientacoes")]
     public async Task<IActionResult> Orientacoes() => Ok(await servico.OrientacoesAluno(Usuario.Id));
 
+    // O relatório vai do curso até as notas de um aluno específico.
     [Authorize(Roles = "Gestor"), HttpGet("relatorios")]
     public async Task<IActionResult> Relatorios() => Ok(await servico.Relatorios());
     [Authorize(Roles = "Gestor"), HttpGet("relatorios/cursos/{id:int}/alunos")]
@@ -24,6 +27,7 @@ public class GestaoController(GestaoServico servico, UsuariosServico usuarios) :
     [Authorize(Roles = "Gestor"), HttpGet("relatorios/cursos/{cursoId:int}/alunos/{alunoId:int}")]
     public async Task<IActionResult> Desempenho(int cursoId, int alunoId) => Ok(await servico.Desempenho(cursoId, alunoId));
 
+    // O administrador acompanha as contas; o gestor acessa somente os perfis permitidos.
     [Authorize(Roles = "Administrador"), HttpGet("administracao/painel")]
     public async Task<IActionResult> Painel() => Ok(await servico.PainelAdmin());
     [Authorize(Roles = "Administrador,Gestor"), HttpGet("administracao/usuarios")]
@@ -35,12 +39,14 @@ public class GestaoController(GestaoServico servico, UsuariosServico usuarios) :
     [Authorize(Roles = "Administrador,Gestor"), HttpPut("administracao/usuarios/{id:int}")]
     public async Task<IActionResult> AlterarUsuario(int id, DadosUsuario dados) { await servico.AlterarUsuario(Usuario, id, dados); return Mensagem("Dados atualizados. O perfil permanece o mesmo."); }
 
+    // O serviço separa chamados enviados dos disponíveis para atendimento.
     [HttpGet("chamados")]
     public async Task<IActionResult> Chamados() => Ok(await servico.Chamados(Usuario));
     [Authorize(Roles = "Aluno,Mentor,Gestor"), HttpPost("chamados")]
     public async Task<IActionResult> AbrirChamado(DadosChamado dados) => StatusCode(201, new { id = await servico.AbrirChamado(Usuario, dados), mensagem = "Chamado enviado." });
     [HttpGet("chamados/{id:int}")]
     public async Task<IActionResult> Chamado(int id) => Ok(await servico.DetalhesChamado(id, Usuario));
+    // Só um perfil responsável pode assumir; responder e encerrar exigem as regras do serviço.
     [Authorize(Roles = "Mentor,Gestor,Administrador"), HttpPost("chamados/{id:int}/assumir")]
     public async Task<IActionResult> Assumir(int id) { await servico.AssumirChamado(id, Usuario); return Mensagem("Você assumiu este chamado."); }
     [HttpPost("chamados/{id:int}/mensagens")]
@@ -48,6 +54,7 @@ public class GestaoController(GestaoServico servico, UsuariosServico usuarios) :
     [HttpPost("chamados/{id:int}/encerrar")]
     public async Task<IActionResult> Encerrar(int id) { await servico.EncerrarChamado(id, Usuario); return Mensagem("Chamado encerrado."); }
 
+    // O aluno solicita após aprovação; o gestor decide se emite o certificado.
     [Authorize(Roles = "Aluno,Gestor"), HttpGet("certificados")]
     public async Task<IActionResult> Certificados() => Ok(await servico.Certificados(Usuario));
     [Authorize(Roles = "Aluno"), HttpPost("certificados")]

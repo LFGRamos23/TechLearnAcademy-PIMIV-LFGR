@@ -1,3 +1,4 @@
+// Monta a lista de alunos e as orientações registradas pelo mentor.
 const pagina = document.body.dataset.pagina;
 
 function cardAluno(aluno) {
@@ -17,6 +18,7 @@ function mostrarOrientacoes(lista, area, nome = "") {
     }
 }
 
+// O acompanhamento reúne cursos, resultados e orientações do aluno atendido.
 async function detalheAluno() {
     const aluno = await requisicao("/api/mentor/alunos/" + numeroId());
     campo("detalhes").append(elemento("h2", aluno.nome), elemento("p", aluno.email));

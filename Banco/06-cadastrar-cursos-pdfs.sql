@@ -1,4 +1,5 @@
-﻿:setvar PastaMateriais "C:\Users\Lfgr1\Downloads\TechLearnAcademy-PIMIV-NOVO\TechLearnAcademy-PIMIV\output\pdf\cursos"
+﻿-- Cadastra cursos, módulos e referências aos PDFs enviados para estudo.
+:setvar PastaMateriais "C:\Users\Lfgr1\Downloads\TechLearnAcademy-PIMIV-NOVO\TechLearnAcademy-PIMIV\output\pdf\cursos"
 -- Cadastro dos cursos preparados com os PDFs enviados em 11/10/2026.
 -- Execute em modo SQLCMD. Ajuste PastaMateriais se mudar a pasta do projeto.
 -- Adiciona conteúdos; preserva os cursos, usuários e históricos anteriores.
@@ -22,7 +23,7 @@ BEGIN TRY
   IF NOT EXISTS(SELECT 1 FROM dbo.Cursos WITH(UPDLOCK,HOLDLOCK) WHERE Nome=N'Lógica de Programação e Estruturas de Dados' AND Excluido=0)
   BEGIN
     INSERT INTO dbo.Cursos(Nome,Descricao,CargaHoraria,Ativo) VALUES(N'Lógica de Programação e Estruturas de Dados',N'Aprenda tipos de dados, lógica, vetores, matrizes, busca, ordenação, filas e árvores binárias. Estudo guiado com exemplos e exercícios comentados dos tomos enviados.',8,1);
-    SET @CursoId=CAST(SCOPE_IDENTITY() AS int);
+    SET @CursoId=CAST(SCOPE_IDENTITY() AS int); -- Usa o ID do curso recém-criado nos módulos seguintes.
     SET @NovosCursos=@NovosCursos+1;
 
     -- Módulo 1: Lógica e fundamentos da programação
@@ -30,7 +31,7 @@ BEGIN TRY
     SET @ModuloId=CAST(SCOPE_IDENTITY() AS int);
     INSERT INTO dbo.Materiais(ModuloId,Titulo,Tipo,Url,ArquivoNome,ArquivoPdf,Ativo)
       SELECT @ModuloId,N'Tipos de dados e análise de algoritmos',N'PDF',N'',N'01-01-tipos-de-dados-e-analise-de-algoritmos.pdf',BulkColumn,1
-      FROM OPENROWSET(BULK '$(PastaMateriais)\logica-de-programacao-e-estruturas-de-dados\01-01-tipos-de-dados-e-analise-de-algoritmos.pdf',SINGLE_BLOB) AS pdf;
+      FROM OPENROWSET(BULK '$(PastaMateriais)\logica-de-programacao-e-estruturas-de-dados\01-01-tipos-de-dados-e-analise-de-algoritmos.pdf',SINGLE_BLOB) AS pdf; -- Lê o PDF e guarda seus bytes no material.
     INSERT INTO dbo.Materiais(ModuloId,Titulo,Tipo,Url,ArquivoNome,ArquivoPdf,Ativo)
       SELECT @ModuloId,N'Proposições e tabela verdade',N'PDF',N'',N'01-02-proposicoes-e-tabela-verdade.pdf',BulkColumn,1
       FROM OPENROWSET(BULK '$(PastaMateriais)\logica-de-programacao-e-estruturas-de-dados\01-02-proposicoes-e-tabela-verdade.pdf',SINGLE_BLOB) AS pdf;
